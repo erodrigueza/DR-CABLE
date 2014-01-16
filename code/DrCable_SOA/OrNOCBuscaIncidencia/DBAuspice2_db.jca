@@ -1,0 +1,15 @@
+<adapter-config name="DBAuspice2" adapter="Database Adapter" wsdlLocation="DBAuspice2.wsdl" xmlns="http://platform.integration.oracle/blocks/adapter/fw/metadata">
+  
+  <connection-factory location="eis/DB/Auspice2" UIConnectionName="Auspice2" adapterRef=""/>
+  <endpoint-interaction portType="DBAuspice2_ptt" operation="DBAuspice2">
+    <interaction-spec className="oracle.tip.adapter.db.DBPureSQLInteractionSpec">
+      <property name="SqlString" value="SELECT TROUBLE_TICKET_ID, IP_ADDRESS, MAC_ADDRESS, V.HFC_GROUP, V.CMTS_NAME, V.US_CHANNEL_NAME, V.US_CHANNEL_INDEX, DOCSIS_VERSION, DEVICE_TYPE, VENDOR, MODEL, SOFTWARE_VERSION, FIRMWARE_VERSION, BOOTR, LAST_STATE_CHANGE FROM CMEX_VENDOR_INVENTORY_CURRENT V, HISTORICAL_OUTAGES H WHERE V.MAC_ADDRESS  = #MAC_ADDRESS AND H.HFC_GROUP = V.HFC_GROUP AND H.TROUBLE_TICKET_ID != '' ORDER BY H.SEQUENCE_NUMBER DESC;"/>
+      <property name="QueryTimeout" value="60"/>
+      <property name="MaxRows" value="1"/>
+      <property name="GetActiveUnitOfWork" value="false"/>
+    </interaction-spec>
+    <input/>
+    <output/>
+  </endpoint-interaction>
+
+</adapter-config>

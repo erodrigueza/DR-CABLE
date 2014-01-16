@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<WL5G3N0:definitions
+     name="DasNOCSearchHelpDesk"
+     targetNamespace="http://xmlns.cablevision.net.mx/DrCable_SOA/DrCable/DasNOCSearchHelpDesk"
+     xmlns:WL5G3N2="http://schemas.xmlsoap.org/wsdl/soap/"
+     xmlns:WL5G3N0="http://schemas.xmlsoap.org/wsdl/"
+     xmlns:WL5G3N1="http://xmlns.cablevision.net.mx/DrCable_SOA/DrCable/DasNOCSearchHelpDesk"
+    >
+    <WL5G3N0:types>
+        <xsd:schema xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://xmlns.cablevision.net.mx/DrCable_SOA/DrCable/DasNOCSearchHelpDesk"
+             xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+            <xsd:import namespace="http://xmlns.cablevision.net.mx/DrCable_SOA/DrCable/DasNOCSearchHelpDesk"
+                 schemaLocation="DasNOCSearchHelpDesk.xsd"/>
+        </xsd:schema>
+    </WL5G3N0:types>
+    <WL5G3N0:message name="searchIncidentByTicket">
+        <WL5G3N0:part name="parameters" element="WL5G3N1:searchIncidentByTicket"/>
+    </WL5G3N0:message>
+    <WL5G3N0:message name="searchIncidentByTicketResponse">
+        <WL5G3N0:part name="parameters" element="WL5G3N1:searchIncidentByTicketResponse"/>
+    </WL5G3N0:message>
+    <WL5G3N0:message name="searchIncidentByAccount">
+        <WL5G3N0:part name="parameters" element="WL5G3N1:searchIncidentByAccount"/>
+    </WL5G3N0:message>
+    <WL5G3N0:message name="searchIncidentByAccountResponse">
+        <WL5G3N0:part name="parameters" element="WL5G3N1:searchIncidentByAccountResponse"/>
+    </WL5G3N0:message>
+    <WL5G3N0:portType name="DasNOCSearchHelpDesk">
+        <WL5G3N0:operation name="searchIncidentByTicket">
+            <WL5G3N0:input message="WL5G3N1:searchIncidentByTicket"/>
+            <WL5G3N0:output message="WL5G3N1:searchIncidentByTicketResponse"/>
+        </WL5G3N0:operation>
+        <WL5G3N0:operation name="searchIncidentByAccount">
+            <WL5G3N0:input message="WL5G3N1:searchIncidentByAccount"/>
+            <WL5G3N0:output message="WL5G3N1:searchIncidentByAccountResponse"/>
+        </WL5G3N0:operation>
+    </WL5G3N0:portType>
+    <WL5G3N0:binding name="DasNOCSearchHelpDeskPortBinding" type="WL5G3N1:DasNOCSearchHelpDesk">
+        <WL5G3N2:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+        <WL5G3N0:operation name="searchIncidentByTicket">
+            <WL5G3N2:operation/>
+            <WL5G3N0:input>
+                <WL5G3N2:body use="literal"/>
+            </WL5G3N0:input>
+            <WL5G3N0:output>
+                <WL5G3N2:body use="literal"/>
+            </WL5G3N0:output>
+        </WL5G3N0:operation>
+        <WL5G3N0:operation name="searchIncidentByAccount">
+            <WL5G3N2:operation/>
+            <WL5G3N0:input>
+                <WL5G3N2:body use="literal"/>
+            </WL5G3N0:input>
+            <WL5G3N0:output>
+                <WL5G3N2:body use="literal"/>
+            </WL5G3N0:output>
+        </WL5G3N0:operation>
+    </WL5G3N0:binding>
+    <WL5G3N0:service name="DasNOCSearchHelpDesk">
+        <WL5G3N0:port name="DasNOCSearchHelpDeskPort" binding="WL5G3N1:DasNOCSearchHelpDeskPortBinding">
+            <WL5G3N2:address location="http://CVSOADES:7001/DrCable_OSB/Proxy/DasNOCSearchHelpDesk"/>
+        </WL5G3N0:port>
+    </WL5G3N0:service>
+</WL5G3N0:definitions>

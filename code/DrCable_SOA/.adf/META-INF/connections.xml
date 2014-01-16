@@ -1,0 +1,203 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<References xmlns="http://xmlns.oracle.com/adf/jndi">
+   <Reference name="AuspiceArboledas" className="oracle.jdeveloper.db.adapter.DatabaseProvider" credentialStoreKey="AuspiceArboledas" xmlns="">
+      <Factory className="oracle.jdeveloper.db.adapter.DatabaseProviderFactory"/>
+      <RefAddresses>
+         <StringRefAddr addrType="subtype">
+            <Contents>MYSQL</Contents>
+         </StringRefAddr>
+         <StringRefAddr addrType="hostname">
+            <Contents>172.20.31.133</Contents>
+         </StringRefAddr>
+         <StringRefAddr addrType="port">
+            <Contents>3306</Contents>
+         </StringRefAddr>
+         <StringRefAddr addrType="user">
+            <Contents>userBI</Contents>
+         </StringRefAddr>
+         <SecureRefAddr addrType="password"/>
+         <StringRefAddr addrType="dataSourceName">
+            <Contents>VSM_Cablevision4</Contents>
+         </StringRefAddr>
+         <StringRefAddr addrType="driver">
+            <Contents>com.mysql.jdbc.Driver</Contents>
+         </StringRefAddr>
+         <StringRefAddr addrType="DeployPassword">
+            <Contents>true</Contents>
+         </StringRefAddr>
+      </RefAddresses>
+   </Reference>
+   <Reference name="db_Remedy" className="oracle.jdeveloper.db.adapter.DatabaseProvider" credentialStoreKey="db_Remedy" xmlns="">
+      <Factory className="oracle.jdeveloper.db.adapter.DatabaseProviderFactory"/>
+      <RefAddresses>
+         <StringRefAddr addrType="subtype">
+            <Contents>thirdParty</Contents>
+         </StringRefAddr>
+         <StringRefAddr addrType="user">
+            <Contents>Arlopez</Contents>
+         </StringRefAddr>
+         <SecureRefAddr addrType="password"/>
+         <StringRefAddr addrType="driver">
+            <Contents>com.bmc.arsys.jdbc.core.Driver</Contents>
+         </StringRefAddr>
+         <StringRefAddr addrType="DeployPassword">
+            <Contents>true</Contents>
+         </StringRefAddr>
+         <StringRefAddr addrType="customUrl">
+            <Contents>jdbc:arserver://172.21.30.133:59544;user=Arlopez;password=abc</Contents>
+         </StringRefAddr>
+      </RefAddresses>
+   </Reference>
+   <Reference name="Auspice4" className="oracle.jdeveloper.db.adapter.DatabaseProvider" credentialStoreKey="Auspice4" xmlns="">
+      <Factory className="oracle.jdeveloper.db.adapter.DatabaseProviderFactory"/>
+      <RefAddresses>
+         <StringRefAddr addrType="subtype">
+            <Contents>MYSQL</Contents>
+         </StringRefAddr>
+         <StringRefAddr addrType="user">
+            <Contents>userBI</Contents>
+         </StringRefAddr>
+         <StringRefAddr addrType="port">
+            <Contents>3306</Contents>
+         </StringRefAddr>
+         <StringRefAddr addrType="hostname">
+            <Contents>172.20.31.133</Contents>
+         </StringRefAddr>
+         <SecureRefAddr addrType="password"/>
+         <StringRefAddr addrType="DeployPassword">
+            <Contents>true</Contents>
+         </StringRefAddr>
+         <StringRefAddr addrType="driver">
+            <Contents>com.mysql.jdbc.Driver</Contents>
+         </StringRefAddr>
+         <StringRefAddr addrType="dataSourceName">
+            <Contents>VSM_Cablevision4</Contents>
+         </StringRefAddr>
+      </RefAddresses>
+   </Reference>
+   <Reference name="Auspice" className="oracle.jdeveloper.db.adapter.DatabaseProvider" credentialStoreKey="Auspice" xmlns="">
+      <Factory className="oracle.jdeveloper.db.adapter.DatabaseProviderFactory"/>
+      <RefAddresses>
+         <StringRefAddr addrType="subtype">
+            <Contents>MYSQL</Contents>
+         </StringRefAddr>
+         <StringRefAddr addrType="user">
+            <Contents>userBI</Contents>
+         </StringRefAddr>
+         <StringRefAddr addrType="port">
+            <Contents>3306</Contents>
+         </StringRefAddr>
+         <StringRefAddr addrType="hostname">
+            <Contents>172.20.31.54</Contents>
+         </StringRefAddr>
+         <SecureRefAddr addrType="password"/>
+         <StringRefAddr addrType="DeployPassword">
+            <Contents>true</Contents>
+         </StringRefAddr>
+         <StringRefAddr addrType="driver">
+            <Contents>com.mysql.jdbc.Driver</Contents>
+         </StringRefAddr>
+         <StringRefAddr addrType="dataSourceName">
+            <Contents>VSM_Cablevision</Contents>
+         </StringRefAddr>
+      </RefAddresses>
+   </Reference>
+   <Reference name="Auspice2" className="oracle.jdeveloper.db.adapter.DatabaseProvider" credentialStoreKey="Auspice2" xmlns="">
+      <Factory className="oracle.jdeveloper.db.adapter.DatabaseProviderFactory"/>
+      <RefAddresses>
+         <StringRefAddr addrType="subtype">
+            <Contents>MYSQL</Contents>
+         </StringRefAddr>
+         <StringRefAddr addrType="user">
+            <Contents>userBI</Contents>
+         </StringRefAddr>
+         <StringRefAddr addrType="port">
+            <Contents>3306</Contents>
+         </StringRefAddr>
+         <StringRefAddr addrType="hostname">
+            <Contents>172.20.38.19</Contents>
+         </StringRefAddr>
+         <SecureRefAddr addrType="password"/>
+         <StringRefAddr addrType="DeployPassword">
+            <Contents>true</Contents>
+         </StringRefAddr>
+         <StringRefAddr addrType="driver">
+            <Contents>com.mysql.jdbc.Driver</Contents>
+         </StringRefAddr>
+         <StringRefAddr addrType="dataSourceName">
+            <Contents>VSM_Cablevision2</Contents>
+         </StringRefAddr>
+      </RefAddresses>
+   </Reference>
+   <Reference name="Auspice3" className="oracle.jdeveloper.db.adapter.DatabaseProvider" credentialStoreKey="Auspice3" xmlns="">
+      <Factory className="oracle.jdeveloper.db.adapter.DatabaseProviderFactory"/>
+      <RefAddresses>
+         <StringRefAddr addrType="subtype">
+            <Contents>MYSQL</Contents>
+         </StringRefAddr>
+         <StringRefAddr addrType="user">
+            <Contents>userBI</Contents>
+         </StringRefAddr>
+         <StringRefAddr addrType="port">
+            <Contents>3306</Contents>
+         </StringRefAddr>
+         <StringRefAddr addrType="hostname">
+            <Contents>172.20.28.13</Contents>
+         </StringRefAddr>
+         <SecureRefAddr addrType="password"/>
+         <StringRefAddr addrType="DeployPassword">
+            <Contents>true</Contents>
+         </StringRefAddr>
+         <StringRefAddr addrType="driver">
+            <Contents>com.mysql.jdbc.Driver</Contents>
+         </StringRefAddr>
+         <StringRefAddr addrType="dataSourceName">
+            <Contents>VSM_Cablevision3</Contents>
+         </StringRefAddr>
+      </RefAddresses>
+   </Reference>
+   <Reference name="MDS_Local" className="oracle.tip.tools.ide.common.resourcepalette.adapter.mds.MDSProvider" xmlns="">
+      <Factory className="oracle.tip.tools.ide.common.resourcepalette.adapter.mds.MDSProviderFactory"/>
+      <RefAddresses>
+         <StringRefAddr addrType="ConnectionName">
+            <Contents>MDS_Local</Contents>
+         </StringRefAddr>
+         <StringRefAddr addrType="ConnectionType">
+            <Contents>oracle.mds.persistence.stores.file.FileMetadataStore</Contents>
+         </StringRefAddr>
+         <StringRefAddr addrType="MDS_PARTITION_NAME">
+            <Contents>seed</Contents>
+         </StringRefAddr>
+         <StringRefAddr addrType="metadata-path">
+            <Contents>C:\Oracle\Middleware\jdeveloper\integration</Contents>
+         </StringRefAddr>
+         <StringRefAddr addrType="USER_FILEMDS_ROOT">
+            <Contents>C:\Oracle\Middleware\jdeveloper\integration\seed</Contents>
+         </StringRefAddr>
+      </RefAddresses>
+   </Reference>
+   <Reference name="MDS_CVSOADES" className="oracle.tip.tools.ide.common.resourcepalette.adapter.mds.MDSProvider" credentialStoreKey="MDS_CVSOADES" xmlns="">
+      <Factory className="oracle.tip.tools.ide.common.resourcepalette.adapter.mds.MDSProviderFactory"/>
+      <RefAddresses>
+         <SecureRefAddr addrType="DBMDSJDBCPASSWORD"/>
+         <StringRefAddr addrType="ConnectionName">
+            <Contents>MDS_CVSOADES</Contents>
+         </StringRefAddr>
+         <StringRefAddr addrType="DBMDS_JDBC_USERID">
+            <Contents>DEV_MDS</Contents>
+         </StringRefAddr>
+         <StringRefAddr addrType="ConnectionType">
+            <Contents>oracle.mds.persistence.stores.db.DBMetadataStore</Contents>
+         </StringRefAddr>
+         <StringRefAddr addrType="MDS_PARTITION_NAME">
+            <Contents>soa-infra</Contents>
+         </StringRefAddr>
+         <StringRefAddr addrType="DBMDSDBCONNECTIONNAME">
+            <Contents>DBMDS_CVSOADES</Contents>
+         </StringRefAddr>
+         <StringRefAddr addrType="DBMDS_JDBC_URL">
+            <Contents>jdbc:oracle:thin:@172.21.200.217:1521:ORCL</Contents>
+         </StringRefAddr>
+      </RefAddresses>
+   </Reference>
+</References>

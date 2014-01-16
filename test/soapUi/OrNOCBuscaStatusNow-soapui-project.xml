@@ -1,0 +1,396 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:soapui-project name="OrNOCBuscaStatusNow" resourceRoot="" soapui-version="4.0.0" xmlns:con="http://eviware.com/soapui/config"><con:settings/><con:interface xsi:type="con:WsdlInterface" wsaVersion="NONE" name="OrNOCBuscaStatusNowBinding" type="wsdl" bindingName="{http://xmlns.cablevision.net.mx/DrCable_SOA/DrCable/OrNOCBuscaStatusNow}OrNOCBuscaStatusNowBinding" soapVersion="1_1" anonymous="optional" definition="http://CVSOADES:8001/soa-infra/services/default/OrNOCBuscaStatusNow/ornocbuscastatusnow_client_ep?WSDL" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:settings/><con:definitionCache type="TEXT" rootPart="http://CVSOADES:8001/soa-infra/services/default/OrNOCBuscaStatusNow/ornocbuscastatusnow_client_ep?WSDL"><con:part><con:url>http://CVSOADES:8001/soa-infra/services/default/OrNOCBuscaStatusNow/ornocbuscastatusnow_client_ep?WSDL</con:url><con:content><![CDATA[<wsdl:definitions name="OrNOCBuscaStatusNow" targetNamespace="http://xmlns.cablevision.net.mx/DrCable_SOA/DrCable/OrNOCBuscaStatusNow" xmlns:ns1="http://tempuri.org/" xmlns:plnk="http://docs.oasis-open.org/wsbpel/2.0/plnktype" xmlns:client="http://xmlns.cablevision.net.mx/DrCable_SOA/DrCable/OrNOCBuscaStatusNow" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/">
+  <wsdl:documentation>
+    <abstractWSDL>http://CVSOADES:8001/soa-infra/services/default/OrNOCBuscaStatusNow!1.0/OrNOCBuscaStatusNow.wsdl</abstractWSDL>
+  </wsdl:documentation>
+  <plnk:partnerLinkType name="OrNOCBuscaStatusNow">
+    <plnk:role name="OrNOCBuscaStatusNowProvider" portType="client:OrNOCBuscaStatusNow"/>
+  </plnk:partnerLinkType>
+  <wsdl:import namespace="http://tempuri.org/" location="http://CVSOADES:8001/soa-infra/services/default/OrNOCBuscaStatusNow/ornocbuscastatusnow_client_ep?WSDL=HabilidadesExtra.wsdl"/>
+  <wsdl:types>
+    <schema xmlns="http://www.w3.org/2001/XMLSchema">
+      <import namespace="http://xmlns.cablevision.net.mx/DrCable_SOA/DrCable/OrNOCBuscaStatusNow" schemaLocation="http://CVSOADES:8001/soa-infra/services/default/OrNOCBuscaStatusNow/ornocbuscastatusnow_client_ep?XSD=xsd/OrNOCBuscaStatusNow.xsd"/>
+    </schema>
+  </wsdl:types>
+  <wsdl:message name="OrNOCBuscaStatusNowRequestMessage">
+    <wsdl:part name="payload" element="client:process"/>
+  </wsdl:message>
+  <wsdl:message name="OrNOCBuscaStatusNowResponseMessage">
+    <wsdl:part name="payload" element="client:processResponse"/>
+  </wsdl:message>
+  <wsdl:portType name="OrNOCBuscaStatusNow">
+    <wsdl:operation name="process">
+      <wsdl:input message="client:OrNOCBuscaStatusNowRequestMessage"/>
+      <wsdl:output message="client:OrNOCBuscaStatusNowResponseMessage"/>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="OrNOCBuscaStatusNowBinding" type="client:OrNOCBuscaStatusNow">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="process">
+      <soap:operation style="document" soapAction="process"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="ornocbuscastatusnow_client_ep">
+    <wsdl:port name="OrNOCBuscaStatusNow_pt" binding="client:OrNOCBuscaStatusNowBinding">
+      <soap:address location="http://CVSOADES:8001/soa-infra/services/default/OrNOCBuscaStatusNow/ornocbuscastatusnow_client_ep"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>]]></con:content><con:type>http://schemas.xmlsoap.org/wsdl/</con:type></con:part><con:part><con:url>http://CVSOADES:8001/soa-infra/services/default/OrNOCBuscaStatusNow/ornocbuscastatusnow_client_ep?WSDL=HabilidadesExtra.wsdl</con:url><con:content><![CDATA[<WL5G3N0:definitions name="HabilidadesExtra" targetNamespace="http://tempuri.org/" xmlns:WL5G3N3="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:WL5G3N2="http://www.w3.org/2006/05/addressing/wsdl" xmlns:WL5G3N0="http://schemas.xmlsoap.org/wsdl/" xmlns:WL5G3N1="http://tempuri.org/">
+  <WL5G3N0:types>
+    <xsd:schema targetNamespace="http://tempuri.org/Imports" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:tns="http://tempuri.org/" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+      <xsd:import namespace="http://tempuri.org/" schemaLocation="http://CVSOADES:8001/soa-infra/services/default/OrNOCBuscaStatusNow/ornocbuscastatusnow_client_ep?XSD=xsd/HabilidadesExtra1.xsd"/>
+      <xsd:import namespace="http://schemas.microsoft.com/2003/10/Serialization/" schemaLocation="http://CVSOADES:8001/soa-infra/services/default/OrNOCBuscaStatusNow/ornocbuscastatusnow_client_ep?XSD=xsd/HabilidadesExtra2.xsd"/>
+      <xsd:import namespace="http://schemas.datacontract.org/2004/07/AMDrCable" schemaLocation="http://CVSOADES:8001/soa-infra/services/default/OrNOCBuscaStatusNow/ornocbuscastatusnow_client_ep?XSD=xsd/HabilidadesExtra3.xsd"/>
+    </xsd:schema>
+  </WL5G3N0:types>
+  <WL5G3N0:message name="IHabilidadesExtra_hAprovisionamiento_InputMessage">
+    <WL5G3N0:part name="parameters" element="WL5G3N1:hAprovisionamiento"/>
+  </WL5G3N0:message>
+  <WL5G3N0:message name="IHabilidadesExtra_hAprovisionamiento_OutputMessage">
+    <WL5G3N0:part name="parameters" element="WL5G3N1:hAprovisionamientoResponse"/>
+  </WL5G3N0:message>
+  <WL5G3N0:portType name="IHabilidadesExtra">
+    <WL5G3N0:operation name="hAprovisionamiento">
+      <WL5G3N0:input message="WL5G3N1:IHabilidadesExtra_hAprovisionamiento_InputMessage" WL5G3N2:Action="http://tempuri.org/IHabilidadesExtra/hAprovisionamiento"/>
+      <WL5G3N0:output message="WL5G3N1:IHabilidadesExtra_hAprovisionamiento_OutputMessage" WL5G3N2:Action="http://tempuri.org/IHabilidadesExtra/hAprovisionamientoResponse"/>
+    </WL5G3N0:operation>
+  </WL5G3N0:portType>
+  <WL5G3N0:binding name="BasicHttpBinding_IHabilidadesExtra" type="WL5G3N1:IHabilidadesExtra">
+    <WL5G3N3:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <WL5G3N0:operation name="hAprovisionamiento">
+      <WL5G3N3:operation style="document" soapAction="http://tempuri.org/IHabilidadesExtra/hAprovisionamiento"/>
+      <WL5G3N0:input>
+        <WL5G3N3:body use="literal"/>
+      </WL5G3N0:input>
+      <WL5G3N0:output>
+        <WL5G3N3:body use="literal"/>
+      </WL5G3N0:output>
+    </WL5G3N0:operation>
+  </WL5G3N0:binding>
+  <WL5G3N0:service name="HabilidadesExtra">
+    <WL5G3N0:port name="BasicHttpBinding_IHabilidadesExtra" binding="WL5G3N1:BasicHttpBinding_IHabilidadesExtra">
+      <WL5G3N3:address location="http://CVSOADES:7001/DrCable/ProxyService/HabilidadesExtra"/>
+    </WL5G3N0:port>
+  </WL5G3N0:service>
+</WL5G3N0:definitions>]]></con:content><con:type>http://schemas.xmlsoap.org/wsdl/</con:type></con:part><con:part><con:url>http://CVSOADES:8001/soa-infra/services/default/OrNOCBuscaStatusNow/ornocbuscastatusnow_client_ep?XSD=xsd/HabilidadesExtra1.xsd</con:url><con:content><![CDATA[<xs:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://tempuri.org/">
+  <xs:import schemaLocation="http://CVSOADES:8001/soa-infra/services/default/OrNOCBuscaStatusNow/ornocbuscastatusnow_client_ep?XSD=xsd/HabilidadesExtra3.xsd" namespace="http://schemas.datacontract.org/2004/07/AMDrCable"/>
+  <xs:element name="hAprovisionamiento">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="macAddress" nillable="true" type="xs:string"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="hAprovisionamientoResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="hAprovisionamientoResult" type="q1:DrCable.Aprovisionamiento" xmlns:q1="http://schemas.datacontract.org/2004/07/AMDrCable"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>]]></con:content><con:type>http://www.w3.org/2001/XMLSchema</con:type></con:part><con:part><con:url>http://CVSOADES:8001/soa-infra/services/default/OrNOCBuscaStatusNow/ornocbuscastatusnow_client_ep?XSD=xsd/HabilidadesExtra3.xsd</con:url><con:content><![CDATA[<xs:schema elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/AMDrCable" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://schemas.datacontract.org/2004/07/AMDrCable">
+  <xs:import schemaLocation="http://CVSOADES:8001/soa-infra/services/default/OrNOCBuscaStatusNow/ornocbuscastatusnow_client_ep?XSD=xsd/HabilidadesExtra2.xsd" namespace="http://schemas.microsoft.com/2003/10/Serialization/"/>
+  <xs:complexType name="DrCable.Aprovisionamiento">
+    <xs:annotation>
+      <xs:appinfo>
+        <IsValueType xmlns="http://schemas.microsoft.com/2003/10/Serialization/">true</IsValueType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element minOccurs="0" name="cmClientClasses" nillable="true" type="xs:string"/>
+      <xs:element minOccurs="0" name="cmDescription" nillable="true" type="xs:string"/>
+      <xs:element minOccurs="0" name="cmMacAddress" nillable="true" type="xs:string"/>
+      <xs:element minOccurs="0" name="cmMaxCPE" type="xs:int"/>
+      <xs:element minOccurs="0" name="cmName" nillable="true" type="xs:string"/>
+      <xs:element minOccurs="0" name="infoExtra" type="tns:DrCable.AprInfoExtra"/>
+      <xs:element minOccurs="0" name="objectClass" nillable="true" type="xs:string"/>
+      <xs:element minOccurs="0" name="phoneNumber" nillable="true" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="DrCable.Aprovisionamiento" nillable="true" type="tns:DrCable.Aprovisionamiento"/>
+  <xs:complexType name="DrCable.AprInfoExtra">
+    <xs:annotation>
+      <xs:appinfo>
+        <IsValueType xmlns="http://schemas.microsoft.com/2003/10/Serialization/">true</IsValueType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element minOccurs="0" name="mta" type="tns:DrCable.MTA"/>
+      <xs:element minOccurs="0" name="sip" nillable="true" type="tns:ArrayOfDrCable.SIP"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="DrCable.AprInfoExtra" nillable="true" type="tns:DrCable.AprInfoExtra"/>
+  <xs:complexType name="DrCable.MTA">
+    <xs:annotation>
+      <xs:appinfo>
+        <IsValueType xmlns="http://schemas.microsoft.com/2003/10/Serialization/">true</IsValueType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element minOccurs="0" name="description" nillable="true" type="xs:string"/>
+      <xs:element minOccurs="0" name="serviceClass" nillable="true" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="DrCable.MTA" nillable="true" type="tns:DrCable.MTA"/>
+  <xs:complexType name="ArrayOfDrCable.SIP">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="DrCable.SIP" type="tns:DrCable.SIP"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfDrCable.SIP" nillable="true" type="tns:ArrayOfDrCable.SIP"/>
+  <xs:complexType name="DrCable.SIP">
+    <xs:annotation>
+      <xs:appinfo>
+        <IsValueType xmlns="http://schemas.microsoft.com/2003/10/Serialization/">true</IsValueType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element minOccurs="0" name="lineDisplayName" nillable="true" type="xs:string"/>
+      <xs:element minOccurs="0" name="login" nillable="true" type="xs:string"/>
+      <xs:element minOccurs="0" name="password" nillable="true" type="xs:string"/>
+      <xs:element minOccurs="0" name="phoneNumber" nillable="true" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="DrCable.SIP" nillable="true" type="tns:DrCable.SIP"/>
+</xs:schema>]]></con:content><con:type>http://www.w3.org/2001/XMLSchema</con:type></con:part><con:part><con:url>http://CVSOADES:8001/soa-infra/services/default/OrNOCBuscaStatusNow/ornocbuscastatusnow_client_ep?XSD=xsd/HabilidadesExtra2.xsd</con:url><con:content><![CDATA[<xs:schema attributeFormDefault="qualified" elementFormDefault="qualified" targetNamespace="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://schemas.microsoft.com/2003/10/Serialization/">
+  <xs:element name="anyType" nillable="true" type="xs:anyType"/>
+  <xs:element name="anyURI" nillable="true" type="xs:anyURI"/>
+  <xs:element name="base64Binary" nillable="true" type="xs:base64Binary"/>
+  <xs:element name="boolean" nillable="true" type="xs:boolean"/>
+  <xs:element name="byte" nillable="true" type="xs:byte"/>
+  <xs:element name="dateTime" nillable="true" type="xs:dateTime"/>
+  <xs:element name="decimal" nillable="true" type="xs:decimal"/>
+  <xs:element name="double" nillable="true" type="xs:double"/>
+  <xs:element name="float" nillable="true" type="xs:float"/>
+  <xs:element name="int" nillable="true" type="xs:int"/>
+  <xs:element name="long" nillable="true" type="xs:long"/>
+  <xs:element name="QName" nillable="true" type="xs:QName"/>
+  <xs:element name="short" nillable="true" type="xs:short"/>
+  <xs:element name="string" nillable="true" type="xs:string"/>
+  <xs:element name="unsignedByte" nillable="true" type="xs:unsignedByte"/>
+  <xs:element name="unsignedInt" nillable="true" type="xs:unsignedInt"/>
+  <xs:element name="unsignedLong" nillable="true" type="xs:unsignedLong"/>
+  <xs:element name="unsignedShort" nillable="true" type="xs:unsignedShort"/>
+  <xs:element name="char" nillable="true" type="tns:char"/>
+  <xs:simpleType name="char">
+    <xs:restriction base="xs:int"/>
+  </xs:simpleType>
+  <xs:element name="duration" nillable="true" type="tns:duration"/>
+  <xs:simpleType name="duration">
+    <xs:restriction base="xs:duration">
+      <xs:pattern value="\-?P(\d*D)?(T(\d*H)?(\d*M)?(\d*(\.\d*)?S)?)?"/>
+      <xs:minInclusive value="-P10675199DT2H48M5.4775808S"/>
+      <xs:maxInclusive value="P10675199DT2H48M5.4775807S"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="guid" nillable="true" type="tns:guid"/>
+  <xs:simpleType name="guid">
+    <xs:restriction base="xs:string">
+      <xs:pattern value="[\da-fA-F]{8}-[\da-fA-F]{4}-[\da-fA-F]{4}-[\da-fA-F]{4}-[\da-fA-F]{12}"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:attribute name="FactoryType" type="xs:QName"/>
+  <xs:attribute name="Id" type="xs:ID"/>
+  <xs:attribute name="Ref" type="xs:IDREF"/>
+</xs:schema>]]></con:content><con:type>http://www.w3.org/2001/XMLSchema</con:type></con:part><con:part><con:url>http://CVSOADES:8001/soa-infra/services/default/OrNOCBuscaStatusNow/ornocbuscastatusnow_client_ep?XSD=xsd/OrNOCBuscaStatusNow.xsd</con:url><con:content><![CDATA[<schema attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://xmlns.cablevision.net.mx/DrCable_SOA/DrCable/OrNOCBuscaStatusNow" xmlns="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://xmlns.cablevision.net.mx/DrCable_SOA/DrCable/OrNOCBuscaStatusNow" xmlns:aus="http://service.cablevision.net.mx/" xmlns:hab="http://schemas.datacontract.org/2004/07/AMDrCable">
+  <import namespace="http://service.cablevision.net.mx/" schemaLocation="http://CVSOADES:8001/soa-infra/services/default/OrNOCBuscaStatusNow/ornocbuscastatusnow_client_ep?XSD=xsd/DasNOCGetStatusEquip.xsd"/>
+  <import namespace="http://schemas.datacontract.org/2004/07/AMDrCable" schemaLocation="http://CVSOADES:8001/soa-infra/services/default/OrNOCBuscaStatusNow/ornocbuscastatusnow_client_ep?XSD=xsd/HabilidadesExtra3.xsd"/>
+  <element name="process">
+    <complexType>
+      <sequence>
+        <element name="macAddress" minOccurs="1" maxOccurs="1">
+          <simpleType>
+            <restriction base="string">
+              <pattern value="([0-9a-f]{2}:){5}[0-9a-f]{2}"/>
+              <pattern value=""/>
+            </restriction>
+          </simpleType>
+        </element>
+        <element name="tipoServicio" type="string" minOccurs="0"/>
+        <element name="rol" type="string" minOccurs="0"/>
+        <element name="usuario" type="string" minOccurs="0"/>
+      </sequence>
+    </complexType>
+  </element>
+  <element name="processResponse">
+    <complexType>
+      <sequence>
+        <element name="result" type="int" minOccurs="0"/>
+        <element name="msg" type="string" minOccurs="0"/>
+        <element name="siguienteOperacion" type="string" minOccurs="0"/>
+        <element name="status" type="aus:statusGeneral" minOccurs="0"/>
+        <element name="aprovisionamiento" type="hab:DrCable.Aprovisionamiento" minOccurs="0"/>
+        <element name="diagnostico" type="tns:diagnostico" minOccurs="0"/>
+        <element name="statusLDAP" type="tns:statusLDAP" minOccurs="0"/>
+        <element name="tecnologia" type="string" minOccurs="0"/>
+        <element name="det_error" type="string" minOccurs="0"/>
+      </sequence>
+    </complexType>
+  </element>
+  <complexType name="diagnostico">
+    <sequence>
+      <element name="codigo" type="int"/>
+      <element name="texto" type="string"/>
+      <element name="explicacion" type="string"/>
+    </sequence>
+  </complexType>
+  <complexType name="statusLDAP">
+    <sequence>
+      <element name="cmDescription" type="string"/>
+      <element name="objectClass" type="string"/>
+      <element name="cmClientClasses" type="string"/>
+      <element name="cmMaxCPE" type="string"/>
+    </sequence>
+  </complexType>
+</schema>]]></con:content><con:type>http://www.w3.org/2001/XMLSchema</con:type></con:part><con:part><con:url>http://CVSOADES:8001/soa-infra/services/default/OrNOCBuscaStatusNow/ornocbuscastatusnow_client_ep?XSD=xsd/DasNOCGetStatusEquip.xsd</con:url><con:content><![CDATA[<xs:schema version="1.0" targetNamespace="http://service.cablevision.net.mx/" xmlns:tns="http://service.cablevision.net.mx/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="getStatus" type="tns:getStatus"/>
+  <xs:element name="getStatusResponse" type="tns:getStatusResponse"/>
+  <xs:complexType name="getStatus">
+    <xs:sequence>
+      <xs:element name="arg0" type="tns:equipmentInput" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="equipmentInput">
+    <xs:sequence>
+      <xs:element name="macAddress" type="xs:string" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="getStatusResponse">
+    <xs:sequence>
+      <xs:element name="return" type="tns:equipmentOutput" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="equipmentOutput">
+    <xs:sequence>
+      <xs:element name="resultMsg" type="xs:string" minOccurs="0"/>
+      <xs:element name="status" type="tns:statusGeneral" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="statusGeneral">
+    <xs:sequence>
+      <xs:element name="billProv" type="tns:statusBillingProvisioning" minOccurs="0"/>
+      <xs:element name="cmts" type="tns:statusFromCMTS" minOccurs="0"/>
+      <xs:element name="hfc" type="tns:statusHFC" minOccurs="0"/>
+      <xs:element name="internet" type="tns:statusFromModem" minOccurs="0"/>
+      <xs:element name="mac" type="xs:string" minOccurs="0"/>
+      <xs:element name="telefonia" type="tns:statusFromTelephony" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="statusBillingProvisioning">
+    <xs:sequence>
+      <xs:element name="cmFQDN" type="xs:string" minOccurs="0"/>
+      <xs:element name="cmMACAddress" type="xs:string" minOccurs="0"/>
+      <xs:element name="cmts" type="xs:string" minOccurs="0"/>
+      <xs:element name="customerAccount" type="xs:string" minOccurs="0"/>
+      <xs:element name="customerAddress" type="xs:string" minOccurs="0"/>
+      <xs:element name="customerName" type="xs:string" minOccurs="0"/>
+      <xs:element name="customerPhone" type="xs:string" minOccurs="0"/>
+      <xs:element name="vendor" type="xs:string" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="statusFromCMTS">
+    <xs:sequence>
+      <xs:element name="modemStatus" type="xs:string" minOccurs="0"/>
+      <xs:element name="upStreamChannel" type="xs:string" minOccurs="0"/>
+      <xs:element name="upstreamChannelMode" type="xs:string" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="statusHFC">
+    <xs:sequence>
+      <xs:element name="currentStatus" type="xs:string" minOccurs="0"/>
+      <xs:element name="docsisDeviceOnline" type="xs:string" minOccurs="0"/>
+      <xs:element name="lastDetectedOutage" type="xs:string" minOccurs="0"/>
+      <xs:element name="mtaAvailable" type="xs:string" minOccurs="0"/>
+      <xs:element name="node" type="xs:string" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="statusFromModem">
+    <xs:sequence>
+      <xs:element name="bpiStatus" type="xs:string" minOccurs="0"/>
+      <xs:element name="cmConfigurationFile" type="xs:string" minOccurs="0"/>
+      <xs:element name="cmTFTPServer" type="xs:string" minOccurs="0"/>
+      <xs:element name="DHCPServer" type="xs:string" minOccurs="0"/>
+      <xs:element name="downstreamChannelFrequency" type="tns:listTransmitPower" minOccurs="0"/>
+      <xs:element name="downstreamReceivePower" type="tns:listTransmitPower" minOccurs="0"/>
+      <xs:element name="downstreamSignalNoiseRatio" type="tns:listTransmitPower" minOccurs="0"/>
+      <xs:element name="guaranteedUpstreamBandwidth" type="tns:transmitPower" minOccurs="0"/>
+      <xs:element name="lostSyncs" type="xs:int"/>
+      <xs:element name="maximumDownstreamBandwidth" type="tns:transmitPower" minOccurs="0"/>
+      <xs:element name="maximumUpstreamBandwidth" type="tns:transmitPower" minOccurs="0"/>
+      <xs:element name="qosProfile" type="xs:int"/>
+      <xs:element name="resets" type="xs:int"/>
+      <xs:element name="systemDescription" type="xs:string" minOccurs="0"/>
+      <xs:element name="systemUpTime" type="xs:string" minOccurs="0"/>
+      <xs:element name="timeServer" type="xs:string" minOccurs="0"/>
+      <xs:element name="upstreamChannelFrequency" type="tns:transmitPower" minOccurs="0"/>
+      <xs:element name="upstreamTransmitPower" type="tns:transmitPower" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="listTransmitPower">
+    <xs:sequence>
+      <xs:element name="transmitPower" type="tns:transmitPower" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="transmitPower">
+    <xs:sequence>
+      <xs:element name="unidad" type="xs:string" minOccurs="0"/>
+      <xs:element name="valor" type="xs:float"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="statusFromTelephony">
+    <xs:sequence>
+      <xs:element name="statusMTA" type="tns:statusMTA" minOccurs="0"/>
+      <xs:element name="statusMTAExt" type="tns:statusMTAExt" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="statusMTA">
+    <xs:sequence>
+      <xs:element name="configFile" type="xs:string" minOccurs="0"/>
+      <xs:element name="dns_1" type="xs:string" minOccurs="0"/>
+      <xs:element name="dns_2" type="xs:string" minOccurs="0"/>
+      <xs:element name="fqdn" type="xs:string" minOccurs="0"/>
+      <xs:element name="hwVersion" type="xs:string" minOccurs="0"/>
+      <xs:element name="kerberosRealm" type="xs:string" minOccurs="0"/>
+      <xs:element name="modelNumber" type="xs:string" minOccurs="0"/>
+      <xs:element name="pingStatus" type="xs:string" minOccurs="0"/>
+      <xs:element name="provisioningCounter" type="xs:string" minOccurs="0"/>
+      <xs:element name="provisioningState" type="xs:string" minOccurs="0"/>
+      <xs:element name="serialNumber" type="xs:string" minOccurs="0"/>
+      <xs:element name="snmpEntity" type="xs:string" minOccurs="0"/>
+      <xs:element name="swVersion" type="xs:string" minOccurs="0"/>
+      <xs:element name="voiceEnabled" type="xs:string" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="statusMTAExt">
+    <xs:sequence>
+      <xs:element name="lineasTelefonicas" type="tns:lineasTelefonicas" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+      <xs:element name="vendor" type="xs:string" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="lineasTelefonicas">
+    <xs:sequence>
+      <xs:element name="batteryStatus" type="xs:string" minOccurs="0"/>
+      <xs:element name="lastDiagnostic" type="xs:string" minOccurs="0"/>
+      <xs:element name="maintenanceState" type="xs:string" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+</xs:schema>]]></con:content><con:type>http://www.w3.org/2001/XMLSchema</con:type></con:part></con:definitionCache><con:endpoints><con:endpoint>http://CVSOADES:8001/soa-infra/services/default/OrNOCBuscaStatusNow/ornocbuscastatusnow_client_ep</con:endpoint></con:endpoints><con:operation isOneWay="false" action="process" name="process" bindingOperationName="process" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call name="Request 1"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://CVSOADES:8001/soa-infra/services/default/OrNOCBuscaStatusNow/ornocbuscastatusnow_client_ep</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:orn="http://xmlns.cablevision.net.mx/DrCable_SOA/DrCable/OrNOCBuscaStatusNow">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <orn:process>
+         <orn:macAddress>00:15:ce:bf:9b:7c</orn:macAddress>
+         <!--Optional:-->
+         <orn:tipoServicio>?</orn:tipoServicio>
+         <!--Optional:-->
+         <orn:rol>?</orn:rol>
+         <!--Optional:-->
+         <orn:usuario>?</orn:usuario>
+      </orn:process>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="process"/><con:wsrmConfig version="1.2"/></con:call></con:operation></con:interface><con:properties/><con:wssContainer/><con:databaseConnectionContainer/><con:reporting><con:xmlTemplates/><con:parameters/></con:reporting></con:soapui-project>

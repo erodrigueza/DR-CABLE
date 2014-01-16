@@ -1,0 +1,34 @@
+<?binding.jca DBAuspice2_db.jca?>
+<wsdl:definitions name="DBAuspice2"
+                  targetNamespace="http://xmlns.oracle.com/pcbpel/adapter/db/DrCable_SOA/DrCable/DBAuspice2"
+                  xmlns:db="http://xmlns.oracle.com/pcbpel/adapter/db/DBAuspice"
+                  xmlns:tns="http://xmlns.oracle.com/pcbpel/adapter/db/DrCable_SOA/DrCable/DBAuspice2"
+                  xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
+                  xmlns:plt="http://schemas.xmlsoap.org/ws/2003/05/partner-link/">
+    <plt:partnerLinkType name="DBAuspice2_plt">
+        <plt:role name="DBAuspice2_role">
+            <plt:portType name="tns:DBAuspice2_ptt"/>
+        </plt:role>
+    </plt:partnerLinkType>
+    <wsdl:types>
+        <schema xmlns="http://www.w3.org/2001/XMLSchema">
+            <import namespace="http://xmlns.oracle.com/pcbpel/adapter/db/DBAuspice"
+                    schemaLocation="xsd/DBAuspice.xsd"/>
+        </schema>
+    </wsdl:types>
+    <wsdl:message name="DBAuspice2Input_msg">
+        <wsdl:part name="DBAuspice2Input_msg" element="db:DBAuspiceInput"/>
+    </wsdl:message>
+    <wsdl:message name="DBAuspice2OutputCollection_msg">
+        <wsdl:part name="DBAuspice2OutputCollection"
+                   element="db:DBAuspiceOutputCollection"/>
+    </wsdl:message>
+    <wsdl:portType name="DBAuspice2_ptt">
+        <wsdl:operation name="DBAuspice2">
+            <wsdl:input message="tns:DBAuspice2Input_msg"/>
+            <wsdl:output message="tns:DBAuspice2OutputCollection_msg"/>
+        </wsdl:operation>
+    </wsdl:portType>
+</wsdl:definitions>
+
+

@@ -1,0 +1,633 @@
+<?xml version = "1.0" encoding = "UTF-8" ?>
+<!--
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+  Oracle JDeveloper BPEL Designer 
+  
+  Created: Fri Sep 06 12:57:20 CDT 2013
+  Author:  Eduardo Rodriguez - Latbc
+  Type: BPEL 2.0 Process
+  Purpose: Synchronous BPEL Process
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+-->
+<process name="OrNOCBuscaStatusNow"
+         targetNamespace="http://xmlns.cablevision.net.mx/DrCable_SOA/DrCable/OrNOCBuscaStatusNow"
+         xmlns="http://docs.oasis-open.org/wsbpel/2.0/process/executable"
+         xmlns:client="http://xmlns.cablevision.net.mx/DrCable_SOA/DrCable/OrNOCBuscaStatusNow"
+         xmlns:ora="http://schemas.oracle.com/xpath/extension"
+         xmlns:bpelx="http://schemas.oracle.com/bpel/extension"
+         xmlns:bpel="http://docs.oasis-open.org/wsbpel/2.0/process/executable"
+         xmlns:ns1="http://xmlns.cablevision.net.mx/DrCable_SOA/DrCable/DasNOCGetStatusEquipment"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xmlns:ns2="http://xmlns.oracle.com/pcbpel/adapter/file/DrCable_SOA/OrNOCBuscaStatusNow/GetDataFileAdptr"
+         xmlns:ns3="http://xmlns.cablevision.net.mx/DrCable_SOA/DrCable/GetDataFile"
+         xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+         xmlns:ns4="http://tempuri.org/"
+         xmlns:ns5="http://schemas.datacontract.org/2004/07/AMDrCable"
+         xmlns:xp20="http://www.oracle.com/XSL/Transform/java/oracle.tip.pc.services.functions.Xpath20"
+         xmlns:bpws="http://schemas.xmlsoap.org/ws/2003/03/business-process/"
+         xmlns:oraext="http://www.oracle.com/XSL/Transform/java/oracle.tip.pc.services.functions.ExtFunc"
+         xmlns:dvm="http://www.oracle.com/XSL/Transform/java/oracle.tip.dvm.LookupValue"
+         xmlns:hwf="http://xmlns.oracle.com/bpel/workflow/xpath"
+         xmlns:ids="http://xmlns.oracle.com/bpel/services/IdentityService/xpath"
+         xmlns:bpm="http://xmlns.oracle.com/bpmn20/extensions"
+         xmlns:xdk="http://schemas.oracle.com/bpel/extension/xpath/function/xdk"
+         xmlns:xref="http://www.oracle.com/XSL/Transform/java/oracle.tip.xref.xpath.XRefXPathFunctions"
+         xmlns:ldap="http://schemas.oracle.com/xpath/extension/ldap"
+         xmlns:ns6="http://xmlns.oracle.com/GetDiagnostic/GetDiagnostic_DS"
+         xmlns:ns7="http://xmlns.oracle.com/bpel"
+         xmlns:ns8="http://xmlns.cablevision.net.mx/DrCable_SOA/DrCable/OrNOCDiagnostico"
+         xmlns:ns9="http://xmlns.oracle.com/GetDiagnosticTel/GetDiagnosticTel_DS"
+         xmlns:ns10="http://schemas.microsoft.com/2003/10/Serialization/Arrays">
+  <import namespace="http://xmlns.oracle.com/GetDiagnostic/GetDiagnostic_DS"
+          location="GetDiagnostic_DS.wsdl"
+          importType="http://schemas.xmlsoap.org/wsdl/"/>
+  <import namespace="http://tempuri.org/" location="HabilidadesExtra.wsdl"
+          importType="http://schemas.xmlsoap.org/wsdl/"/>
+  <import namespace="http://xmlns.cablevision.net.mx/DrCable_SOA/DrCable/DasNOCGetStatusEquipment"
+          location="xsd/DasNOCGetStatusEquip.xsd"
+          importType="http://www.w3.org/2001/XMLSchema"/>
+  <import namespace="http://xmlns.cablevision.net.mx/DrCable_SOA/DrCable/GetDataFile"
+          location="xsd/DrCableDiagnostico.xsd"
+          importType="http://www.w3.org/2001/XMLSchema"/>
+  <import namespace="http://xmlns.cablevision.net.mx/DrCable_SOA/DrCable/OrNOCBuscaStatusNow"
+          location="OrNOCBuscaStatusNow.wsdl"
+          importType="http://schemas.xmlsoap.org/wsdl/"/>
+  <!-- 
+      ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+        PARTNERLINKS                                                      
+        List of services participating in this BPEL process               
+      ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    -->
+  <partnerLinks>
+    <!-- 
+      The 'client' role represents the requester of this service. It is 
+      used for callback. The location and correlation information associated
+      with the client role are automatically set using WS-Addressing.
+    -->
+    <partnerLink name="ornocbuscastatusnow_client"
+                 partnerLinkType="client:OrNOCBuscaStatusNow"
+                 myRole="OrNOCBuscaStatusNowProvider"/>
+    <partnerLink name="DasNOCGetStatusEquip"
+                 partnerLinkType="ns1:DasNOCGetStatusEquip"
+                 partnerRole="DasNOCGetStatusEquipment"/>
+    <partnerLink name="GetDataFileAdptr" partnerLinkType="ns2:SynchRead_plt"
+                 partnerRole="SynchRead_role"/>
+    <partnerLink name="GetDiagnostic.GetDiagnostic_DS"
+                 partnerLinkType="ns6:GetDiagnostic.GetDiagnostic_DS"
+                 partnerRole="IDecisionService"/>
+    <partnerLink name="GetDiagnosticTel.GetDiagnosticTel_DS"
+                 partnerLinkType="ns9:GetDiagnosticTel.GetDiagnosticTel_DS"
+                 partnerRole="IDecisionService"/>
+    <partnerLink name="HabilidadesExtra" partnerLinkType="ns4:HabilidadesExtra"
+                 partnerRole="IHabilidadesExtra"/>
+  </partnerLinks>
+  <!-- 
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+      VARIABLES                                                        
+      List of messages and XML documents used within this BPEL process 
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+  -->
+  <variables>
+    <!-- Reference to the message passed as input during initiation -->
+    <variable name="inputVariable"
+              messageType="client:OrNOCBuscaStatusNowRequestMessage"/>
+    <!-- Reference to the message that will be returned to the requester-->
+    <variable name="outputVariable"
+              messageType="client:OrNOCBuscaStatusNowResponseMessage"/>
+  </variables>
+  <!-- 
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+     ORCHESTRATION LOGIC                                               
+     Set of activities coordinating the flow of messages across the    
+     services integrated within this business process                  
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+  -->
+  <sequence name="main">
+    <!-- Receive input from requestor. (Note: This maps to operation defined in OrNOCBuscaStatusNow.wsdl) -->
+    <receive name="receiveInput" partnerLink="ornocbuscastatusnow_client"
+             portType="client:OrNOCBuscaStatusNow" operation="process"
+             variable="inputVariable" createInstance="yes"/>
+    <scope name="ScopeMain" exitOnStandardFault="no">
+      <variables>
+        <variable name="inputDasNOCGetStatusEquip" messageType="ns1:getStatus"/>
+        <variable name="outputDasNOCGetStatusEquip"
+                  messageType="ns1:getStatusResponse"/>
+        <variable name="diagnostico"
+                  messageType="client:OrNOCBuscaStatusNowResponseMessage"/>
+        <variable name="inputGetDataFile" messageType="ns2:Empty_msg"/>
+        <variable name="outputGetDataFile" messageType="ns2:SynchRead_msg"/>
+        <variable name="inputHabilidades"
+                  messageType="ns4:IHabilidadesExtra_hAprovisionamiento_InputMessage"/>
+        <variable name="outputHabilidades"
+                  messageType="ns4:IHabilidadesExtra_hAprovisionamiento_OutputMessage"/>
+        <variable name="inputHabilidadesURL"
+                  messageType="ns4:IHabilidadesExtra_hGraficasSevOne_InputMessage"/>
+        <variable name="outputHabilidadesURL"
+                  messageType="ns4:IHabilidadesExtra_hGraficasSevOne_OutputMessage"/>
+      </variables>
+      <faultHandlers>
+        <catch faultName="bpel:invalidVariables">
+          <assign name="getErrorVariables">
+            <copy>
+              <from><literal>2002</literal></from>
+              <to>$outputVariable.payload/client:result</to>
+            </copy>
+            <copy>
+              <from><literal>El formato de Mac Address es Incorrecto</literal></from>
+              <to>$outputVariable.payload/client:msg</to>
+            </copy>
+            <copy>
+              <from>ora:getFaultAsString()</from>
+              <to>$outputVariable.payload/client:det_error</to>
+            </copy>
+          </assign>
+        </catch>
+        <catch faultName="bpelx:timeout">
+          <assign name="getErrorTimeout">
+            <copy>
+              <from><literal>2003</literal></from>
+              <to>$outputVariable.payload/client:result</to>
+            </copy>
+            <copy>
+              <from><literal>El tiempo de espera de respuesta del servicio se ha agotado</literal></from>
+              <to>$outputVariable.payload/client:msg</to>
+            </copy>
+            <copy>
+              <from>ora:getFaultAsString()</from>
+              <to>$outputVariable.payload/client:det_error</to>
+            </copy>
+          </assign>
+        </catch>
+        <catchAll>
+          <assign name="getError">
+            <copy>
+              <from><literal>2001</literal></from>
+              <to>$outputVariable.payload/client:result</to>
+            </copy>
+            <copy>
+              <from>concat(ora:getCompositeName(),':',ora:getComponentName(),':',ora:getFaultName())</from>
+              <to>$outputVariable.payload/client:msg</to>
+            </copy>
+            <copy>
+              <from>ora:getFaultAsString()</from>
+              <to>$outputVariable.payload/client:det_error</to>
+            </copy>
+          </assign>
+        </catchAll>
+      </faultHandlers>
+      <sequence name="principal">
+        <validate name="requestValidate" variables="inputVariable"/>
+        <assign name="set_OK_Response">
+          <copy>
+            <from><literal>0</literal></from>
+            <to>$outputVariable.payload/client:result</to>
+          </copy>
+          <copy>
+            <from><literal>OK</literal></from>
+            <to>$outputVariable.payload/client:msg</to>
+          </copy>
+          <copy>
+            <from><literal/></from>
+            <to>$outputVariable.payload/client:det_error</to>
+          </copy>
+        </assign>
+        <sequence name="ReadDataAuspice">
+          <assign name="DasNOCAssign">
+            <copy>
+              <from>$inputVariable.payload/client:macAddress</from>
+              <to>$inputDasNOCGetStatusEquip.parameters/arg0/macAddress</to>
+            </copy>
+          </assign>
+          <invoke name="DasNOCGetStatusEquip" partnerLink="DasNOCGetStatusEquip"
+                  portType="ns1:DasNOCGetStatusEquipment" operation="getStatus"
+                  inputVariable="inputDasNOCGetStatusEquip"
+                  outputVariable="outputDasNOCGetStatusEquip"
+                  bpelx:invokeAsDetail="no"/>
+        </sequence>
+        <if name="If_FaultErrorInvoke">
+          <documentation>
+            <![CDATA[OK]]>
+          </documentation>
+          <condition>$outputDasNOCGetStatusEquip.parameters/return/resultMsg = 'OK'</condition>
+          <sequence name="OKDasNOCGetStatusEquip">
+            <sequence name="ApplyInternetRules">
+              <assign name="getStatusEquip">
+                <copy>
+                  <from>$outputDasNOCGetStatusEquip.parameters/return/status</from>
+                  <to>$outputVariable.payload/client:status</to>
+                </copy>
+              </assign>
+              <scope name="GetDiagnosticoRule" exitOnStandardFault="no">
+                <bpelx:annotation>
+                  <bpelx:pattern patternName="bpelx:decide"/>
+                  <bpelx:general>
+                    <bpelx:property name="userLabel">
+                      <![CDATA[GetDiagnosticoInternet]]>
+                    </bpelx:property>
+                  </bpelx:general>
+                </bpelx:annotation>
+                <variables>
+                  <variable name="dsIn"
+                            messageType="ns6:callFunctionStatelessMessage"/>
+                  <variable name="dsOut"
+                            messageType="ns6:callFunctionStatelessDecisionMessage"/>
+                </variables>
+                <sequence name="GetDiagnosticInternet">
+                  <assign name="Fact_to_Rule">
+                    <bpelx:annotation>
+                      <bpelx:pattern patternName="bpelx:transformation"/>
+                    </bpelx:annotation>
+                    <copy>
+                      <from>ora:doXSLTransformForDoc("xsl/RulesInternetTrans.xsl", $outputVariable.payload)</from>
+                      <to variable="dsIn" part="payload"/>
+                    </copy>
+                  </assign>
+                  <invoke name="Rules"
+                          partnerLink="GetDiagnostic.GetDiagnostic_DS"
+                          portType="ns6:IDecisionService"
+                          operation="callFunctionStateless" inputVariable="dsIn"
+                          outputVariable="dsOut" bpelx:invokeAsDetail="no"/>
+                  <assign name="Rule_to_Fact">
+                    <copy>
+                      <from>$dsOut.payload/ns6:resultList/ns8:processResponse/ns8:codigo</from>
+                      <to>$outputVariable.payload/client:diagnosticoInternet/client:codigo</to>
+                    </copy>
+                  </assign>
+                </sequence>
+              </scope>
+            </sequence>
+            <invoke name="readDataFile" partnerLink="GetDataFileAdptr"
+                    portType="ns2:SynchRead_ptt" operation="SynchRead"
+                    inputVariable="inputGetDataFile"
+                    outputVariable="outputGetDataFile"
+                    bpelx:invokeAsDetail="no"/>
+            <sequence name="ObtainTechnology">
+              <assign name="setMacAddress">
+                <copy bpelx:insertMissingToData="yes">
+                  <from>$inputVariable.payload/client:macAddress</from>
+                  <to>$outputGetDataFile.body/ns3:macAddress</to>
+                </copy>
+              </assign>
+              <assign name="getTechnology">
+                <bpelx:annotation>
+                  <bpelx:pattern patternName="bpelx:transformation"/>
+                </bpelx:annotation>
+                <copy>
+                  <from>ora:doXSLTransformForDoc("xsl/TecnologiaTrans.xsl", $outputGetDataFile.body)</from>
+                  <to variable="diagnostico" part="payload"/>
+                </copy>
+              </assign>
+              <if name="IfTecnologia">
+                <documentation>
+                  <![CDATA[OK]]>
+                </documentation>
+                <condition>count($diagnostico.payload/client:tecnologia) &gt; 0</condition>
+                <assign name="setTecnologia">
+                  <copy>
+                    <from>$diagnostico.payload/client:tecnologia</from>
+                    <to>$outputVariable.payload/client:tecnologia</to>
+                  </copy>
+                </assign>
+                <else>
+                  <documentation>
+                    <![CDATA[UNDEF]]>
+                  </documentation>
+                  <assign name="setUndef">
+                    <copy>
+                      <from><literal>UNDEF</literal></from>
+                      <to>$outputVariable.payload/client:tecnologia</to>
+                    </copy>
+                  </assign>
+                </else>
+              </if>
+            </sequence>
+            <sequence name="TelefoniaSequence">
+              <sequence name="ReadDataFromLDAP">
+                <assign name="HabilidadesAssign">
+                  <copy>
+                    <from>$inputVariable.payload/client:macAddress</from>
+                    <to>$inputHabilidades.parameters/ns4:macAddress</to>
+                  </copy>
+                </assign>
+                <invoke name="HabilidadesExtra" inputVariable="inputHabilidades"
+                        outputVariable="outputHabilidades"
+                        partnerLink="HabilidadesExtra"
+                        portType="ns4:IHabilidadesExtra"
+                        operation="hAprovisionamiento"
+                        bpelx:invokeAsDetail="no"/>
+              </sequence>
+              <if name="If_HabilidadesTelefonia">
+                <documentation>
+                  <![CDATA[Telefonia]]>
+                </documentation>
+                <condition>$outputHabilidades.parameters/ns4:hAprovisionamientoResult/ns5:phoneNumber != ''</condition>
+                <sequence name="TelefoniaSequence">
+                  <assign name="getHabilidades">
+                    <copy>
+                      <from>$outputHabilidades.parameters/ns4:hAprovisionamientoResult</from>
+                      <to>$outputVariable.payload/client:aprovisionamiento</to>
+                    </copy>
+                  </assign>
+                  <scope name="GetDiagnosticoTelRule" exitOnStandardFault="no">
+                    <bpelx:annotation>
+                      <bpelx:pattern patternName="bpelx:decide"/>
+                      <bpelx:general>
+                        <bpelx:property name="userLabel">
+                          <![CDATA[GetDiagnosticoTelefonia]]>
+                        </bpelx:property>
+                      </bpelx:general>
+                    </bpelx:annotation>
+                    <variables>
+                      <variable name="dsIn"
+                                messageType="ns9:callFunctionStatelessMessage"/>
+                      <variable name="dsOut"
+                                messageType="ns9:callFunctionStatelessDecisionMessage"/>
+                    </variables>
+                    <sequence name="GetDiagnosticTelefonia">
+                      <assign name="Fact_to_Rule">
+                        <bpelx:annotation>
+                          <bpelx:pattern patternName="bpelx:transformation"/>
+                        </bpelx:annotation>
+                        <copy>
+                          <from>ora:doXSLTransformForDoc("xsl/RulesTelefoniaTrans.xsl", $outputVariable.payload)</from>
+                          <to variable="dsIn" part="payload"/>
+                        </copy>
+                      </assign>
+                      <invoke name="Rules"
+                              partnerLink="GetDiagnosticTel.GetDiagnosticTel_DS"
+                              portType="ns9:IDecisionService"
+                              operation="callFunctionStateless"
+                              inputVariable="dsIn" outputVariable="dsOut"
+                              bpelx:invokeAsDetail="no"/>
+                      <assign name="Rule_to_Fact">
+                        <copy>
+                          <from>$dsOut.payload/ns9:resultList/ns8:processResponse/ns8:codigo</from>
+                          <to>$outputVariable.payload/client:diagnosticoTelefono/client:codigo</to>
+                        </copy>
+                      </assign>
+                    </sequence>
+                  </scope>
+                  <assign name="setIdDiagnosticoTel">
+                    <copy bpelx:insertMissingToData="yes">
+                      <from>$outputVariable.payload/client:diagnosticoTelefono/client:codigo</from>
+                      <to>$outputGetDataFile.body/ns3:code</to>
+                    </copy>
+                  </assign>
+                  <assign name="getDataTransform">
+                    <bpelx:annotation>
+                      <bpelx:pattern patternName="bpelx:transformation"/>
+                    </bpelx:annotation>
+                    <copy>
+                      <from>ora:doXSLTransformForDoc("xsl/DiagnosticoTelefonoTrans.xsl", $outputGetDataFile.body)</from>
+                      <to variable="diagnostico" part="payload"/>
+                    </copy>
+                  </assign>
+                  <if name="IfDiagnosticoTel">
+                    <documentation>
+                      <![CDATA[OK]]>
+                    </documentation>
+                    <condition>count($diagnostico.payload/client:diagnosticoTelefono) &gt; 0</condition>
+                    <sequence name="SetFinalDiagnosticSequence">
+                      <assign name="SetDiagnosticoTelefono">
+                        <copy>
+                          <from>$diagnostico.payload/client:diagnosticoTelefono/client:codigo</from>
+                          <to>$outputVariable.payload/client:diagnosticoTelefono/client:codigo</to>
+                        </copy>
+                        <copy>
+                          <from>$diagnostico.payload/client:diagnosticoTelefono/client:texto</from>
+                          <to>$outputVariable.payload/client:diagnosticoTelefono/client:texto</to>
+                        </copy>
+                        <copy>
+                          <from>$diagnostico.payload/client:diagnosticoTelefono/client:explicacion</from>
+                          <to>$outputVariable.payload/client:diagnosticoTelefono/client:explicacion</to>
+                        </copy>
+                      </assign>
+                    </sequence>
+                    <else>
+                      <documentation>
+                        <![CDATA[Error]]>
+                      </documentation>
+                      <sequence name="ErrorGetDiagnosticoTel">
+                        <assign name="NoFindMsgError">
+                          <copy>
+                            <from><literal>1005</literal></from>
+                            <to>$outputVariable.payload/client:result</to>
+                          </copy>
+                          <copy>
+                            <from><literal>No se encontro definicion del diagnostico de Telefonia en archivo XML.</literal></from>
+                            <to>$outputVariable.payload/client:msg</to>
+                          </copy>
+                        </assign>
+                      </sequence>
+                    </else>
+                  </if>
+                </sequence>
+                <else>
+                  <documentation>
+                    <![CDATA[Solo Internet]]>
+                  </documentation>
+                  <sequence name="SoloInternetSequence">
+                    <empty name="empty"/>
+                  </sequence>
+                </else>
+              </if>
+            </sequence>
+            <sequence name="GetDiagnosticoInternet">
+              <sequence name="ValidaAprovisionamientoInternet">
+                <if name="If_SIN_DATOS">
+                  <documentation>
+                    <![CDATA[SIN_DATOS]]>
+                  </documentation>
+                  <condition>count($outputHabilidades.parameters/ns4:hAprovisionamientoResult/ns5:cmClientClasses) &gt; 0.0 and contains($outputHabilidades.parameters/ns4:hAprovisionamientoResult/ns5:cmClientClasses, 'SIN_DATOS') and $outputVariable.payload/client:diagnosticoInternet/client:codigo = 100</condition>
+                  <assign name="setCode107"
+                          xmlns="http://docs.oasis-open.org/wsbpel/2.0/process/executable">
+                    <copy bpelx:insertMissingToData="yes"
+                          xmlns:bpelx="http://schemas.oracle.com/bpel/extension">
+                      <from>107</from>
+                      <to>$outputGetDataFile.body/ns3:code</to>
+                    </copy>
+                  </assign>
+                  <else>
+                    <documentation>
+                      <![CDATA[CON_DATOS]]>
+                    </documentation>
+                    <assign name="setIdDiagnostico"
+                            xmlns="http://docs.oasis-open.org/wsbpel/2.0/process/executable">
+                      <copy bpelx:insertMissingToData="yes"
+                            xmlns:bpelx="http://schemas.oracle.com/bpel/extension">
+                        <from>$outputVariable.payload/client:diagnosticoInternet/client:codigo</from>
+                        <to>$outputGetDataFile.body/ns3:code</to>
+                      </copy>
+                    </assign>
+                  </else>
+                </if>
+              </sequence>
+              <assign name="getDataTransform">
+                <bpelx:annotation>
+                  <bpelx:pattern patternName="bpelx:transformation"/>
+                </bpelx:annotation>
+                <copy>
+                  <from>ora:doXSLTransformForDoc("xsl/DiagnosticoInternetTrans.xsl", $outputGetDataFile.body)</from>
+                  <to variable="diagnostico" part="payload"/>
+                </copy>
+              </assign>
+              <if name="IfDiagnostico">
+                <documentation>
+                  <![CDATA[OK]]>
+                </documentation>
+                <condition>count($diagnostico.payload/client:diagnosticoInternet) &gt; 0</condition>
+                <sequence name="SetFinalDiagnostic">
+                  <assign name="SetDiagnosticoInternet">
+                    <copy>
+                      <from>$diagnostico.payload/client:diagnosticoInternet/client:codigo</from>
+                      <to>$outputVariable.payload/client:diagnosticoInternet/client:codigo</to>
+                    </copy>
+                    <copy>
+                      <from>$diagnostico.payload/client:diagnosticoInternet/client:texto</from>
+                      <to>$outputVariable.payload/client:diagnosticoInternet/client:texto</to>
+                    </copy>
+                    <copy>
+                      <from>$diagnostico.payload/client:diagnosticoInternet/client:explicacion</from>
+                      <to>$outputVariable.payload/client:diagnosticoInternet/client:explicacion</to>
+                    </copy>
+                  </assign>
+                </sequence>
+                <else>
+                  <documentation>
+                    <![CDATA[Error]]>
+                  </documentation>
+                  <sequence name="NotFindDiagnostic">
+                    <assign name="NoFindMsgError">
+                      <copy>
+                        <from><literal>1004</literal></from>
+                        <to>$outputVariable.payload/client:result</to>
+                      </copy>
+                      <copy>
+                        <from><literal>No se encontro definicion del diagnostico de Internet en archivo XML.</literal></from>
+                        <to>$outputVariable.payload/client:msg</to>
+                      </copy>
+                    </assign>
+                  </sequence>
+                </else>
+              </if>
+            </sequence>
+            <sequence name="GetGraficasSequence">
+              <assign name="SetHabilidadesGraficas">
+                <copy>
+                  <from>$outputVariable.payload/client:status/cmts/upStreamChannel</from>
+                  <to>$inputHabilidadesURL.parameters/ns4:param/ns5:cableUpStream</to>
+                </copy>
+                <copy>
+                  <from>$outputVariable.payload/client:status/hub</from>
+                  <to>$inputHabilidadesURL.parameters/ns4:param/ns5:hub</to>
+                </copy>
+              </assign>
+              <invoke name="HabilidadesGraficas" partnerLink="HabilidadesExtra"
+                      portType="ns4:IHabilidadesExtra"
+                      operation="hGraficasSevOne"
+                      inputVariable="inputHabilidadesURL"
+                      outputVariable="outputHabilidadesURL"
+                      bpelx:invokeAsDetail="no"/>
+              <if name="IfHabilidadesGraficas">
+                <documentation>
+                  <![CDATA[OK]]>
+                </documentation>
+                <condition>$outputHabilidadesURL.parameters/ns4:hGraficasSevOneResult/ns5:obtenido = true()</condition>
+                <assign name="setURLsGraficas">
+                  <copy>
+                    <from>$outputHabilidadesURL.parameters/ns4:hGraficasSevOneResult/ns5:URLs</from>
+                    <to>$outputVariable.payload/client:urls</to>
+                  </copy>
+                </assign>
+                <else>
+                  <documentation>
+                    <![CDATA[Error]]>
+                  </documentation>
+                  <assign name="setErrorGraficas">
+                    <copy>
+                      <from><literal>1006</literal></from>
+                      <to>$outputVariable.payload/client:result</to>
+                    </copy>
+                    <copy>
+                      <from><literal>Error al obtener las URLs del servicio Habilidades Extra</literal></from>
+                      <to>$outputVariable.payload/client:msg</to>
+                    </copy>
+                    <copy>
+                      <from>$outputHabilidadesURL.parameters/ns4:hGraficasSevOneResult/ns5:error</from>
+                      <to>$outputVariable.payload/client:det_error</to>
+                    </copy>
+                  </assign>
+                </else>
+              </if>
+            </sequence>
+            <sequence name="GetCheckListSequence">
+              <if name="IfCheckList">
+                <documentation>
+                  <![CDATA[Internet]]>
+                </documentation>
+                <condition>$outputVariable.payload/client:diagnosticoInternet/client:codigo != 100 or $outputVariable.payload/client:diagnosticoTelefono/client:codigo = ''</condition>
+                <assign name="setCodeInternet">
+                  <copy>
+                    <from>$outputVariable.payload/client:diagnosticoInternet/client:codigo</from>
+                    <to>$outputGetDataFile.body/ns3:code</to>
+                  </copy>
+                </assign>
+                <else>
+                  <documentation>
+                    <![CDATA[Telefonia]]>
+                  </documentation>
+                  <assign name="setCodeTelefonia">
+                    <copy>
+                      <from>$outputVariable.payload/client:diagnosticoTelefono/client:codigo</from>
+                      <to>$outputGetDataFile.body/ns3:code</to>
+                    </copy>
+                  </assign>
+                </else>
+              </if>
+              <assign name="getCheckList">
+                <bpelx:annotation>
+                  <bpelx:pattern patternName="bpelx:transformation"/>
+                </bpelx:annotation>
+                <copy>
+                  <from>ora:doXSLTransformForDoc("xsl/CheckListTrans.xsl", $outputGetDataFile.body)</from>
+                  <to variable="diagnostico" part="payload"/>
+                </copy>
+              </assign>
+              <assign name="setCheckList">
+                <copy>
+                  <from>$diagnostico.payload/client:checkList</from>
+                  <to>$outputVariable.payload/client:checkList</to>
+                </copy>
+              </assign>
+            </sequence>
+          </sequence>
+          <else>
+            <documentation>
+              <![CDATA[Error]]>
+            </documentation>
+            <sequence name="ErrorDasNOCGetStatusEquip">
+              <assign name="setError">
+                <copy>
+                  <from><literal>1003</literal></from>
+                  <to>$outputVariable.payload/client:result</to>
+                </copy>
+                <copy>
+                  <from><literal>Error al consultar el estatus del equipo en Auspice.</literal></from>
+                  <to>$outputVariable.payload/client:msg</to>
+                </copy>
+                <copy>
+                  <from>$outputDasNOCGetStatusEquip.parameters/return/resultMsg</from>
+                  <to>$outputVariable.payload/client:det_error</to>
+                </copy>
+              </assign>
+            </sequence>
+          </else>
+        </if>
+      </sequence>
+    </scope>
+    <!-- Generate reply to synchronous request -->
+    <reply name="replyOutput" partnerLink="ornocbuscastatusnow_client"
+           portType="client:OrNOCBuscaStatusNow" operation="process"
+           variable="outputVariable"/>
+  </sequence>
+</process>

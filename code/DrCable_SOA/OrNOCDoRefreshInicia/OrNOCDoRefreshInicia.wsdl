@@ -1,0 +1,31 @@
+<?xml version= '1.0' encoding= 'UTF-8' ?>
+<wsdl:definitions
+     name="OrNOCDoRefreshInicia"
+     targetNamespace="http://xmlns.cablevision.net.mx/DrCable_SOA/DrCable/OrNOCDoRefreshInicia"
+     xmlns:ns1="http://xmlns.cablevision.net.mx/DrCable_SOA/DrCable/TskNOCDoDeviceRefresh"
+     xmlns:plnk="http://docs.oasis-open.org/wsbpel/2.0/plnktype"
+     xmlns:client="http://xmlns.cablevision.net.mx/DrCable_SOA/DrCable/OrNOCDoRefreshInicia"
+     xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
+    >
+    <plnk:partnerLinkType name="OrNOCDoRefreshInicia">
+        <plnk:role name="OrNOCDoRefreshIniciaProvider" portType="client:OrNOCDoRefreshInicia"/>
+    </plnk:partnerLinkType>
+    <wsdl:types>
+        <schema xmlns="http://www.w3.org/2001/XMLSchema">
+            <import namespace="http://xmlns.cablevision.net.mx/DrCable_SOA/DrCable/OrNOCDoRefreshInicia"
+                 schemaLocation="xsd/OrNOCDoRefreshInicia.xsd"/>
+        </schema>
+    </wsdl:types>
+    <wsdl:message name="OrNOCDoRefreshIniciaRequestMessage">
+        <wsdl:part name="payload" element="client:process"/>
+    </wsdl:message>
+    <wsdl:message name="OrNOCDoRefreshIniciaResponseMessage">
+        <wsdl:part name="payload" element="client:processResponse"/>
+    </wsdl:message>
+    <wsdl:portType name="OrNOCDoRefreshInicia">
+        <wsdl:operation name="process">
+            <wsdl:input message="client:OrNOCDoRefreshIniciaRequestMessage"/>
+            <wsdl:output message="client:OrNOCDoRefreshIniciaResponseMessage"/>
+        </wsdl:operation>
+    </wsdl:portType>
+</wsdl:definitions>

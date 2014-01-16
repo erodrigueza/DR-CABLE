@@ -1,0 +1,202 @@
+<?xml version = "1.0" encoding = "UTF-8" ?>
+<!--
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+  Oracle JDeveloper BPEL Designer 
+  
+  Created: Wed Oct 16 13:17:20 CDT 2013
+  Author:  Eduardo Rodriguez
+  Type: BPEL 2.0 Process
+  Purpose: Synchronous BPEL Process
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+-->
+<process name="OrNOCBuscaIncidByCta"
+         targetNamespace="http://xmlns.cablevision.net.mx/DrCable_SOA/DrCable/OrNOCBuscaIncidByCta"
+         xmlns="http://docs.oasis-open.org/wsbpel/2.0/process/executable"
+         xmlns:client="http://xmlns.cablevision.net.mx/DrCable_SOA/DrCable/OrNOCBuscaIncidByCta"
+         xmlns:ora="http://schemas.oracle.com/xpath/extension"
+         xmlns:bpelx="http://schemas.oracle.com/bpel/extension"
+         xmlns:bpel="http://docs.oasis-open.org/wsbpel/2.0/process/executable"
+         xmlns:ns1="http://xmlns.cablevision.net.mx/DrCable_SOA/DrCable/DasNOCSearchHelpDesk"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xmlns:bpws="http://schemas.xmlsoap.org/ws/2003/03/business-process/"
+         xmlns:xp20="http://www.oracle.com/XSL/Transform/java/oracle.tip.pc.services.functions.Xpath20"
+         xmlns:oraext="http://www.oracle.com/XSL/Transform/java/oracle.tip.pc.services.functions.ExtFunc"
+         xmlns:dvm="http://www.oracle.com/XSL/Transform/java/oracle.tip.dvm.LookupValue"
+         xmlns:hwf="http://xmlns.oracle.com/bpel/workflow/xpath"
+         xmlns:ids="http://xmlns.oracle.com/bpel/services/IdentityService/xpath"
+         xmlns:bpm="http://xmlns.oracle.com/bpmn20/extensions"
+         xmlns:xdk="http://schemas.oracle.com/bpel/extension/xpath/function/xdk"
+         xmlns:xref="http://www.oracle.com/XSL/Transform/java/oracle.tip.xref.xpath.XRefXPathFunctions"
+         xmlns:ldap="http://schemas.oracle.com/xpath/extension/ldap">
+  <import namespace="http://xmlns.cablevision.net.mx/DrCable_SOA/DrCable/DasNOCSearchHelpDesk"
+          location="DasNOCSearchHelpDesk.wsdl"
+          importType="http://schemas.xmlsoap.org/wsdl/"/>
+  <import namespace="http://xmlns.cablevision.net.mx/DrCable_SOA/DrCable/OrNOCBuscaIncidByCta"
+          location="OrNOCBuscaIncidByCta.wsdl"
+          importType="http://schemas.xmlsoap.org/wsdl/"/>
+  <!-- 
+      ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+        PARTNERLINKS                                                      
+        List of services participating in this BPEL process               
+      ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    -->
+  <partnerLinks>
+    <!-- 
+      The 'client' role represents the requester of this service. It is 
+      used for callback. The location and correlation information associated
+      with the client role are automatically set using WS-Addressing.
+    -->
+    <partnerLink name="ornocbuscaincidbycta_client"
+                 partnerLinkType="client:OrNOCBuscaIncidByCta"
+                 myRole="OrNOCBuscaIncidByCtaProvider"/>
+    <partnerLink name="DasNOCSearchHelpDesk"
+                 partnerLinkType="ns1:DasNOCSearchHelpDesk"
+                 partnerRole="DasNOCSearchHelpDesk"/>
+  </partnerLinks>
+  <!-- 
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+      VARIABLES                                                        
+      List of messages and XML documents used within this BPEL process 
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+  -->
+  <variables>
+    <!-- Reference to the message passed as input during initiation -->
+    <variable name="inputVariable"
+              messageType="client:OrNOCBuscaIncidByCtaRequestMessage"/>
+    <!-- Reference to the message that will be returned to the requester-->
+    <variable name="outputVariable"
+              messageType="client:OrNOCBuscaIncidByCtaResponseMessage"/>
+  </variables>
+  <!-- 
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+     ORCHESTRATION LOGIC                                               
+     Set of activities coordinating the flow of messages across the    
+     services integrated within this business process                  
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+  -->
+  <sequence name="main">
+    <!-- Receive input from requestor. (Note: This maps to operation defined in OrNOCBuscaIncidByCta.wsdl) -->
+    <receive name="receiveInput" partnerLink="ornocbuscaincidbycta_client"
+             portType="client:OrNOCBuscaIncidByCta" operation="process"
+             variable="inputVariable" createInstance="yes"/>
+    <scope name="mainScope" exitOnStandardFault="no">
+      <variables>
+        <variable name="inputDBRemedy"
+                  messageType="ns1:searchIncidentByAccount"/>
+        <variable name="outputDBRemedy"
+                  messageType="ns1:searchIncidentByAccountResponse"/>
+      </variables>
+      <faultHandlers>
+        <catch faultName="bpel:invalidVariables">
+          <assign name="getErrorVariables">
+            <copy>
+              <from><literal>1009</literal></from>
+              <to>$outputVariable.payload/client:result</to>
+            </copy>
+            <copy>
+              <from><literal>El formato de la cuenta es incorrecto.</literal></from>
+              <to>$outputVariable.payload/client:msg</to>
+            </copy>
+            <copy>
+              <from>ora:getFaultAsString()</from>
+              <to>$outputVariable.payload/client:det_error</to>
+            </copy>
+          </assign>
+        </catch>
+        <catch faultName="bpelx:timeout">
+          <assign name="getErrorTimeout">
+            <copy>
+              <from><literal>2003</literal></from>
+              <to>$outputVariable.payload/client:result</to>
+            </copy>
+            <copy>
+              <from><literal>El tiempo de espera de respuesta del servicio se ha agotado</literal></from>
+              <to>$outputVariable.payload/client:msg</to>
+            </copy>
+            <copy>
+              <from>ora:getFaultAsString()</from>
+              <to>$outputVariable.payload/client:det_error</to>
+            </copy>
+          </assign>
+        </catch>
+        <catchAll>
+          <assign name="getError">
+            <copy>
+              <from><literal>2001</literal></from>
+              <to>$outputVariable.payload/client:result</to>
+            </copy>
+            <copy>
+              <from>concat(ora:getCompositeName(),':',ora:getComponentName(),':',ora:getFaultName())</from>
+              <to>$outputVariable.payload/client:msg</to>
+            </copy>
+            <copy>
+              <from>ora:getFaultAsString()</from>
+              <to>$outputVariable.payload/client:det_error</to>
+            </copy>
+          </assign>
+        </catchAll>
+      </faultHandlers>
+      <sequence name="principal">
+        <validate name="ValidateRequest" variables="inputVariable"/>
+        <assign name="setData">
+          <copy>
+            <from>$inputVariable.payload/client:account</from>
+            <to>$inputDBRemedy.parameters/arg0/account</to>
+          </copy>
+        </assign>
+        <invoke name="InvokeRemedy" partnerLink="DasNOCSearchHelpDesk"
+                portType="ns1:DasNOCSearchHelpDesk"
+                operation="searchIncidentByAccount"
+                inputVariable="inputDBRemedy" outputVariable="outputDBRemedy"
+                bpelx:invokeAsDetail="no"/>
+        <if name="If_FaultErrorInvoke">
+          <documentation>
+            <![CDATA[OK]]>
+          </documentation>
+          <condition>$outputDBRemedy.parameters/return/resultMsg = 'OK'</condition>
+          <sequence name="OK">
+            <assign name="getData">
+              <copy>
+                <from><literal>0</literal></from>
+                <to>$outputVariable.payload/client:result</to>
+              </copy>
+              <copy>
+                <from><literal>OK</literal></from>
+                <to>$outputVariable.payload/client:msg</to>
+              </copy>
+              <copy>
+                <from><literal/></from>
+                <to>$outputVariable.payload/client:det_error</to>
+              </copy>
+              <copy>
+                <from>$outputDBRemedy.parameters/return</from>
+                <to>$outputVariable.payload/client:det_incidente</to>
+              </copy>
+            </assign>
+          </sequence>
+          <else>
+            <documentation>
+              <![CDATA[Error]]>
+            </documentation>
+            <sequence name="Error">
+              <assign name="ErrorData">
+                <copy>
+                  <from><literal>1001</literal></from>
+                  <to>$outputVariable.payload/client:result</to>
+                </copy>
+                <copy>
+                  <from>$outputDBRemedy.parameters/return/resultMsg</from>
+                  <to>$outputVariable.payload/client:msg</to>
+                </copy>
+              </assign>
+            </sequence>
+          </else>
+        </if>
+      </sequence>
+    </scope>
+    <!-- Generate reply to synchronous request -->
+    <reply name="replyOutput" partnerLink="ornocbuscaincidbycta_client"
+           portType="client:OrNOCBuscaIncidByCta" operation="process"
+           variable="outputVariable"/>
+  </sequence>
+</process>

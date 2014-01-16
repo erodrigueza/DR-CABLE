@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<decisionServices xmlns="http://xmlns.oracle.com/bpel/rules" name="GetDiagnosticTel">
+    <ruleEngineProvider provider="Oracle_11.0.0.0.0" name="OracleRulesSDK">
+        <repository type="SCA-Archive">
+            <path>OrNOCBuscaStatusNow/oracle/rules/mx/net/cablevision/GetDiagnosticTel.rules</path>
+        </repository>
+    </ruleEngineProvider>
+    <decisionService name="GetDiagnosticTel_DS" ruleEngineProviderReference="OracleRulesSDK" targetNamespace="http://xmlns.oracle.com/GetDiagnosticTel/GetDiagnosticTel_DS">
+        <catalog>GetDiagnosticTel</catalog>
+        <pattern name="CallFunctionStateless">
+            <arguments>
+                <call>mx.net.cablevision.GetDiagnosticTel.GetDiagnosticTel_DS</call>
+            </arguments>
+        </pattern>
+        <pattern name="CallFunctionStateful">
+            <arguments>
+                <call>mx.net.cablevision.GetDiagnosticTel.GetDiagnosticTel_DS</call>
+            </arguments>
+        </pattern>
+    </decisionService>
+</decisionServices>

@@ -1,0 +1,72 @@
+<schema xmlns="http://www.w3.org/2001/XMLSchema"
+	xmlns:tns="http://xmlns.cablevision.net.mx/DrCable_SOA/DrCable/OrNOCBuscaStatusNow"
+	xmlns:aus="http://xmlns.cablevision.net.mx/DrCable_SOA/DrCable/DasNOCGetStatusEquipment"
+	xmlns:hab="http://schemas.datacontract.org/2004/07/AMDrCable"
+	xmlns:hab2="http://schemas.microsoft.com/2003/10/Serialization/Arrays"
+	attributeFormDefault="unqualified" elementFormDefault="qualified"
+	targetNamespace="http://xmlns.cablevision.net.mx/DrCable_SOA/DrCable/OrNOCBuscaStatusNow">
+	<import
+		namespace="http://xmlns.cablevision.net.mx/DrCable_SOA/DrCable/DasNOCGetStatusEquipment"
+		schemaLocation="DasNOCGetStatusEquip.xsd" />
+	<import namespace="http://schemas.datacontract.org/2004/07/AMDrCable"
+		schemaLocation="HabilidadesExtra2.xsd" />
+	<import namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays"
+		schemaLocation="HabilidadesExtra3.xsd" />
+	<element name="process">
+		<complexType>
+			<sequence>
+				<element name="macAddress" minOccurs="1" maxOccurs="1">
+					<simpleType>
+						<restriction base="string">
+							<pattern value="([0-9a-fA-F]{2}:){5}[0-9a-fA-F]{2}" />
+						</restriction>
+					</simpleType>
+				</element>
+				<element name="tipoServicio" type="string" minOccurs="0" />
+				<element name="rol" type="string" minOccurs="0" />
+				<element name="usuario" type="string" minOccurs="0" />
+			</sequence>
+		</complexType>
+	</element>
+	<element name="processResponse">
+		<complexType>
+			<sequence>
+				<element name="result" type="int" minOccurs="0" />
+				<element name="msg" type="string" minOccurs="0" />
+				<element name="det_error" type="string" minOccurs="0" />
+				<element name="status" type="aus:statusGeneral" minOccurs="0" />
+				<element name="aprovisionamiento" type="hab:DrCable.Aprovisionamiento"
+					minOccurs="0" />
+				<element name="urls" nillable="true" type="hab2:ArrayOfstring"
+					minOccurs="0" />
+				<element name="diagnosticoInternet" type="tns:diagnostico"
+					minOccurs="0" />
+				<element name="diagnosticoTelefono" type="tns:diagnostico"
+					minOccurs="0" />
+				<element name="tecnologia" type="string" minOccurs="0" />
+				<element ref="tns:checkList" />
+			</sequence>
+		</complexType>
+	</element>
+	<complexType name="diagnostico">
+		<sequence>
+			<element name="codigo" type="int" />
+			<element name="texto" type="string" />
+			<element name="explicacion" type="string" />
+		</sequence>
+	</complexType>
+	<element name="checkList">
+		<complexType>
+			<sequence>
+				<element name="itemsCheck" type="tns:itemCheck" maxOccurs="unbounded"
+					minOccurs="0" />
+			</sequence>
+		</complexType>
+	</element>
+	<complexType name="itemCheck">
+		<sequence>
+			<element name="name" type="string" />
+			<element name="value" type="string" />
+		</sequence>
+	</complexType>
+</schema>

@@ -1,0 +1,22 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<properties>
+   <entry key="DG}-ccb0a47:1417f4cdf23:-7c2a">Rangos de upstreamTransmitPower</entry>
+   <entry key="DG}-4405e27:14180987ba4:-7c33">Rangos de LostSync</entry>
+   <entry key="DG}3554303c:14151486bfc:-7b1c">Catalogo de Modem Status</entry>
+   <entry key="AG}3554303c:14151486bfc:-7b21">DiagnosticoRuleset</entry>
+   <entry key="AG}-4405e27:14180987ba4:-7c30">CmClientClasses</entry>
+   <entry key="AG}-ccb0a47:1417f4cdf23:-7c08">SystemUpTime</entry>
+   <entry key="AG}-ccb0a47:1417f4cdf23:-7c0b">SystemUpTime</entry>
+   <entry key="AG}-4405e27:14180987ba4:-7c33">LostSync</entry>
+   <entry key="AG}-ccb0a47:1417f4cdf23:-7c2a">UpStream</entry>
+   <entry key="AG}3554303c:14151486bfc:-7b1c">ModemStatus</entry>
+   <entry key="AG}-ccb0a47:1417f4cdf23:-7c04">Reset</entry>
+   <entry key="DG}-4405e27:14180987ba4:-7c30">Catalogo cmClientClasses</entry>
+   <entry key="DG}-ccb0a47:1417f4cdf23:-7c08">Catalogo de systemUpTime</entry>
+   <entry key="DG}-ccb0a47:1417f4cdf23:-7c04">Rangos de Reset</entry>
+   <entry key="AG}-ccb0a47:1417f4cdf23:-7c16">DownStream</entry>
+   <entry key="AG}-ccb0a47:1417f4cdf23:-7c23">SignalNoiseRatio</entry>
+   <entry key="DG}-ccb0a47:1417f4cdf23:-7c23">Rangos de downstreamSignalNoiseRatio</entry>
+   <entry key="AG}-4405e27:14180987ba4:-7c2d">SystemUpTime</entry>
+   <entry key="DG}-ccb0a47:1417f4cdf23:-7c16">Rangos de downstreamReceivePower</entry>
+</properties>

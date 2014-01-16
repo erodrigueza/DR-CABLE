@@ -1,0 +1,30 @@
+<?xml version= '1.0' encoding= 'UTF-8' ?>
+<wsdl:definitions
+     name="OrNOCBuscaIncidByCta"
+     targetNamespace="http://xmlns.cablevision.net.mx/DrCable_SOA/DrCable/OrNOCBuscaIncidByCta"
+     xmlns:plnk="http://docs.oasis-open.org/wsbpel/2.0/plnktype"
+     xmlns:client="http://xmlns.cablevision.net.mx/DrCable_SOA/DrCable/OrNOCBuscaIncidByCta"
+     xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
+    >
+    <plnk:partnerLinkType name="OrNOCBuscaIncidByCta">
+        <plnk:role name="OrNOCBuscaIncidByCtaProvider" portType="client:OrNOCBuscaIncidByCta"/>
+    </plnk:partnerLinkType>
+    <wsdl:types>
+        <schema xmlns="http://www.w3.org/2001/XMLSchema">
+            <import namespace="http://xmlns.cablevision.net.mx/DrCable_SOA/DrCable/OrNOCBuscaIncidByCta"
+                 schemaLocation="xsd/OrNOCBuscaIncidByCta.xsd"/>
+        </schema>
+    </wsdl:types>
+    <wsdl:message name="OrNOCBuscaIncidByCtaRequestMessage">
+        <wsdl:part name="payload" element="client:process"/>
+    </wsdl:message>
+    <wsdl:message name="OrNOCBuscaIncidByCtaResponseMessage">
+        <wsdl:part name="payload" element="client:processResponse"/>
+    </wsdl:message>
+    <wsdl:portType name="OrNOCBuscaIncidByCta">
+        <wsdl:operation name="process">
+            <wsdl:input message="client:OrNOCBuscaIncidByCtaRequestMessage"/>
+            <wsdl:output message="client:OrNOCBuscaIncidByCtaResponseMessage"/>
+        </wsdl:operation>
+    </wsdl:portType>
+</wsdl:definitions>

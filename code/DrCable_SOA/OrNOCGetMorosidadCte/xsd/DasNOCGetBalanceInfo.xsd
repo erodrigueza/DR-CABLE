@@ -1,0 +1,65 @@
+<?xml version= '1.0' encoding= 'UTF-8' ?>
+<xs:schema version="1.0" targetNamespace="http://xmlns.cablevision.net.mx/DrCable_SOA/DrCable/DasNOCGetBalanceInfo"
+     xmlns:tns="http://xmlns.cablevision.net.mx/DrCable_SOA/DrCable/DasNOCGetBalanceInfo"
+     xmlns:xs="http://www.w3.org/2001/XMLSchema">
+    <xs:element name="BalanceInfoRequest" nillable="true" type="tns:balanceInfoInput"/>
+    <xs:element name="BalanceInfoResponse" nillable="true" type="tns:balanceInfoOutput"/>
+    <xs:complexType name="balanceInfoInput">
+        <xs:sequence>
+            <xs:element name="accountNo" type="xs:string" minOccurs="0"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="balanceInfoOutput">
+        <xs:sequence>
+            <xs:element name="balance" type="tns:balance" minOccurs="0"/>
+            <xs:element name="billinfo" type="tns:billinfo" minOccurs="0"/>
+            <xs:element name="resultMsg" type="xs:string" minOccurs="0"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="balance">
+        <xs:sequence>
+            <xs:element name="accountNo" type="xs:string" minOccurs="0"/>
+            <xs:element name="amountNotOverdue" type="xs:decimal" minOccurs="0"/>
+            <xs:element name="auditFlag" type="xs:int" minOccurs="0"/>
+            <xs:element name="buckets" type="tns:bucket" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+            <xs:element name="creditLimit" type="xs:decimal" minOccurs="0"/>
+            <xs:element name="currentBal" type="xs:decimal" minOccurs="0"/>
+            <xs:element name="lastBill" type="xs:string" minOccurs="0"/>
+            <xs:element name="lastPayment" type="xs:string" minOccurs="0"/>
+            <xs:element name="lastPaymentAmt" type="xs:decimal" minOccurs="0"/>
+            <xs:element name="totalCharges" type="xs:decimal" minOccurs="0"/>
+            <xs:element name="totalDebits" type="xs:decimal" minOccurs="0"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="bucket">
+        <xs:sequence>
+            <xs:element name="days" type="xs:int" minOccurs="0"/>
+            <xs:element name="due" type="xs:decimal" minOccurs="0"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="billinfo">
+        <xs:sequence>
+            <xs:element name="accountNo" type="xs:string" minOccurs="0"/>
+            <xs:element name="bills" type="tns:bill" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+            <xs:element name="currency" type="xs:string" minOccurs="0"/>
+            <xs:element name="currentTotal" type="xs:decimal" minOccurs="0"/>
+            <xs:element name="source" type="xs:string" minOccurs="0"/>
+            <xs:element name="status" type="xs:string" minOccurs="0"/>
+            <xs:element name="typeCode" type="xs:string" minOccurs="0"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="bill">
+        <xs:sequence>
+            <xs:element name="billNo" type="xs:string" minOccurs="0"/>
+            <xs:element name="createdDate" type="xs:string" minOccurs="0"/>
+            <xs:element name="currentTotal" type="xs:decimal" minOccurs="0"/>
+            <xs:element name="dueDate" type="xs:string" minOccurs="0"/>
+            <xs:element name="endDate" type="xs:string" minOccurs="0"/>
+            <xs:element name="guid" type="xs:string" minOccurs="0"/>
+            <xs:element name="invoiceNo" type="xs:string" minOccurs="0"/>
+            <xs:element name="previousTotal" type="xs:decimal" minOccurs="0"/>
+            <xs:element name="startDate" type="xs:string" minOccurs="0"/>
+            <xs:element name="totalDebits" type="xs:decimal" minOccurs="0"/>
+        </xs:sequence>
+    </xs:complexType>
+</xs:schema>

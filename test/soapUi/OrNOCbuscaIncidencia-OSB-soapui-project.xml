@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:soapui-project name="OrNOCbuscaIncidencia_OSB" resourceRoot="" soapui-version="4.0.0" xmlns:con="http://eviware.com/soapui/config"><con:settings/><con:interface xsi:type="con:WsdlInterface" wsaVersion="NONE" name="OrNOCBuscaIncidenciaBinding" type="wsdl" bindingName="{http://xmlns.cablevision.net.mx/DrCable_SOA/DrCable/OrNOCBuscaIncidencia}OrNOCBuscaIncidenciaBinding" soapVersion="1_1" anonymous="optional" definition="http://CVSOADES:7001/DrCable_OSB/Proxy/OrNOCBuscaIncidencia?wsdl" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:settings/><con:definitionCache type="TEXT" rootPart="http://CVSOADES:7001/DrCable_OSB/Proxy/OrNOCBuscaIncidencia?wsdl"><con:part><con:url>http://CVSOADES:7001/DrCable_OSB/Proxy/OrNOCBuscaIncidencia?wsdl</con:url><con:content><![CDATA[<wsdl:definitions name="OrNOCBuscaIncidencia" targetNamespace="http://xmlns.cablevision.net.mx/DrCable_SOA/DrCable/OrNOCBuscaIncidencia" xmlns:client="http://xmlns.cablevision.net.mx/DrCable_SOA/DrCable/OrNOCBuscaIncidencia" xmlns:ns1="http://xmlns.oracle.com/pcbpel/adapter/db/DBAuspice4" xmlns:ns2="http://xmlns.oracle.com/pcbpel/adapter/db/DBAuspice" xmlns:ns3="http://service.cablevision.net.mx/" xmlns:plnk="http://docs.oasis-open.org/wsbpel/2.0/plnktype" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:documentation>http://CVSOADES:8001/soa-infra/services/default/OrNOCBuscaIncidencia!1.0/OrNOCBuscaIncidencia.wsdl</wsdl:documentation>
+  <plnk:partnerLinkType name="OrNOCBuscaIncidencia">
+    <plnk:role name="OrNOCBuscaIncidenciaProvider" portType="client:OrNOCBuscaIncidencia"/>
+  </plnk:partnerLinkType>
+  <wsdl:types>
+    <schema xmlns="http://www.w3.org/2001/XMLSchema">
+      <import namespace="http://xmlns.cablevision.net.mx/DrCable_SOA/DrCable/OrNOCBuscaIncidencia" schemaLocation="http://CVSOADES:7001/DrCable_OSB/Proxy/OrNOCBuscaIncidencia?SCHEMA%2FDrCable_OSB%2Fwsdl%2Fxsd%2FOrNOCBuscaIncidencia_Schema"/>
+    </schema>
+    <xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+      <xsd:import namespace="http://xmlns.oracle.com/pcbpel/adapter/db/DBAuspice" schemaLocation="http://CVSOADES:7001/DrCable_OSB/Proxy/OrNOCBuscaIncidencia?SCHEMA%2FDrCable_OSB%2Fwsdl%2Fxsd%2FAuspiceDB_Schema"/>
+    </xsd:schema>
+    <xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+      <xsd:import namespace="http://service.cablevision.net.mx/" schemaLocation="http://CVSOADES:7001/DrCable_OSB/Proxy/OrNOCBuscaIncidencia?SCHEMA%2FDrCable_OSB%2Fwsdl%2Fxsd%2FRemedy_Schema"/>
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="OrNOCBuscaIncidenciaRequestMessage">
+    <wsdl:part element="client:process" name="payload"/>
+  </wsdl:message>
+  <wsdl:message name="OrNOCBuscaIncidenciaResponseMessage">
+    <wsdl:part element="client:processResponse" name="payload"/>
+  </wsdl:message>
+  <wsdl:portType name="OrNOCBuscaIncidencia">
+    <wsdl:operation name="process">
+      <wsdl:input message="client:OrNOCBuscaIncidenciaRequestMessage"/>
+      <wsdl:output message="client:OrNOCBuscaIncidenciaResponseMessage"/>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="OrNOCBuscaIncidenciaBinding" type="client:OrNOCBuscaIncidencia">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="process">
+      <soap:operation soapAction="process" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="ornocbuscaincidencia_client_ep">
+    <wsdl:port binding="client:OrNOCBuscaIncidenciaBinding" name="OrNOCBuscaIncidencia_pt">
+      <soap:address location="http://CVSOADES:7001/DrCable_OSB/Proxy/OrNOCBuscaIncidencia"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>]]></con:content><con:type>http://schemas.xmlsoap.org/wsdl/</con:type></con:part><con:part><con:url>http://CVSOADES:7001/DrCable_OSB/Proxy/OrNOCBuscaIncidencia?SCHEMA%2FDrCable_OSB%2Fwsdl%2Fxsd%2FOrNOCBuscaIncidencia_Schema</con:url><con:content><![CDATA[<schema attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://xmlns.cablevision.net.mx/DrCable_SOA/DrCable/OrNOCBuscaIncidencia" xmlns="http://www.w3.org/2001/XMLSchema" xmlns:cte="http://service.cablevision.net.mx/" xmlns:aus="http://xmlns.oracle.com/pcbpel/adapter/db/DBAuspice">
+  <import namespace="http://service.cablevision.net.mx/" schemaLocation="http://CVSOADES:7001/DrCable_OSB/Proxy/OrNOCBuscaIncidencia?SCHEMA%2FDrCable_OSB%2Fwsdl%2Fxsd%2FRemedy_Schema"/>
+  <import namespace="http://xmlns.oracle.com/pcbpel/adapter/db/DBAuspice" schemaLocation="http://CVSOADES:7001/DrCable_OSB/Proxy/OrNOCBuscaIncidencia?SCHEMA%2FDrCable_OSB%2Fwsdl%2Fxsd%2FAuspiceDB_Schema"/>
+  <element name="process">
+    <complexType>
+      <sequence>
+        <element name="macAddress" minOccurs="1" maxOccurs="1">
+          <simpleType>
+            <restriction base="string">
+              <pattern value="([0-9a-f]{2}:){5}[0-9a-f]{2}"/>
+              <pattern value=""/>
+            </restriction>
+          </simpleType>
+        </element>
+        <element name="tipoServicio" type="string" minOccurs="0"/>
+        <element name="rol" type="string" minOccurs="0"/>
+        <element name="usuario" type="string" minOccurs="0"/>
+      </sequence>
+    </complexType>
+  </element>
+  <element name="processResponse">
+    <complexType>
+      <sequence>
+        <element name="result" type="int" minOccurs="0"/>
+        <element name="msg" type="string" minOccurs="0"/>
+        <element name="siguienteOperacion" type="string" minOccurs="0"/>
+        <element name="det_incidente" type="cte:helpDeskOutput" minOccurs="0"/>
+        <element name="det_equipo" type="aus:DBAuspiceOutput" minOccurs="0"/>
+        <element name="det_error" type="string" minOccurs="0"/>
+      </sequence>
+    </complexType>
+  </element>
+</schema>]]></con:content><con:type>http://www.w3.org/2001/XMLSchema</con:type></con:part><con:part><con:url>http://CVSOADES:7001/DrCable_OSB/Proxy/OrNOCBuscaIncidencia?SCHEMA%2FDrCable_OSB%2Fwsdl%2Fxsd%2FRemedy_Schema</con:url><con:content><![CDATA[<xs:schema version="1.0" targetNamespace="http://service.cablevision.net.mx/" xmlns:tns="http://service.cablevision.net.mx/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="searchIncident" type="tns:searchIncident"/>
+  <xs:element name="searchIncidentResponse" type="tns:searchIncidentResponse"/>
+  <xs:complexType name="searchIncident">
+    <xs:sequence>
+      <xs:element name="arg0" type="tns:helpDeskInput" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="helpDeskInput">
+    <xs:sequence>
+      <xs:element name="incidentNumber" type="xs:string" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="searchIncidentResponse">
+    <xs:sequence>
+      <xs:element name="return" type="tns:helpDeskOutput" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="helpDeskOutput">
+    <xs:sequence>
+      <xs:element name="assignedGroup" type="xs:string" minOccurs="0"/>
+      <xs:element name="description" type="xs:string" minOccurs="0"/>
+      <xs:element name="incidentNumber" type="xs:string" minOccurs="0"/>
+      <xs:element name="lastModifiedBy" type="xs:string" minOccurs="0"/>
+      <xs:element name="lastModifiedDate" type="xs:string" minOccurs="0"/>
+      <xs:element name="productCatTier1" type="xs:string" minOccurs="0"/>
+      <xs:element name="productCatTier2" type="xs:string" minOccurs="0"/>
+      <xs:element name="resolution" type="xs:string" minOccurs="0"/>
+      <xs:element name="resultMsg" type="xs:string" minOccurs="0"/>
+      <xs:element name="status" type="xs:string" minOccurs="0"/>
+      <xs:element name="submitDate" type="xs:string" minOccurs="0"/>
+      <xs:element name="submitter" type="xs:string" minOccurs="0"/>
+      <xs:element name="summary" type="xs:string" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+</xs:schema>]]></con:content><con:type>http://www.w3.org/2001/XMLSchema</con:type></con:part><con:part><con:url>http://CVSOADES:7001/DrCable_OSB/Proxy/OrNOCBuscaIncidencia?SCHEMA%2FDrCable_OSB%2Fwsdl%2Fxsd%2FAuspiceDB_Schema</con:url><con:content><![CDATA[<xs:schema targetNamespace="http://xmlns.oracle.com/pcbpel/adapter/db/DBAuspice" elementFormDefault="qualified" attributeFormDefault="qualified" xmlns="http://xmlns.oracle.com/pcbpel/adapter/db/DBAuspice" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="DBAuspiceInput" type="DBAuspiceInput"/>
+  <xs:complexType name="DBAuspiceInput">
+    <xs:sequence>
+      <xs:element name="MAC_ADDRESS" type="xs:string" nillable="true"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="DBAuspiceOutputCollection" type="DBAuspiceOutputCollection"/>
+  <xs:complexType name="DBAuspiceOutputCollection">
+    <xs:sequence>
+      <xs:element name="DBAuspiceOutput" type="DBAuspiceOutput" minOccurs="0" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="DBAuspiceOutput">
+    <xs:sequence>
+      <xs:element name="TROUBLE_TICKET_ID" type="xs:string" nillable="true"/>
+      <xs:element name="IP_ADDRESS" type="xs:string" nillable="true"/>
+      <xs:element name="MAC_ADDRESS" type="xs:string" nillable="true"/>
+      <xs:element name="HFC_GROUP" type="xs:string" nillable="true"/>
+      <xs:element name="CMTS_NAME" type="xs:string" nillable="true"/>
+      <xs:element name="US_CHANNEL_NAME" type="xs:string" nillable="true"/>
+      <xs:element name="US_CHANNEL_INDEX" type="xs:int" nillable="true"/>
+      <xs:element name="DOCSIS_VERSION" type="xs:string" nillable="true"/>
+      <xs:element name="DEVICE_TYPE" type="xs:string" nillable="true"/>
+      <xs:element name="VENDOR" type="xs:string" nillable="true"/>
+      <xs:element name="MODEL" type="xs:string" nillable="true"/>
+      <xs:element name="SOFTWARE_VERSION" type="xs:string" nillable="true"/>
+      <xs:element name="FIRMWARE_VERSION" type="xs:string" nillable="true"/>
+      <xs:element name="BOOTR" type="xs:string" nillable="true"/>
+      <xs:element name="LAST_STATE_CHANGE" type="xs:dateTime" nillable="true"/>
+    </xs:sequence>
+  </xs:complexType>
+</xs:schema>]]></con:content><con:type>http://www.w3.org/2001/XMLSchema</con:type></con:part></con:definitionCache><con:endpoints><con:endpoint>http://CVSOADES:7001/DrCable_OSB/Proxy/OrNOCBuscaIncidencia</con:endpoint></con:endpoints><con:operation isOneWay="false" action="process" name="process" bindingOperationName="process" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call name="Request 1"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://CVSOADES:7001/DrCable_OSB/Proxy/OrNOCBuscaIncidencia</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:orn="http://xmlns.cablevision.net.mx/DrCable_SOA/DrCable/OrNOCBuscaIncidencia">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <orn:process>
+         <orn:macAddress>145bd13b7669</orn:macAddress>
+         <!--Optional:-->
+         <orn:tipoServicio>?</orn:tipoServicio>
+         <!--Optional:-->
+         <orn:rol>?</orn:rol>
+         <!--Optional:-->
+         <orn:usuario>?</orn:usuario>
+      </orn:process>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="process"/><con:wsrmConfig version="1.2"/></con:call></con:operation></con:interface><con:requirements/><con:properties/><con:wssContainer/><con:databaseConnectionContainer/><con:reporting><con:xmlTemplates/><con:parameters/></con:reporting><con:sensitiveInformation/></con:soapui-project>

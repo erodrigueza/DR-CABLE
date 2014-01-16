@@ -1,0 +1,15 @@
+<?xml version= '1.0' encoding= 'UTF-8' ?>
+<wsdl:definitions
+     name="HabilidadesExtra"
+     targetNamespace="http://tempuri.org/"
+     xmlns:plnk="http://docs.oasis-open.org/wsbpel/2.0/plnktype"
+     xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
+     xmlns:bpws="http://docs.oasis-open.org/wsbpel/2.0/process/executable"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+     xmlns:WL5G3N1="http://tempuri.org/"
+    >
+    <plnk:partnerLinkType name="HabilidadesExtra">
+        <plnk:role name="IHabilidadesExtra" portType="WL5G3N1:IHabilidadesExtra"/>
+    </plnk:partnerLinkType>
+    <wsdl:import namespace="http://tempuri.org/" location="HabilidadesExtra.wsdl"/>
+</wsdl:definitions>

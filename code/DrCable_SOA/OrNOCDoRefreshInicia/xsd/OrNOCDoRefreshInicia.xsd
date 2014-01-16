@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema attributeFormDefault="unqualified" elementFormDefault="qualified"
+        targetNamespace="http://xmlns.cablevision.net.mx/DrCable_SOA/DrCable/OrNOCDoRefreshInicia"
+        xmlns="http://www.w3.org/2001/XMLSchema">
+ <element name="process">
+  <complexType>
+   <sequence>
+    <element name="account" minOccurs="1" maxOccurs="1">
+     <simpleType>
+      <restriction base="string">
+       <pattern value="([0-9]{8})[0-9]*"/>
+      </restriction>
+     </simpleType>
+    </element>
+    <element name="dacIdentifier" minOccurs="1" maxOccurs="1">
+     <simpleType>
+      <restriction base="string">
+       <pattern value="([0-9a-zA-Z]{1})[0-9a-zA-Z:\-]*"/>
+      </restriction>
+     </simpleType>
+    </element>
+    <element name="deviceId" minOccurs="1" maxOccurs="1">
+     <simpleType>
+      <restriction base="string">
+       <pattern value="([0-9a-zA-Z]{1})[0-9a-zA-Z]*"/>
+      </restriction>
+     </simpleType>
+    </element>
+    <element name="flag" minOccurs="1" maxOccurs="1">
+     <simpleType>
+      <restriction base="int">
+       <pattern value="[0-1]{1}"/>
+      </restriction>
+     </simpleType>
+    </element>
+    <element name="login" minOccurs="1" maxOccurs="1">
+     <simpleType>
+      <restriction base="string">
+       <pattern value="([0-9a-zA-Z]{1})[0-9a-zA-Z:\-]*"/>
+      </restriction>
+     </simpleType>
+    </element>
+   </sequence>
+  </complexType>
+ </element>
+ <element name="processResponse">
+  <complexType>
+   <sequence>
+    <element name="result" type="int" minOccurs="0"/>
+    <element name="msg" type="string" minOccurs="0"/>
+    <element name="det_error" type="string" minOccurs="0"/>
+   </sequence>
+  </complexType>
+ </element>
+</schema>

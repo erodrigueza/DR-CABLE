@@ -1,0 +1,92 @@
+<WL5G3N0:definitions xmlns:WL5G3N0="http://schemas.xmlsoap.org/wsdl/"
+                     xmlns:WL5G3N1="http://tempuri.org/"
+                     xmlns:WL5G3N2="http://www.w3.org/2006/05/addressing/wsdl"
+                     xmlns:WL5G3N3="http://schemas.xmlsoap.org/wsdl/soap/"
+                     name="HabilidadesExtra"
+                     targetNamespace="http://tempuri.org/">
+  <WL5G3N0:types>
+    <xsd:schema xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract"
+                xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
+                xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/"
+                xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/"
+                xmlns:tns="http://tempuri.org/"
+                xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing"
+                xmlns:wsa10="http://www.w3.org/2005/08/addressing"
+                xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata"
+                xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy"
+                xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl"
+                xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
+                xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy"
+                xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd"
+                xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex"
+                xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+                targetNamespace="http://tempuri.org/Imports">
+      <xsd:import namespace="http://tempuri.org/"
+                  schemaLocation="xsd/HabilidadesExtra0.xsd"/>
+      <xsd:import namespace="http://schemas.microsoft.com/2003/10/Serialization/"
+                  schemaLocation="xsd/HabilidadesExtra1.xsd"/>
+      <xsd:import namespace="http://schemas.datacontract.org/2004/07/AMDrCable"
+                  schemaLocation="xsd/HabilidadesExtra2.xsd"/>
+      <xsd:import namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays"
+                  schemaLocation="xsd/HabilidadesExtra3.xsd"/>
+    </xsd:schema>
+  </WL5G3N0:types>
+  <WL5G3N0:message name="IHabilidadesExtra_hAprovisionamiento_InputMessage">
+    <WL5G3N0:part element="WL5G3N1:hAprovisionamiento" name="parameters"/>
+  </WL5G3N0:message>
+  <WL5G3N0:message name="IHabilidadesExtra_hAprovisionamiento_OutputMessage">
+    <WL5G3N0:part element="WL5G3N1:hAprovisionamientoResponse"
+                  name="parameters"/>
+  </WL5G3N0:message>
+  <WL5G3N0:message name="IHabilidadesExtra_hGraficasSevOne_InputMessage">
+    <WL5G3N0:part element="WL5G3N1:hGraficasSevOne" name="parameters"/>
+  </WL5G3N0:message>
+  <WL5G3N0:message name="IHabilidadesExtra_hGraficasSevOne_OutputMessage">
+    <WL5G3N0:part element="WL5G3N1:hGraficasSevOneResponse" name="parameters"/>
+  </WL5G3N0:message>
+  <WL5G3N0:portType name="IHabilidadesExtra">
+    <WL5G3N0:operation name="hAprovisionamiento">
+      <WL5G3N0:input WL5G3N2:Action="http://tempuri.org/IHabilidadesExtra/hAprovisionamiento"
+                     message="WL5G3N1:IHabilidadesExtra_hAprovisionamiento_InputMessage"/>
+      <WL5G3N0:output WL5G3N2:Action="http://tempuri.org/IHabilidadesExtra/hAprovisionamientoResponse"
+                      message="WL5G3N1:IHabilidadesExtra_hAprovisionamiento_OutputMessage"/>
+    </WL5G3N0:operation>
+    <WL5G3N0:operation name="hGraficasSevOne">
+      <WL5G3N0:input WL5G3N2:Action="http://tempuri.org/IHabilidadesExtra/hGraficasSevOne"
+                     message="WL5G3N1:IHabilidadesExtra_hGraficasSevOne_InputMessage"/>
+      <WL5G3N0:output WL5G3N2:Action="http://tempuri.org/IHabilidadesExtra/hGraficasSevOneResponse"
+                      message="WL5G3N1:IHabilidadesExtra_hGraficasSevOne_OutputMessage"/>
+    </WL5G3N0:operation>
+  </WL5G3N0:portType>
+  <WL5G3N0:binding name="BasicHttpBinding_IHabilidadesExtra"
+                   type="WL5G3N1:IHabilidadesExtra">
+    <WL5G3N3:binding style="document"
+                     transport="http://schemas.xmlsoap.org/soap/http"/>
+    <WL5G3N0:operation name="hAprovisionamiento">
+      <WL5G3N3:operation soapAction="http://tempuri.org/IHabilidadesExtra/hAprovisionamiento"
+                         style="document"/>
+      <WL5G3N0:input>
+        <WL5G3N3:body use="literal"/>
+      </WL5G3N0:input>
+      <WL5G3N0:output>
+        <WL5G3N3:body use="literal"/>
+      </WL5G3N0:output>
+    </WL5G3N0:operation>
+    <WL5G3N0:operation name="hGraficasSevOne">
+      <WL5G3N3:operation soapAction="http://tempuri.org/IHabilidadesExtra/hGraficasSevOne"
+                         style="document"/>
+      <WL5G3N0:input>
+        <WL5G3N3:body use="literal"/>
+      </WL5G3N0:input>
+      <WL5G3N0:output>
+        <WL5G3N3:body use="literal"/>
+      </WL5G3N0:output>
+    </WL5G3N0:operation>
+  </WL5G3N0:binding>
+  <WL5G3N0:service name="HabilidadesExtra">
+    <WL5G3N0:port binding="WL5G3N1:BasicHttpBinding_IHabilidadesExtra"
+                  name="BasicHttpBinding_IHabilidadesExtra">
+      <WL5G3N3:address location="http://CVSOADES:7001/DrCable_OSB/Proxy/HabilidadesExtra"/>
+    </WL5G3N0:port>
+  </WL5G3N0:service>
+</WL5G3N0:definitions>

@@ -1,0 +1,44 @@
+<definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
+	xmlns:tns="http://xmlns.cablevision.net.mx/DrCable_SOA/DrCable/TskNOCDoDeviceRefresh"
+	xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.xmlsoap.org/wsdl/"
+	targetNamespace="http://xmlns.cablevision.net.mx/DrCable_SOA/DrCable/TskNOCDoDeviceRefresh"
+	name="TskNOCDoDeviceRefresh">
+	<types>
+		<xsd:schema>
+			<xsd:import
+				namespace="http://xmlns.cablevision.net.mx/DrCable_SOA/DrCable/TskNOCDoDeviceRefresh"
+				schemaLocation="xsd/TskNOCDoDeviceRefresh.xsd" />
+		</xsd:schema>
+	</types>
+	<message name="doDeviceRefresh">
+		<part name="resquest" element="tns:DeviceRefreshRequest" />
+	</message>
+	<message name="doDeviceRefreshResponse">
+		<part name="response" element="tns:DeviceRefreshResponse" />
+	</message>
+	<portType name="TskNOCDoDeviceRefreshPort">
+		<operation name="doDeviceRefresh">
+			<input message="tns:doDeviceRefresh" />
+			<output message="tns:doDeviceRefreshResponse" />
+		</operation>
+	</portType>
+	<binding name="TskNOCDoDeviceRefreshPortBinding" type="tns:TskNOCDoDeviceRefreshPort">
+		<soap:binding transport="http://schemas.xmlsoap.org/soap/http"
+			style="document" />
+		<operation name="doDeviceRefresh">
+			<soap:operation soapAction="" />
+			<input>
+				<soap:body use="literal" />
+			</input>
+			<output>
+				<soap:body use="literal" />
+			</output>
+		</operation>
+	</binding>
+	<service name="TskNOCDoDeviceRefresh">
+		<port name="TskNOCDoDeviceRefreshPort" binding="tns:TskNOCDoDeviceRefreshPortBinding">
+			<soap:address
+				location="http://cvsoades:8001/TskNOCDoDeviceRefresh/TskNOCDoDeviceRefresh" />
+		</port>
+	</service>
+</definitions>

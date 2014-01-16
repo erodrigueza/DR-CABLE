@@ -1,0 +1,40 @@
+<schema xmlns="http://www.w3.org/2001/XMLSchema"
+	xmlns:cte="http://xmlns.cablevision.net.mx/DrCable_SOA/DrCable/DasNOCSearchHelpDesk"
+	xmlns:aus="http://xmlns.oracle.com/pcbpel/adapter/db/DBAuspice"
+	attributeFormDefault="unqualified" elementFormDefault="qualified"
+	targetNamespace="http://xmlns.cablevision.net.mx/DrCable_SOA/DrCable/OrNOCBuscaIncidencia">
+	<import
+		namespace="http://xmlns.cablevision.net.mx/DrCable_SOA/DrCable/DasNOCSearchHelpDesk"
+		schemaLocation="DasNOCSearchHelpDesk.xsd" />
+	<import namespace="http://xmlns.oracle.com/pcbpel/adapter/db/DBAuspice"
+		schemaLocation="DBAuspice.xsd" />
+	<element name="process">
+		<complexType>
+			<sequence>
+				<element name="macAddress" minOccurs="1" maxOccurs="1">
+					<simpleType>
+						<restriction base="string">
+							<pattern value="([0-9a-fA-F]{2}:){5}[0-9a-fA-F]{2}" />
+						</restriction>
+					</simpleType>
+				</element>
+				<element name="tipoServicio" type="string" minOccurs="0" />
+				<element name="rol" type="string" minOccurs="0" />
+				<element name="usuario" type="string" minOccurs="0" />
+			</sequence>
+		</complexType>
+	</element>
+	<element name="processResponse">
+		<complexType>
+			<sequence>
+				<element name="result" type="int" minOccurs="0" />
+				<element name="msg" type="string" minOccurs="0" />
+				<element name="det_error" type="string" minOccurs="0" />
+				<element name="det_incidente" type="cte:helpDeskOutput"
+					minOccurs="0" />
+				<element name="det_equipo" type="aus:DBAuspiceOutput"
+					minOccurs="0" />
+			</sequence>
+		</complexType>
+	</element>
+</schema>

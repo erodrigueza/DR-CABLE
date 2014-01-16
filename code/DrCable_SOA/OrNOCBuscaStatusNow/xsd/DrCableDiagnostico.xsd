@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema attributeFormDefault="unqualified" elementFormDefault="qualified"
+        targetNamespace="http://xmlns.cablevision.net.mx/DrCable_SOA/DrCable/GetDataFile"
+        xmlns="http://www.w3.org/2001/XMLSchema"
+        xmlns:tns="http://xmlns.cablevision.net.mx/DrCable_SOA/DrCable/GetDataFile"
+        xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <element name="drCable">
+    <complexType>
+      <sequence>
+        <element name="code" type="integer"/>
+        <element name="macAddress" type="string"/>
+        <element ref="tns:diagnosticos"/>
+        <element ref="tns:tecnologia"/>
+      </sequence>
+    </complexType>
+  </element>
+
+  <element name="diagnosticos">
+    <complexType>
+      <sequence>
+        <element maxOccurs="unbounded" ref="tns:diagnostico"/>
+      </sequence>
+    </complexType>
+  </element>
+
+  <element name="diagnostico">
+    <complexType>
+      <sequence>
+      <element name="explicacion" type="string"/>
+      <element name="id" type="integer"/>
+      <element name="txt" type="string"/>
+      <element minOccurs="1" ref="tns:checkList"/>
+      </sequence>
+    </complexType>
+  </element>
+
+  <element name="tecnologia">
+    <complexType>
+      <sequence>
+        <element maxOccurs="unbounded" ref="tns:OID"/>
+      </sequence>
+    </complexType>
+  </element>
+
+  <element name="OID">
+    <complexType>
+      <simpleContent>
+        <extension base="string">
+          <attribute name="tipo" use="required" type="integer"/>
+          <attribute name="value" use="required" type="string"/>
+        </extension>
+      </simpleContent>
+    </complexType>
+  </element>
+
+  <element name="checkList">
+    <complexType>
+      <sequence>
+        <element maxOccurs="unbounded" ref="tns:itemsCheck"/>
+      </sequence>
+    </complexType>
+  </element>
+  
+  <element name="itemsCheck">
+    <complexType>
+       <sequence>
+        <element name="name" type="string" maxOccurs="1" minOccurs="1"/>
+        <element name="value" type="string" maxOccurs="1" minOccurs="1"/>
+      </sequence>
+    </complexType>
+  </element>
+
+</schema>

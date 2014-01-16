@@ -1,0 +1,33 @@
+<?xml version= '1.0' encoding= 'UTF-8' ?>
+<wsdl:definitions
+     name="OrNOCGetDiagnostiDAC"
+     targetNamespace="http://xmlns.cablevision.net.mx/DrCable_SOA/DrCable/OrNOCGetDiagnostiDAC"
+     xmlns:ns1="http://dacInvoker.vitria.cablevision.com"
+     xmlns:plnk="http://docs.oasis-open.org/wsbpel/2.0/plnktype"
+     xmlns:client="http://xmlns.cablevision.net.mx/DrCable_SOA/DrCable/OrNOCGetDiagnostiDAC"
+     xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
+    >
+    <plnk:partnerLinkType name="OrNOCGetDiagnostiDAC">
+        <plnk:role name="OrNOCGetDiagnostiDACProvider" portType="client:OrNOCGetDiagnostiDAC"/>
+    </plnk:partnerLinkType>
+    <wsdl:types>
+        <schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:ns1="http://dacInvoker.vitria.cablevision.com"
+             xmlns:plnk="http://docs.oasis-open.org/wsbpel/2.0/plnktype" xmlns:client="http://xmlns.cablevision.net.mx/DrCable_SOA/DrCable/OrNOCGetDiagnostiDAC"
+             xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+            <import namespace="http://xmlns.cablevision.net.mx/DrCable_SOA/DrCable/OrNOCGetDiagnostiDAC"
+                 schemaLocation="xsd/OrNOCGetDiagnostiDAC.xsd"/>
+        </schema>
+    </wsdl:types>
+    <wsdl:message name="OrNOCGetDiagnostiDACRequestMessage">
+        <wsdl:part name="payload" element="client:process"/>
+    </wsdl:message>
+    <wsdl:message name="OrNOCGetDiagnostiDACResponseMessage">
+        <wsdl:part name="payload" element="client:processResponse"/>
+    </wsdl:message>
+    <wsdl:portType name="OrNOCGetDiagnostiDAC">
+        <wsdl:operation name="process">
+            <wsdl:input message="client:OrNOCGetDiagnostiDACRequestMessage"/>
+            <wsdl:output message="client:OrNOCGetDiagnostiDACResponseMessage"/>
+        </wsdl:operation>
+    </wsdl:portType>
+</wsdl:definitions>

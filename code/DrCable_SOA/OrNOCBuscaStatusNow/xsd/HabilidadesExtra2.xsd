@@ -1,0 +1,95 @@
+<?xml version= '1.0' encoding= 'UTF-8' ?>
+<xs:schema elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/AMDrCable"
+     xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://schemas.datacontract.org/2004/07/AMDrCable">
+    <xs:import schemaLocation="HabilidadesExtra1.xsd"
+         namespace="http://schemas.microsoft.com/2003/10/Serialization/"/>
+    <xs:import schemaLocation="HabilidadesExtra3.xsd"
+         namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays"/>
+    <xs:complexType name="DrCable.Aprovisionamiento">
+        <xs:annotation>
+            <xs:appinfo>
+                <IsValueType xmlns="http://schemas.microsoft.com/2003/10/Serialization/">true</IsValueType>
+            </xs:appinfo>
+        </xs:annotation>
+        <xs:sequence>
+            <xs:element minOccurs="0" name="cmClientClasses" nillable="true" type="xs:string"/>
+            <xs:element minOccurs="0" name="cmDescription" nillable="true" type="xs:string"/>
+            <xs:element minOccurs="0" name="cmMacAddress" nillable="true" type="xs:string"/>
+            <xs:element minOccurs="0" name="cmMaxCPE" type="xs:int"/>
+            <xs:element minOccurs="0" name="cmName" nillable="true" type="xs:string"/>
+            <xs:element minOccurs="0" name="infoExtra" type="tns:DrCable.AprInfoExtra"/>
+            <xs:element minOccurs="0" name="objectClass" nillable="true" type="xs:string"/>
+            <xs:element minOccurs="0" name="phoneNumber" nillable="true" type="xs:string"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:element name="DrCable.Aprovisionamiento" nillable="true" type="tns:DrCable.Aprovisionamiento"/>
+    <xs:complexType name="DrCable.AprInfoExtra">
+        <xs:annotation>
+            <xs:appinfo>
+                <IsValueType xmlns="http://schemas.microsoft.com/2003/10/Serialization/">true</IsValueType>
+            </xs:appinfo>
+        </xs:annotation>
+        <xs:sequence>
+            <xs:element minOccurs="0" name="mta" type="tns:DrCable.MTA"/>
+            <xs:element minOccurs="0" name="sip" nillable="true" type="tns:ArrayOfDrCable.SIP"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:element name="DrCable.AprInfoExtra" nillable="true" type="tns:DrCable.AprInfoExtra"/>
+    <xs:complexType name="DrCable.MTA">
+        <xs:annotation>
+            <xs:appinfo>
+                <IsValueType xmlns="http://schemas.microsoft.com/2003/10/Serialization/">true</IsValueType>
+            </xs:appinfo>
+        </xs:annotation>
+        <xs:sequence>
+            <xs:element minOccurs="0" name="description" nillable="true" type="xs:string"/>
+            <xs:element minOccurs="0" name="serviceClass" nillable="true" type="xs:string"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:element name="DrCable.MTA" nillable="true" type="tns:DrCable.MTA"/>
+    <xs:complexType name="ArrayOfDrCable.SIP">
+        <xs:sequence>
+            <xs:element minOccurs="0" maxOccurs="unbounded" name="DrCable.SIP" type="tns:DrCable.SIP"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:element name="ArrayOfDrCable.SIP" nillable="true" type="tns:ArrayOfDrCable.SIP"/>
+    <xs:complexType name="DrCable.SIP">
+        <xs:annotation>
+            <xs:appinfo>
+                <IsValueType xmlns="http://schemas.microsoft.com/2003/10/Serialization/">true</IsValueType>
+            </xs:appinfo>
+        </xs:annotation>
+        <xs:sequence>
+            <xs:element minOccurs="0" name="lineDisplayName" nillable="true" type="xs:string"/>
+            <xs:element minOccurs="0" name="login" nillable="true" type="xs:string"/>
+            <xs:element minOccurs="0" name="password" nillable="true" type="xs:string"/>
+            <xs:element minOccurs="0" name="phoneNumber" nillable="true" type="xs:string"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:element name="DrCable.SIP" nillable="true" type="tns:DrCable.SIP"/>
+    <xs:complexType name="DrCable.GraficasSevOneRq">
+        <xs:annotation>
+            <xs:appinfo>
+                <IsValueType xmlns="http://schemas.microsoft.com/2003/10/Serialization/">true</IsValueType>
+            </xs:appinfo>
+        </xs:annotation>
+        <xs:sequence>
+            <xs:element minOccurs="0" name="cableUpStream" nillable="true" type="xs:string"/>
+            <xs:element minOccurs="0" name="hub" nillable="true" type="xs:string"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:element name="DrCable.GraficasSevOneRq" nillable="true" type="tns:DrCable.GraficasSevOneRq"/>
+    <xs:complexType name="DrCable.GraficasSevOneRp">
+        <xs:annotation>
+            <xs:appinfo>
+                <IsValueType xmlns="http://schemas.microsoft.com/2003/10/Serialization/">true</IsValueType>
+            </xs:appinfo>
+        </xs:annotation>
+        <xs:sequence>
+            <xs:element minOccurs="0" name="URLs" nillable="true" type="q1:ArrayOfstring" xmlns:q1="http://schemas.microsoft.com/2003/10/Serialization/Arrays"/>
+            <xs:element minOccurs="0" name="error" nillable="true" type="xs:string"/>
+            <xs:element minOccurs="0" name="obtenido" type="xs:boolean"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:element name="DrCable.GraficasSevOneRp" nillable="true" type="tns:DrCable.GraficasSevOneRp"/>
+</xs:schema>

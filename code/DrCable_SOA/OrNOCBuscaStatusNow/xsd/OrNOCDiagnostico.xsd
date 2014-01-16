@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema attributeFormDefault="unqualified" elementFormDefault="qualified"
+        targetNamespace="http://xmlns.cablevision.net.mx/DrCable_SOA/DrCable/OrNOCDiagnostico"
+        xmlns="http://www.w3.org/2001/XMLSchema"
+        xmlns:tns="http://xmlns.cablevision.net.mx/DrCable_SOA/DrCable/OrNOCDiagnostico">
+ <element name="process">
+  <complexType>
+   <sequence>
+    <element name="statusModem" type="string" minOccurs="0"/>
+    <element name="configFile" type="string" minOccurs="0"/>
+    <element name="signalNoiseRatio" type="float" minOccurs="0"/>
+    <element name="upStream" type="float" minOccurs="0"/>
+    <element name="downStream" type="float" minOccurs="0"/>
+    <element name="systemUpTime" type="string" minOccurs="0"/>
+    <element name="reset" type="int" minOccurs="0"/>
+    <element name="lostSyncs" type="int" minOccurs="0"/>
+    <!-- TELEFONIA -->
+    <element name="cmClientClasses" type="string" minOccurs="0"/>
+    <element name="tecnologia" type="string" minOccurs="0"/>
+    <element name="provisioningState" type="string" minOccurs="0"/>
+    <element name="batteryStatus" type="string" minOccurs="0"/>
+    <element name="stateLine" type="string" minOccurs="0"/>
+    <element name="lastDiagnostic" type="string" minOccurs="0"/>
+   </sequence>
+  </complexType>
+ </element>
+ <element name="processResponse">
+  <complexType>
+   <sequence>
+    <element name="codigo" type="int"/>
+    <element name="texto" type="string"/>
+    <element name="explicacion" type="string"/>
+   </sequence>
+  </complexType>
+ </element>
+</schema>

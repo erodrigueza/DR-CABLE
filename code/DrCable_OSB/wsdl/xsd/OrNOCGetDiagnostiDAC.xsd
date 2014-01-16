@@ -1,0 +1,105 @@
+<schema xmlns="http://www.w3.org/2001/XMLSchema"
+	xmlns:tns="http://xmlns.cablevision.net.mx/DrCable_SOA/DrCable/OrNOCGetDiagnostiDAC"
+	attributeFormDefault="unqualified" elementFormDefault="qualified"
+	targetNamespace="http://xmlns.cablevision.net.mx/DrCable_SOA/DrCable/OrNOCGetDiagnostiDAC">
+	<element name="process">
+		<complexType>
+			<sequence>
+				<element name="numSerieDiagnostico" type="string" />
+				<element name="itemsServicio" type="tns:items" />
+				<element name="itemsFacturacion" type="tns:items" />
+				<element name="direccionPrincipal" type="tns:direccion" />
+			</sequence>
+		</complexType>
+	</element>
+	<element name="processResponse">
+		<complexType>
+			<sequence>
+				<element name="result" type="int" minOccurs="0" />
+				<element name="msg" type="string" minOccurs="0" />
+				<element name="det_error" type="string" minOccurs="0" />
+				<element name="diagnosticoDAC" type="tns:diagnostico"
+					minOccurs="0" />
+				<element name="responseDAC" type="tns:ResponseDACVO"
+					minOccurs="0" />
+				<element ref="tns:checkList" />
+			</sequence>
+		</complexType>
+	</element>
+	<complexType name="items">
+		<sequence>
+			<element name="item" type="tns:item" maxOccurs="unbounded"
+				minOccurs="1" />
+		</sequence>
+	</complexType>
+	<complexType name="item">
+		<sequence>
+			<element name="numeroSerie" type="string" minOccurs="1" />
+			<element name="status" type="string" />
+			<element name="producto" type="string" />
+		</sequence>
+	</complexType>
+	<complexType name="direccion">
+		<sequence>
+			<element name="hub" type="string" minOccurs="1" />
+			<element name="retorno" type="string" minOccurs="1" />
+		</sequence>
+	</complexType>
+	<complexType name="diagnostico">
+		<sequence>
+			<element name="codigo" type="int" />
+			<element name="texto" type="string" />
+			<element name="explicacion" type="string" />
+		</sequence>
+	</complexType>
+	<complexType name="ResponseDACVO">
+		<sequence>
+			<element name="VCM_Handle" type="string" minOccurs="0"
+				maxOccurs="1" />
+			<element name="activated_Flag" type="string" minOccurs="0"
+				maxOccurs="1" />
+			<element name="credit_Allowed" type="string" minOccurs="0"
+				maxOccurs="1" />
+			<element name="downstream_Plant_Handle" type="string"
+				minOccurs="0" maxOccurs="1" />
+			<element name="equip_Type" type="string" minOccurs="0"
+				maxOccurs="1" />
+			<element name="install_Date" type="string" minOccurs="0"
+				maxOccurs="1" />
+			<element name="max_Pack_Cost" type="string" minOccurs="0"
+				maxOccurs="1" />
+			<element name="on_Plant_Flag" type="string" minOccurs="0"
+				maxOccurs="1" />
+			<element name="purchases_Allowed" type="string" minOccurs="0"
+				maxOccurs="1" />
+			<element name="responding_Flag" type="string" minOccurs="0"
+				maxOccurs="1" />
+			<element name="serial_NUmber" type="string" minOccurs="0"
+				maxOccurs="1" />
+			<element name="unit_Address" type="string" minOccurs="0"
+				maxOccurs="1" />
+			<element name="upstream_Plant_Handle" type="string"
+				minOccurs="0" maxOccurs="1" />
+			<element name="package_Authorizations" type="string"
+				minOccurs="0" maxOccurs="1" />
+			<element name="program_Authorizations" type="string"
+				minOccurs="0" maxOccurs="1" />
+			<element name="service_Authorizations" type="string"
+				minOccurs="0" maxOccurs="1" />
+		</sequence>
+	</complexType>
+	<element name="checkList">
+		<complexType>
+			<sequence>
+				<element name="itemsCheck" type="tns:itemCheck" maxOccurs="unbounded"
+					minOccurs="0" />
+			</sequence>
+		</complexType>
+	</element>
+	<complexType name="itemCheck">
+		<sequence>
+			<element name="name" type="string" />
+			<element name="value" type="string" />
+		</sequence>
+	</complexType>
+</schema>

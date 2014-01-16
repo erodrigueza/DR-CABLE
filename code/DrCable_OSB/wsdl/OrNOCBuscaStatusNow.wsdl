@@ -1,0 +1,51 @@
+<wsdl:definitions xmlns:plnk="http://docs.oasis-open.org/wsbpel/2.0/plnktype"
+	xmlns:client="http://xmlns.cablevision.net.mx/DrCable_SOA/DrCable/OrNOCBuscaStatusNow"
+	xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
+	name="OrNOCBuscaStatusNow"
+	targetNamespace="http://xmlns.cablevision.net.mx/DrCable_SOA/DrCable/OrNOCBuscaStatusNow">
+	<wsdl:documentation>
+		<abstractWSDL>
+			http://CVSOADES:8001/soa-infra/services/default/OrNOCBuscaStatusNow!1.0/OrNOCBuscaStatusNow.wsdl
+		</abstractWSDL>
+	</wsdl:documentation>
+	<plnk:partnerLinkType name="OrNOCBuscaStatusNow">
+		<plnk:role name="OrNOCBuscaStatusNowProvider" portType="client:OrNOCBuscaStatusNow" />
+	</plnk:partnerLinkType>
+	<wsdl:types>
+		<schema xmlns="http://www.w3.org/2001/XMLSchema">
+			<import
+				namespace="http://xmlns.cablevision.net.mx/DrCable_SOA/DrCable/OrNOCBuscaStatusNow"
+				schemaLocation="xsd/OrNOCBuscaStatusNow.xsd" />
+		</schema>
+	</wsdl:types>
+	<wsdl:message name="OrNOCBuscaStatusNowRequestMessage">
+		<wsdl:part name="payload" element="client:process" />
+	</wsdl:message>
+	<wsdl:message name="OrNOCBuscaStatusNowResponseMessage">
+		<wsdl:part name="payload" element="client:processResponse" />
+	</wsdl:message>
+	<wsdl:portType name="OrNOCBuscaStatusNow">
+		<wsdl:operation name="process">
+			<wsdl:input message="client:OrNOCBuscaStatusNowRequestMessage" />
+			<wsdl:output message="client:OrNOCBuscaStatusNowResponseMessage" />
+		</wsdl:operation>
+	</wsdl:portType>
+	<wsdl:binding name="OrNOCBuscaStatusNowBinding" type="client:OrNOCBuscaStatusNow">
+		<soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+		<wsdl:operation name="process">
+			<soap:operation style="document" soapAction="process" />
+			<wsdl:input>
+				<soap:body use="literal" />
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal" />
+			</wsdl:output>
+		</wsdl:operation>
+	</wsdl:binding>
+	<wsdl:service name="ornocbuscastatusnow_client_ep">
+		<wsdl:port name="OrNOCBuscaStatusNow_pt" binding="client:OrNOCBuscaStatusNowBinding">
+			<soap:address
+				location="http://cvsoades:8001/soa-infra/services/default/OrNOCBuscaStatusNow/ornocbuscastatusnow_client_ep" />
+		</wsdl:port>
+	</wsdl:service>
+</wsdl:definitions>

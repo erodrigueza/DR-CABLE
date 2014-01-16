@@ -1,0 +1,32 @@
+<xs:schema
+	xmlns:tns="http://xmlns.cablevision.net.mx/DrCable_SOA/DrCable/TskNOCDoDeviceRefresh"
+	xmlns:xs="http://www.w3.org/2001/XMLSchema" version="1.0"
+	targetNamespace="http://xmlns.cablevision.net.mx/DrCable_SOA/DrCable/TskNOCDoDeviceRefresh">
+	<xs:element name="DeviceRefreshRequest" nillable="true"
+		type="tns:deviceRefreshInput" />
+	<xs:element name="DeviceRefreshResponse" nillable="true"
+		type="tns:deviceRefreshOutput" />
+	<xs:complexType name="deviceRefreshInput">
+		<xs:sequence>
+			<xs:element name="dataRefresh" type="tns:refresh"
+				minOccurs="0" />
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="refresh">
+		<xs:sequence>
+			<xs:element name="accountNo" type="xs:string" minOccurs="0" />
+			<xs:element name="dacIdentifier" type="xs:string"
+				minOccurs="0" />
+			<xs:element name="deviceId" type="xs:string" minOccurs="0" />
+			<xs:element name="flag" type="xs:int" minOccurs="0" />
+			<xs:element name="login" type="xs:string" minOccurs="0" />
+			<xs:element name="order" type="xs:string" minOccurs="0" />
+			<xs:element name="orderId" type="xs:string" minOccurs="0" />
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="deviceRefreshOutput">
+		<xs:sequence>
+			<xs:element name="resultMsg" type="xs:string" minOccurs="0" />
+		</xs:sequence>
+	</xs:complexType>
+</xs:schema>

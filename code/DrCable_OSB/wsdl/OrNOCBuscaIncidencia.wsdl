@@ -1,0 +1,53 @@
+<wsdl:definitions xmlns:plnk="http://docs.oasis-open.org/wsbpel/2.0/plnktype"
+	xmlns:client="http://xmlns.cablevision.net.mx/DrCable_SOA/DrCable/OrNOCBuscaIncidencia"
+	xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
+	name="OrNOCBuscaIncidencia"
+	targetNamespace="http://xmlns.cablevision.net.mx/DrCable_SOA/DrCable/OrNOCBuscaIncidencia">
+	<wsdl:documentation>
+		<abstractWSDL>
+			http://CVSOADES:8001/soa-infra/services/default/OrNOCBuscaIncidencia!1.0/OrNOCBuscaIncidencia.wsdl
+		</abstractWSDL>
+	</wsdl:documentation>
+	<plnk:partnerLinkType name="OrNOCBuscaIncidencia">
+		<plnk:role name="OrNOCBuscaIncidenciaProvider" portType="client:OrNOCBuscaIncidencia" />
+	</plnk:partnerLinkType>
+	<wsdl:types>
+		<schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:plnk="http://docs.oasis-open.org/wsbpel/2.0/plnktype"
+			xmlns:client="http://xmlns.cablevision.net.mx/DrCable_SOA/DrCable/OrNOCBuscaIncidencia"
+			xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+			<import
+				namespace="http://xmlns.cablevision.net.mx/DrCable_SOA/DrCable/OrNOCBuscaIncidencia"
+				schemaLocation="xsd/OrNOCBuscaIncidencia.xsd" />
+		</schema>
+	</wsdl:types>
+	<wsdl:message name="OrNOCBuscaIncidenciaRequestMessage">
+		<wsdl:part name="payload" element="client:process" />
+	</wsdl:message>
+	<wsdl:message name="OrNOCBuscaIncidenciaResponseMessage">
+		<wsdl:part name="payload" element="client:processResponse" />
+	</wsdl:message>
+	<wsdl:portType name="OrNOCBuscaIncidencia">
+		<wsdl:operation name="process">
+			<wsdl:input message="client:OrNOCBuscaIncidenciaRequestMessage" />
+			<wsdl:output message="client:OrNOCBuscaIncidenciaResponseMessage" />
+		</wsdl:operation>
+	</wsdl:portType>
+	<wsdl:binding name="OrNOCBuscaIncidenciaBinding" type="client:OrNOCBuscaIncidencia">
+		<soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+		<wsdl:operation name="process">
+			<soap:operation style="document" soapAction="process" />
+			<wsdl:input>
+				<soap:body use="literal" />
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal" />
+			</wsdl:output>
+		</wsdl:operation>
+	</wsdl:binding>
+	<wsdl:service name="ornocbuscaincidencia_client_ep">
+		<wsdl:port name="OrNOCBuscaIncidencia_pt" binding="client:OrNOCBuscaIncidenciaBinding">
+			<soap:address
+				location="http://cvsoades:8001/soa-infra/services/default/OrNOCBuscaIncidencia/ornocbuscaincidencia_client_ep" />
+		</wsdl:port>
+	</wsdl:service>
+</wsdl:definitions>

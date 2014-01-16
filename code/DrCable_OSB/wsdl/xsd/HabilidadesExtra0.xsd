@@ -1,0 +1,38 @@
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	xmlns:tns="http://tempuri.org/" elementFormDefault="qualified"
+	targetNamespace="http://tempuri.org/">
+	<xs:import schemaLocation="HabilidadesExtra2.xsd"
+		namespace="http://schemas.datacontract.org/2004/07/AMDrCable" />
+	<xs:element name="hAprovisionamiento">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element minOccurs="0" name="macAddress" nillable="true"
+					type="xs:string" />
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="hAprovisionamientoResponse">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/AMDrCable"
+					minOccurs="0" name="hAprovisionamientoResult" type="q1:DrCable.Aprovisionamiento" />
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="hGraficasSevOne">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/AMDrCable"
+					minOccurs="0" name="param" type="q2:DrCable.GraficasSevOneRq" />
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="hGraficasSevOneResponse">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/AMDrCable"
+					minOccurs="0" name="hGraficasSevOneResult" type="q3:DrCable.GraficasSevOneRp" />
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+</xs:schema>

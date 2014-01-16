@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xs:schema targetNamespace="http://xmlns.oracle.com/pcbpel/adapter/db/DBAuspice"
+	xmlns="http://xmlns.oracle.com/pcbpel/adapter/db/DBAuspice"
+	elementFormDefault="qualified" attributeFormDefault="qualified"
+	xmlns:xs="http://www.w3.org/2001/XMLSchema">
+	<xs:element name="DBAuspiceInput" type="DBAuspiceInput" />
+	<xs:complexType name="DBAuspiceInput">
+		<xs:sequence>
+			<xs:element name="MAC_ADDRESS" type="xs:string" nillable="true" />
+		</xs:sequence>
+	</xs:complexType>
+	<xs:element name="DBAuspiceOutputCollection" type="DBAuspiceOutputCollection" />
+	<xs:complexType name="DBAuspiceOutputCollection">
+		<xs:sequence>
+			<xs:element name="DBAuspiceOutput" type="DBAuspiceOutput"
+				minOccurs="0" maxOccurs="unbounded" />
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="DBAuspiceOutput">
+		<xs:sequence>
+			<xs:element name="TROUBLE_TICKET_ID" type="xs:string"
+				nillable="true" />
+			<xs:element name="IP_ADDRESS" type="xs:string" nillable="true" />
+			<xs:element name="MAC_ADDRESS" type="xs:string" nillable="true" />
+			<xs:element name="HFC_GROUP" type="xs:string" nillable="true" />
+			<xs:element name="CMTS_NAME" type="xs:string" nillable="true" />
+			<xs:element name="US_CHANNEL_NAME" type="xs:string"
+				nillable="true" />
+			<xs:element name="US_CHANNEL_INDEX" type="xs:int"
+				nillable="true" />
+			<xs:element name="DOCSIS_VERSION" type="xs:string"
+				nillable="true" />
+			<xs:element name="DEVICE_TYPE" type="xs:string" nillable="true" />
+			<xs:element name="VENDOR" type="xs:string" nillable="true" />
+			<xs:element name="MODEL" type="xs:string" nillable="true" />
+			<xs:element name="SOFTWARE_VERSION" type="xs:string"
+				nillable="true" />
+			<xs:element name="FIRMWARE_VERSION" type="xs:string"
+				nillable="true" />
+			<xs:element name="BOOTR" type="xs:string" nillable="true" />
+			<xs:element name="LAST_STATE_CHANGE" type="xs:dateTime"
+				nillable="true" />
+		</xs:sequence>
+	</xs:complexType>
+</xs:schema>

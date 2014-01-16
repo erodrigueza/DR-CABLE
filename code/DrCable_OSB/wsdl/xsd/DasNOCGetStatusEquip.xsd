@@ -1,0 +1,175 @@
+<xs:schema
+	xmlns:tns="http://xmlns.cablevision.net.mx/DrCable_SOA/DrCable/DasNOCGetStatusEquipment"
+	xmlns:xs="http://www.w3.org/2001/XMLSchema" version="1.0"
+	targetNamespace="http://xmlns.cablevision.net.mx/DrCable_SOA/DrCable/DasNOCGetStatusEquipment">
+	<xs:element name="getStatus" type="tns:getStatus" />
+	<xs:element name="getStatusResponse" type="tns:getStatusResponse" />
+	<xs:complexType name="getStatus">
+		<xs:sequence>
+			<xs:element name="arg0" type="tns:equipmentInput"
+				minOccurs="0" />
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="equipmentInput">
+		<xs:sequence>
+			<xs:element name="macAddress" type="xs:string" minOccurs="0" />
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="getStatusResponse">
+		<xs:sequence>
+			<xs:element name="return" type="tns:equipmentOutput"
+				minOccurs="0" />
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="equipmentOutput">
+		<xs:sequence>
+			<xs:element name="resultMsg" type="xs:string" minOccurs="0" />
+			<xs:element name="status" type="tns:statusGeneral"
+				minOccurs="0" />
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="statusGeneral">
+		<xs:sequence>
+			<xs:element name="billProv" type="tns:statusBillingProvisioning" minOccurs="0" />
+			<xs:element name="cmts" type="tns:statusFromCMTS" minOccurs="0" />
+			<xs:element name="hfc" type="tns:statusHFC" minOccurs="0" />
+			<xs:element name="hub" type="xs:string" minOccurs="0" />
+			<xs:element name="internet" type="tns:statusFromModem" minOccurs="0" />
+			<xs:element name="mac" type="xs:string" minOccurs="0" />
+			<xs:element name="telefonia" type="tns:statusFromTelephony" minOccurs="0" />
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="statusBillingProvisioning">
+		<xs:sequence>
+			<xs:element name="cmFQDN" type="xs:string" minOccurs="0" />
+			<xs:element name="cmMACAddress" type="xs:string"
+				minOccurs="0" />
+			<xs:element name="cmts" type="xs:string" minOccurs="0" />
+			<xs:element name="customerAccount" type="xs:string"
+				minOccurs="0" />
+			<xs:element name="customerAddress" type="xs:string"
+				minOccurs="0" />
+			<xs:element name="customerName" type="xs:string"
+				minOccurs="0" />
+			<xs:element name="customerPhone" type="xs:string"
+				minOccurs="0" />
+			<xs:element name="vendor" type="xs:string" minOccurs="0" />
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="statusFromCMTS">
+		<xs:sequence>
+			<xs:element name="modemStatus" type="xs:string" minOccurs="0" />
+			<xs:element name="upStreamChannel" type="xs:string"
+				minOccurs="0" />
+			<xs:element name="upstreamChannelMode" type="xs:string"
+				minOccurs="0" />
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="statusHFC">
+		<xs:sequence>
+			<xs:element name="currentStatus" type="xs:string"
+				minOccurs="0" />
+			<xs:element name="docsisDeviceOnline" type="xs:string"
+				minOccurs="0" />
+			<xs:element name="lastDetectedOutage" type="xs:string"
+				minOccurs="0" />
+			<xs:element name="mtaAvailable" type="xs:string"
+				minOccurs="0" />
+			<xs:element name="node" type="xs:string" minOccurs="0" />
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="statusFromModem">
+		<xs:sequence>
+			<xs:element name="bpiStatus" type="xs:string" minOccurs="0" />
+			<xs:element name="cmConfigurationFile" type="xs:string"
+				minOccurs="0" />
+			<xs:element name="cmTFTPServer" type="xs:string"
+				minOccurs="0" />
+			<xs:element name="DHCPServer" type="xs:string" minOccurs="0" />
+			<xs:element name="downstreamChannelFrequency" type="tns:listTransmitPower"
+				minOccurs="0" />
+			<xs:element name="downstreamReceivePower" type="tns:listTransmitPower"
+				minOccurs="0" />
+			<xs:element name="downstreamSignalNoiseRatio" type="tns:listTransmitPower"
+				minOccurs="0" />
+			<xs:element name="guaranteedUpstreamBandwidth" type="tns:transmitPower"
+				minOccurs="0" />
+			<xs:element name="lostSyncs" type="xs:int" />
+			<xs:element name="maximumDownstreamBandwidth" type="tns:transmitPower"
+				minOccurs="0" />
+			<xs:element name="maximumUpstreamBandwidth" type="tns:transmitPower"
+				minOccurs="0" />
+			<xs:element name="qosProfile" type="xs:int" />
+			<xs:element name="resets" type="xs:int" />
+			<xs:element name="systemDescription" type="xs:string"
+				minOccurs="0" />
+			<xs:element name="systemUpTime" type="xs:string"
+				minOccurs="0" />
+			<xs:element name="timeServer" type="xs:string" minOccurs="0" />
+			<xs:element name="upstreamChannelFrequency" type="tns:transmitPower"
+				minOccurs="0" />
+			<xs:element name="upstreamTransmitPower" type="tns:transmitPower"
+				minOccurs="0" />
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="listTransmitPower">
+		<xs:sequence>
+			<xs:element name="transmitPower" type="tns:transmitPower"
+				nillable="true" minOccurs="0" maxOccurs="unbounded" />
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="transmitPower">
+		<xs:sequence>
+			<xs:element name="unidad" type="xs:string" minOccurs="0" />
+			<xs:element name="valor" type="xs:float" />
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="statusFromTelephony">
+		<xs:sequence>
+			<xs:element name="statusMTA" type="tns:statusMTA"
+				minOccurs="0" />
+			<xs:element name="statusMTAExt" type="tns:statusMTAExt"
+				minOccurs="0" />
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="statusMTA">
+		<xs:sequence>
+			<xs:element name="configFile" type="xs:string" minOccurs="0" />
+			<xs:element name="dns_1" type="xs:string" minOccurs="0" />
+			<xs:element name="dns_2" type="xs:string" minOccurs="0" />
+			<xs:element name="fqdn" type="xs:string" minOccurs="0" />
+			<xs:element name="hwVersion" type="xs:string" minOccurs="0" />
+			<xs:element name="kerberosRealm" type="xs:string"
+				minOccurs="0" />
+			<xs:element name="modelNumber" type="xs:string" minOccurs="0" />
+			<xs:element name="pingStatus" type="xs:string" minOccurs="0" />
+			<xs:element name="provisioningCounter" type="xs:string"
+				minOccurs="0" />
+			<xs:element name="provisioningState" type="xs:string"
+				minOccurs="0" />
+			<xs:element name="serialNumber" type="xs:string"
+				minOccurs="0" />
+			<xs:element name="snmpEntity" type="xs:string" minOccurs="0" />
+			<xs:element name="swVersion" type="xs:string" minOccurs="0" />
+			<xs:element name="voiceEnabled" type="xs:string"
+				minOccurs="0" />
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="statusMTAExt">
+		<xs:sequence>
+			<xs:element name="lineasTelefonicas" type="tns:lineasTelefonicas"
+				nillable="true" minOccurs="0" maxOccurs="unbounded" />
+			<xs:element name="vendor" type="xs:string" minOccurs="0" />
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="lineasTelefonicas">
+		<xs:sequence>
+			<xs:element name="batteryStatus" type="xs:string"
+				minOccurs="0" />
+			<xs:element name="lastDiagnostic" type="xs:string"
+				minOccurs="0" />
+			<xs:element name="maintenanceState" type="xs:string"
+				minOccurs="0" />
+		</xs:sequence>
+	</xs:complexType>
+</xs:schema>

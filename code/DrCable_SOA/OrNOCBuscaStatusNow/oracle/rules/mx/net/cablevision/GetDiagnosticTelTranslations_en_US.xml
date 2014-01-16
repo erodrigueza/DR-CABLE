@@ -1,0 +1,18 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<properties>
+   <entry key="AG}60c21705:141b7aad953:-7c05">BatteryStatus</entry>
+   <entry key="AG}60c21705:141b7aad953:-7c1a">CmClientClasses</entry>
+   <entry key="AG}60c21705:141b7aad953:-7c17">Tecnologia</entry>
+   <entry key="DG}60c21705:141b7aad953:-7c05">Status Bateria</entry>
+   <entry key="AG}60c21705:141b7aad953:-7bf1">LastDiagnostic</entry>
+   <entry key="AG}60c21705:141b7aad953:-7bf4">StateLine</entry>
+   <entry key="DG}60c21705:141b7aad953:-7c17">Catalogo de Tecnologias</entry>
+   <entry key="DG}60c21705:141b7aad953:-7bf4">Status de la Linea</entry>
+   <entry key="AG}60c21705:141b7aad953:-7c00">StateLine</entry>
+   <entry key="DG}60c21705:141b7aad953:-7bf1">Estado del ultimo diagnostico</entry>
+   <entry key="DG}60c21705:141b7aad953:-7c00">Status de la Linea</entry>
+   <entry key="AG}60c21705:141b7aad953:-7c21">DiagnosticoTelRuleset</entry>
+   <entry key="DG}60c21705:141b7aad953:-7c1a">Valores de CM Cliente</entry>
+   <entry key="AG}60c21705:141b7aad953:-7c0a">ProvisioningState</entry>
+   <entry key="DG}60c21705:141b7aad953:-7c0a">Catalogo de Estados</entry>
+</properties>

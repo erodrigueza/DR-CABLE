@@ -1,0 +1,61 @@
+<?xml version= '1.0' encoding= 'UTF-8' ?>
+<xs:schema xmlns:tns="http://xmlns.cablevision.net.mx/DrCable_SOA/DrCable/TskDiagnosticoDAC" xmlns:xs="http://www.w3.org/2001/XMLSchema"
+     version="1.0" targetNamespace="http://xmlns.cablevision.net.mx/DrCable_SOA/DrCable/TskDiagnosticoDAC">
+    <xs:element name="DiagnosticoRequest" nillable="true" type="tns:diagnosticoInput"/>
+    <xs:element name="DiagnosticoResponse" nillable="true" type="tns:diagnosticoOutput"/>
+    <xs:complexType name="diagnosticoInput">
+        <xs:sequence>
+            <xs:element name="direccionPrincipal" type="tns:direccion" minOccurs="0"/>
+            <xs:element name="itemsFacturacion" type="tns:items" minOccurs="0"/>
+            <xs:element name="itemsServicio" type="tns:items" minOccurs="0"/>
+            <xs:element name="numSerieDiagnostico" type="xs:string" minOccurs="0"/>
+            <xs:element name="responseDACVO" type="tns:responseDACVO" minOccurs="0"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="direccion">
+        <xs:sequence>
+            <xs:element name="hub" type="xs:string" minOccurs="0"/>
+            <xs:element name="retorno" type="xs:string" minOccurs="0"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="items">
+        <xs:sequence>
+            <xs:element name="item" type="tns:item" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="item">
+        <xs:sequence>
+            <xs:element name="numeroSerie" type="xs:string" minOccurs="0"/>
+            <xs:element name="producto" type="xs:string" minOccurs="0"/>
+            <xs:element name="status" type="xs:string" minOccurs="0"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="responseDACVO">
+        <xs:sequence>
+            <xs:element name="activatedFlag" type="xs:string" minOccurs="0"/>
+            <xs:element name="creditAllowed" type="xs:string" minOccurs="0"/>
+            <xs:element name="downstreamPlantHandle" type="xs:string" minOccurs="0"/>
+            <xs:element name="equipType" type="xs:string" minOccurs="0"/>
+            <xs:element name="installDate" type="xs:string" minOccurs="0"/>
+            <xs:element name="maxPackCost" type="xs:string" minOccurs="0"/>
+            <xs:element name="onPlantFlag" type="xs:string" minOccurs="0"/>
+            <xs:element name="packageAuthorizations" type="xs:string" minOccurs="0"/>
+            <xs:element name="programAuthorizations" type="xs:string" minOccurs="0"/>
+            <xs:element name="purchasesAllowed" type="xs:string" minOccurs="0"/>
+            <xs:element name="respondingFlag" type="xs:string" minOccurs="0"/>
+            <xs:element name="serialNUmber" type="xs:string" minOccurs="0"/>
+            <xs:element name="serviceAuthorizations" type="xs:string" minOccurs="0"/>
+            <xs:element name="unitAddress" type="xs:string" minOccurs="0"/>
+            <xs:element name="upstreamPlantHandle" type="xs:string" minOccurs="0"/>
+            <xs:element name="vcmHandle" type="xs:string" minOccurs="0"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="diagnosticoOutput">
+        <xs:sequence>
+            <xs:element name="detError" type="xs:string" minOccurs="0"/>
+            <xs:element name="msg" type="xs:string" minOccurs="0"/>
+            <xs:element name="result" type="xs:int" minOccurs="0"/>
+        </xs:sequence>
+    </xs:complexType>
+</xs:schema>
+<!-- Published by JAX-WS RI at http://jax-ws.dev.java.net. RI's version is Oracle JAX-WS 2.1.5. -->

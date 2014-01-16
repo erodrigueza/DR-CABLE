@@ -1,0 +1,369 @@
+<?xml version = "1.0" encoding = "UTF-8" ?>
+<!--
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+  Oracle JDeveloper BPEL Designer 
+  
+  Created: Fri Jul 19 10:00:50 CDT 2013
+  Author:  Eduardo Rodriguez - Latbc
+  Type: BPEL 2.0 Process
+  Purpose: Synchronous BPEL Process
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+-->
+<process name="OrNOCBuscaIncidencia"
+         targetNamespace="http://xmlns.cablevision.net.mx/DrCable_SOA/DrCable/OrNOCBuscaIncidencia"
+         xmlns="http://docs.oasis-open.org/wsbpel/2.0/process/executable"
+         xmlns:client="http://xmlns.cablevision.net.mx/DrCable_SOA/DrCable/OrNOCBuscaIncidencia"
+         xmlns:ora="http://schemas.oracle.com/xpath/extension"
+         xmlns:bpelx="http://schemas.oracle.com/bpel/extension"
+         xmlns:bpel="http://docs.oasis-open.org/wsbpel/2.0/process/executable"
+         xmlns:ns1="http://xmlns.cablevision.net.mx/DrCable_SOA/DrCable/DasNOCSearchHelpDesk"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xmlns:ns3="http://xmlns.oracle.com/pcbpel/adapter/db/DBAuspice"
+         xmlns:ns4="http://xmlns.oracle.com/pcbpel/adapter/db/DrCable_SOA/DrCable/DBAuspice"
+         xmlns:ns5="http://xmlns.oracle.com/pcbpel/adapter/db/DrCable_SOA/DrCable/DBAuspice2"
+         xmlns:ns6="http://xmlns.oracle.com/pcbpel/adapter/db/DrCable_SOA/DrCable/DBAuspice3"
+         xmlns:ns2="http://xmlns.oracle.com/pcbpel/adapter/db/DrCable_SOA/DrCable/DBAuspice4"
+         xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+         xmlns:xp20="http://www.oracle.com/XSL/Transform/java/oracle.tip.pc.services.functions.Xpath20"
+         xmlns:bpws="http://schemas.xmlsoap.org/ws/2003/03/business-process/"
+         xmlns:oraext="http://www.oracle.com/XSL/Transform/java/oracle.tip.pc.services.functions.ExtFunc"
+         xmlns:dvm="http://www.oracle.com/XSL/Transform/java/oracle.tip.dvm.LookupValue"
+         xmlns:hwf="http://xmlns.oracle.com/bpel/workflow/xpath"
+         xmlns:ids="http://xmlns.oracle.com/bpel/services/IdentityService/xpath"
+         xmlns:bpm="http://xmlns.oracle.com/bpmn20/extensions"
+         xmlns:xdk="http://schemas.oracle.com/bpel/extension/xpath/function/xdk"
+         xmlns:xref="http://www.oracle.com/XSL/Transform/java/oracle.tip.xref.xpath.XRefXPathFunctions"
+         xmlns:ldap="http://schemas.oracle.com/xpath/extension/ldap">
+  <import namespace="http://xmlns.cablevision.net.mx/DrCable_SOA/DrCable/DasNOCSearchHelpDesk"
+          location="DasNOCSearchHelpDesk.xsd"
+          importType="http://www.w3.org/2001/XMLSchema"/>
+  <import namespace="http://xmlns.oracle.com/pcbpel/adapter/db/DBAuspice"
+          location="xsd/DBAuspice.xsd"
+          importType="http://www.w3.org/2001/XMLSchema"/>
+  <import namespace="http://xmlns.cablevision.net.mx/DrCable_SOA/DrCable/OrNOCBuscaIncidencia"
+          location="OrNOCBuscaIncidencia.wsdl"
+          importType="http://schemas.xmlsoap.org/wsdl/"/>
+  <import namespace="http://schemas.oracle.com/bpel/extension"
+          location="RuntimeFault.wsdl"
+          importType="http://schemas.xmlsoap.org/wsdl/"/>
+  <!-- 
+      ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+        PARTNERLINKS                                                      
+        List of services participating in this BPEL process               
+      ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    -->
+  <partnerLinks>
+    <!-- 
+      The 'client' role represents the requester of this service. It is 
+      used for callback. The location and correlation information associated
+      with the client role are automatically set using WS-Addressing.
+    -->
+    <partnerLink name="ornocbuscaincidencia_client"
+                 partnerLinkType="client:OrNOCBuscaIncidencia"
+                 myRole="OrNOCBuscaIncidenciaProvider"/>
+    <partnerLink name="DBAuspice4" partnerLinkType="ns2:DBAuspice4_plt"
+                 partnerRole="DBAuspice4_role"/>
+    <partnerLink name="DBAuspice" partnerLinkType="ns4:DBAuspice_plt"
+                 partnerRole="DBAuspice_role"/>
+    <partnerLink name="DBAuspice2" partnerLinkType="ns5:DBAuspice2_plt"
+                 partnerRole="DBAuspice2_role"/>
+    <partnerLink name="DBAuspice3" partnerLinkType="ns6:DBAuspice3_plt"
+                 partnerRole="DBAuspice3_role"/>
+    <partnerLink name="DasNOCSearchHelpDesk"
+                 partnerLinkType="ns1:DasNOCSearchHelpDesk"
+                 partnerRole="DasNOCSearchHelpDesk"/>
+  </partnerLinks>
+  <!-- 
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+      VARIABLES                                                        
+      List of messages and XML documents used within this BPEL process 
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+  -->
+  <variables>
+    <!-- Reference to the message passed as input during initiation -->
+    <variable name="inputVariable"
+              messageType="client:OrNOCBuscaIncidenciaRequestMessage"/>
+    <!-- Reference to the message that will be returned to the requester-->
+    <variable name="outputVariable"
+              messageType="client:OrNOCBuscaIncidenciaResponseMessage"/>
+    <variable name="inputAuspice" element="ns3:DBAuspiceInput"/>
+    <variable name="outputAuspice" element="ns3:DBAuspiceOutputCollection"/>
+    <variable name="outputAuspice2" element="ns3:DBAuspiceOutputCollection"/>
+    <variable name="outputAuspice3" element="ns3:DBAuspiceOutputCollection"/>
+    <variable name="outputAuspice4" element="ns3:DBAuspiceOutputCollection"/>
+  </variables>
+  <!-- 
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+     ORCHESTRATION LOGIC                                               
+     Set of activities coordinating the flow of messages across the    
+     services integrated within this business process                  
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+  -->
+  <sequence name="main">
+    <!-- Receive input from requestor. (Note: This maps to operation defined in OrNOCBuscaIncidencia.wsdl) -->
+    <scope name="ScopeMain" exitOnStandardFault="no">
+      <variables>
+        <variable name="resultAuspice" element="ns3:DBAuspiceOutputCollection"/>
+        <variable name="inputDBRemedy" element="ns1:searchIncidentByTicket"/>
+        <variable name="outputDBRemedy" element="ns1:searchIncidentByTicketResponse"/>
+      </variables>
+      <faultHandlers>
+        <catch faultName="bpel:invalidVariables">
+        <assign name="getErrorVariables">
+            <copy>
+              <from><literal>1008</literal></from>
+              <to>$outputVariable.payload/client:result</to>
+            </copy>
+            <copy>
+              <from><literal>El formato de mac address es incorrecto.</literal></from>
+              <to>$outputVariable.payload/client:msg</to>
+            </copy>
+            <copy>
+              <from>ora:getFaultAsString()</from>
+              <to>$outputVariable.payload/client:det_error</to>
+            </copy>
+          </assign>
+        </catch>
+        <catch faultName="bpelx:timeout" faultVariable="timeoutVar"
+               faultMessageType="bpelx:RuntimeFaultMessage">
+          <assign name="getErrorTimeout">
+            <copy>
+              <from><literal>2003</literal></from>
+              <to>$outputVariable.payload/client:result</to>
+            </copy>
+            <copy>
+              <from><literal>El tiempo de espera de respuesta del servicio se ha agotado</literal></from>
+              <to>$outputVariable.payload/client:msg</to>
+            </copy>
+            <copy>
+              <from>ora:getFaultAsString()</from>
+              <to>$outputVariable.payload/client:det_error</to>
+            </copy>
+          </assign>
+        </catch>
+        <catchAll>
+          <assign name="getError">
+            <copy>
+              <from><literal>2001</literal></from>
+              <to>$outputVariable.payload/client:result</to>
+            </copy>
+            <copy>
+              <from>concat(ora:getCompositeName(),':',ora:getComponentName(),':',ora:getFaultName())</from>
+              <to>$outputVariable.payload/client:msg</to>
+            </copy>
+            <copy>
+              <from>ora:getFaultAsString()</from>
+              <to>$outputVariable.payload/client:det_error</to>
+            </copy>
+          </assign>
+        </catchAll>
+      </faultHandlers>
+      <sequence name="principal">
+        <receive name="receiveInput" partnerLink="ornocbuscaincidencia_client"
+                 portType="client:OrNOCBuscaIncidencia" operation="process"
+                 variable="inputVariable" createInstance="yes"/>
+        <validate name="ValidateRequest" variables="inputVariable"/>
+        <assign name="assignAuspice">
+          <copy>
+            <from>$inputVariable.payload/client:macAddress</from>
+            <to>$inputAuspice/ns3:MAC_ADDRESS</to>
+          </copy>
+        </assign>
+        <flow name="Flow1">
+          <sequence name="SequenceAuspice">
+            <invoke name="Auspice" partnerLink="DBAuspice"
+                    portType="ns4:DBAuspice_ptt" operation="DBAuspice"
+                    inputVariable="inputAuspice" outputVariable="outputAuspice"
+                    bpelx:invokeAsDetail="no"/>
+            <if name="If1">
+              <documentation>
+                <![CDATA[returnValue]]>
+              </documentation>
+              <condition>$outputAuspice != ''</condition>
+              <assign name="ResultSet">
+                <copy>
+                  <from>$outputAuspice</from>
+                  <to>$resultAuspice</to>
+                </copy>
+              </assign>
+              <else>
+                <documentation>
+                  <![CDATA[void]]>
+                </documentation>
+                <empty name="Empty"/>
+              </else>
+            </if>
+          </sequence>
+          <sequence name="SequenceAuspice2">
+            <invoke name="Auspice2" partnerLink="DBAuspice2"
+                    portType="ns5:DBAuspice2_ptt" operation="DBAuspice2"
+                    inputVariable="inputAuspice" outputVariable="outputAuspice2"
+                    bpelx:invokeAsDetail="no"/>
+            <if name="If2">
+              <documentation>
+                <![CDATA[returnValue]]>
+              </documentation>
+              <condition>$outputAuspice2 != ''</condition>
+              <assign name="ResultSet">
+                <copy>
+                  <from>$outputAuspice2</from>
+                  <to>$resultAuspice</to>
+                </copy>
+              </assign>
+              <else>
+                <documentation>
+                  <![CDATA[void]]>
+                </documentation>
+                <empty name="Empty"/>
+              </else>
+            </if>
+          </sequence>
+          <sequence name="SequenceAuspice3">
+            <invoke name="Auspice3" partnerLink="DBAuspice3"
+                    portType="ns6:DBAuspice3_ptt" operation="DBAuspice3"
+                    inputVariable="inputAuspice" outputVariable="outputAuspice3"
+                    bpelx:invokeAsDetail="no"/>
+            <if name="If3">
+              <documentation>
+                <![CDATA[returnValue]]>
+              </documentation>
+              <condition>$outputAuspice3 != ''</condition>
+              <assign name="ResultSet">
+                <copy>
+                  <from>$outputAuspice3</from>
+                  <to>$resultAuspice</to>
+                </copy>
+              </assign>
+              <else>
+                <documentation>
+                  <![CDATA[void]]>
+                </documentation>
+                <empty name="Empty"/>
+              </else>
+            </if>
+          </sequence>
+          <sequence name="SequenceAuspice4">
+            <invoke name="Auspice4" partnerLink="DBAuspice4"
+                    portType="ns2:DBAuspice4_ptt" operation="DBAuspice4"
+                    inputVariable="inputAuspice" outputVariable="outputAuspice4"
+                    bpelx:invokeAsDetail="no"/>
+            <if name="If4">
+              <documentation>
+                <![CDATA[returnValue]]>
+              </documentation>
+              <condition>$outputAuspice4 != ''</condition>
+              <assign name="ResultSet">
+                <copy>
+                  <from>$outputAuspice4</from>
+                  <to>$resultAuspice</to>
+                </copy>
+              </assign>
+              <else>
+                <documentation>
+                  <![CDATA[void]]>
+                </documentation>
+                <empty name="Empty"/>
+              </else>
+            </if>
+          </sequence>
+        </flow>
+        <if name="IfExitsResult">
+          <documentation>
+            <![CDATA[ok]]>
+          </documentation>
+          <condition>$resultAuspice/ns3:DBAuspiceOutput[1]/ns3:TROUBLE_TICKET_ID != ''</condition>
+          <sequence name="SequenceDBRemedy">
+            <assign name="getTicket">
+              <copy>
+                <from>$resultAuspice/ns3:DBAuspiceOutput[1]/ns3:TROUBLE_TICKET_ID</from>
+                <to>$inputDBRemedy/arg0/incidentNumber</to>
+              </copy>
+              <copy>
+                <from>$resultAuspice/ns3:DBAuspiceOutput[1]</from>
+                <to>$outputVariable.payload/client:det_equipo</to>
+              </copy>
+            </assign>
+            <invoke name="Remedy"
+                    partnerLink="DasNOCSearchHelpDesk" portType="ns1:DasNOCSearchHelpDesk"
+                    inputVariable="inputDBRemedy" outputVariable="outputDBRemedy"
+                    operation="searchIncidentByTicket"
+                    bpelx:invokeAsDetail="no"/>
+            <if name="If_FaultErrorInvoke">
+              <documentation>
+                <![CDATA[OK]]>
+              </documentation>
+              <condition>$outputDBRemedy/return/resultMsg  =  'OK'</condition>
+              <sequence name="SequenceOkRemedy">
+                <assign name="setResult">
+                  <copy>
+                    <from><literal>0</literal></from>
+                    <to>$outputVariable.payload/client:result</to>
+                  </copy>
+                  <copy>
+                    <from><literal/></from>
+                    <to>$outputVariable.payload/client:det_error</to>
+                  </copy>
+                  <copy>
+                    <from>$outputDBRemedy/return/resultMsg</from>
+                    <to>$outputVariable.payload/client:msg</to>
+                  </copy>
+                  <copy>
+                    <from>$outputDBRemedy/return</from>
+                    <to>$outputVariable.payload/client:det_incidente</to>
+                  </copy>
+                  <extensionAssignOperation>
+                    <bpelx:remove>
+                      <bpelx:target>$outputVariable.payload/client:det_equipo/ns3:TROUBLE_TICKET_ID</bpelx:target>
+                    </bpelx:remove>
+                  </extensionAssignOperation>
+                </assign>
+              </sequence>
+              <else>
+                <documentation>
+                  <![CDATA[Error]]>
+                </documentation>
+                <sequence name="SequenceErrorRemedy">
+                  <assign name="setResponse">
+                    <copy>
+                      <from><literal>1001</literal></from>
+                      <to>$outputVariable.payload/client:result</to>
+                    </copy>
+                    <copy>
+                      <from><literal>Error al consultar Remedy</literal></from>
+                      <to>$outputVariable.payload/client:msg</to>
+                    </copy>
+                    <copy>
+                      <from>$outputDBRemedy/return/resultMsg</from>
+                      <to>$outputVariable.payload/client:det_error</to>
+                    </copy>
+                  </assign>
+                </sequence>
+              </else>
+            </if>
+          </sequence>
+          <else>
+            <documentation>
+              <![CDATA[empty]]>
+            </documentation>
+            <sequence name="SequenceNoFoundTicket">
+              <assign name="setResponse">
+                <copy>
+                  <from><literal>1002</literal></from>
+                  <to>$outputVariable.payload/client:result</to>
+                </copy>
+                <copy>
+                  <from>concat('No se encontro en Auspice Ticket para la Mac Address ', $inputVariable.payload/client:macAddress)</from>
+                  <to>$outputVariable.payload/client:msg</to>
+                </copy>
+              </assign>
+            </sequence>
+          </else>
+        </if>
+        <!-- Generate reply to synchronous request -->
+      </sequence>
+    </scope>
+    <reply name="replyOutput" partnerLink="ornocbuscaincidencia_client"
+           portType="client:OrNOCBuscaIncidencia" operation="process"
+           variable="outputVariable"/>
+  </sequence>
+</process>

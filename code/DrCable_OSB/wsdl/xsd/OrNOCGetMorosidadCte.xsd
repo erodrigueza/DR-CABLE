@@ -1,0 +1,27 @@
+<schema xmlns="http://www.w3.org/2001/XMLSchema"
+	attributeFormDefault="unqualified" elementFormDefault="qualified"
+	targetNamespace="http://xmlns.cablevision.net.mx/DrCable_SOA/DrCable/OrNOCGetMorosidadCte">
+	<element name="process">
+		<complexType>
+			<sequence>
+				<element name="account" minOccurs="1" maxOccurs="1">
+					<simpleType>
+						<restriction base="string">
+							<pattern value="([0-9]{8})[0-9]*" />
+						</restriction>
+					</simpleType>
+				</element>
+			</sequence>
+		</complexType>
+	</element>
+	<element name="processResponse">
+		<complexType>
+			<sequence>
+				<element name="result" type="int" minOccurs="0" />
+				<element name="msg" type="string" minOccurs="0" />
+				<element name="det_error" type="string" minOccurs="0" />
+				<element name="codeMorosidad" type="int" minOccurs="0" />
+			</sequence>
+		</complexType>
+	</element>
+</schema>

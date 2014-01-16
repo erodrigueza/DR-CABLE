@@ -1,0 +1,44 @@
+<definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
+	xmlns:tns="http://xmlns.cablevision.net.mx/DrCable_SOA/DrCable/DasNOCGetStatusEquipment"
+	xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.xmlsoap.org/wsdl/"
+	targetNamespace="http://xmlns.cablevision.net.mx/DrCable_SOA/DrCable/DasNOCGetStatusEquipment"
+	name="DasNOCGetStatusEquipment">
+	<types>
+		<xsd:schema>
+			<xsd:import
+				namespace="http://xmlns.cablevision.net.mx/DrCable_SOA/DrCable/DasNOCGetStatusEquipment"
+				schemaLocation="xsd/DasNOCGetStatusEquip.xsd" />
+		</xsd:schema>
+	</types>
+	<message name="getStatus">
+		<part name="parameters" element="tns:getStatus" />
+	</message>
+	<message name="getStatusResponse">
+		<part name="parameters" element="tns:getStatusResponse" />
+	</message>
+	<portType name="DasNOCGetStatusEquipment">
+		<operation name="getStatus">
+			<input message="tns:getStatus" />
+			<output message="tns:getStatusResponse" />
+		</operation>
+	</portType>
+	<binding name="DasNOCGetStatusEquipmentPortBinding" type="tns:DasNOCGetStatusEquipment">
+		<soap:binding transport="http://schemas.xmlsoap.org/soap/http"
+			style="document" />
+		<operation name="getStatus">
+			<soap:operation soapAction="" />
+			<input>
+				<soap:body use="literal" />
+			</input>
+			<output>
+				<soap:body use="literal" />
+			</output>
+		</operation>
+	</binding>
+	<service name="DasNOCGetStatusEquipment">
+		<port name="DasNOCGetStatusEquipmentPort" binding="tns:DasNOCGetStatusEquipmentPortBinding">
+			<soap:address
+				location="http://cvsoades:8001/AuspiceServices/DasNOCGetStatusEquipmentPort" />
+		</port>
+	</service>
+</definitions>

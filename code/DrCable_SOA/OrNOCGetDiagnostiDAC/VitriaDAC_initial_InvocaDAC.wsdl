@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+                  xmlns:wsdlsoap="http://schemas.xmlsoap.org/wsdl/soap/"
+                  xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
+                  xmlns:intf="http://dacInvoker.vitria.cablevision.com"
+                  xmlns:impl="http://dacInvoker.vitria.cablevision.com"
+                  xmlns:apachesoap="http://xml.apache.org/xml-soap"
+                  targetNamespace="http://dacInvoker.vitria.cablevision.com">
+ <!--WSDL created by Apache Axis version: 1.3 Built on Oct 05, 2005 (05:23:37 EDT) -->
+ <wsdl:types>
+  <schema targetNamespace="http://dacInvoker.vitria.cablevision.com"
+          xmlns="http://www.w3.org/2001/XMLSchema"
+          elementFormDefault="qualified">
+   <element name="example">
+    <complexType>
+     <sequence>
+      <element name="in0" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="exampleResponse">
+    <complexType>
+     <sequence>
+      <element name="exampleReturn" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="invoker">
+    <complexType>
+     <sequence>
+      <element name="in0" type="xsd:string"/>
+      <element name="in1" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="invokerResponse">
+    <complexType>
+     <sequence>
+      <element name="invokerReturn" type="impl:ResponseDACVO"/>
+     </sequence>
+    </complexType>
+   </element>
+   <complexType name="ResponseDACVO">
+    <sequence>
+     <element name="VCM_Handle" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+     <element name="activated_Flag" type="xsd:string" minOccurs="0"
+              maxOccurs="1"/>
+     <element name="credit_Allowed" type="xsd:string" minOccurs="0"
+              maxOccurs="1"/>
+     <element name="downstream_Plant_Handle" type="xsd:string" minOccurs="0"
+              maxOccurs="1"/>
+     <element name="equip_Type" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+     <element name="install_Date" type="xsd:string" minOccurs="0"
+              maxOccurs="1"/>
+     <element name="max_Pack_Cost" type="xsd:string" minOccurs="0"
+              maxOccurs="1"/>
+     <element name="on_Plant_Flag" type="xsd:string" minOccurs="0"
+              maxOccurs="1"/>
+     <element name="purchases_Allowed" type="xsd:string" minOccurs="0"
+              maxOccurs="1"/>
+     <element name="responding_Flag" type="xsd:string" minOccurs="0"
+              maxOccurs="1"/>
+     <element name="serial_NUmber" type="xsd:string" minOccurs="0"
+              maxOccurs="1"/>
+     <element name="unit_Address" type="xsd:string" minOccurs="0"
+              maxOccurs="1"/>
+     <element name="upstream_Plant_Handle" type="xsd:string" minOccurs="0"
+              maxOccurs="1"/>
+     <element name="package_Authorizations" type="xsd:string" minOccurs="0"
+              maxOccurs="1"/>
+     <element name="program_Authorizations" type="xsd:string" minOccurs="0"
+              maxOccurs="1"/>
+     <element name="service_Authorizations" type="xsd:string" minOccurs="0"
+              maxOccurs="1"/>
+    </sequence>
+   </complexType>
+  </schema>
+ </wsdl:types>
+ <wsdl:message name="invokerResponse">
+  <wsdl:part name="parameters" element="impl:invokerResponse"/>
+ </wsdl:message>
+ <wsdl:message name="invokerRequest">
+  <wsdl:part name="parameters" element="impl:invoker"/>
+ </wsdl:message>
+ <wsdl:message name="exampleResponse">
+  <wsdl:part name="parameters" element="impl:exampleResponse"/>
+ </wsdl:message>
+ <wsdl:message name="exampleRequest">
+  <wsdl:part name="parameters" element="impl:example"/>
+ </wsdl:message>
+ <wsdl:portType name="InvocaDACPortType">
+  <wsdl:operation name="example">
+   <wsdl:input name="exampleRequest" message="impl:exampleRequest"/>
+   <wsdl:output name="exampleResponse" message="impl:exampleResponse"/>
+  </wsdl:operation>
+  <wsdl:operation name="invoker">
+   <wsdl:input name="invokerRequest" message="impl:invokerRequest"/>
+   <wsdl:output name="invokerResponse" message="impl:invokerResponse"/>
+  </wsdl:operation>
+ </wsdl:portType>
+ <wsdl:binding name="Projects_VitriaDAC_initial_InvocaDACSoapBinding"
+               type="impl:InvocaDACPortType">
+  <wsdlsoap:binding transport="http://schemas.xmlsoap.org/soap/http"
+                    style="document"/>
+  <wsdl:operation name="example">
+   <wsdlsoap:operation soapAction="example"/>
+   <wsdl:input name="exampleRequest">
+    <wsdlsoap:body use="literal"/>
+   </wsdl:input>
+   <wsdl:output name="exampleResponse">
+    <wsdlsoap:body use="literal"/>
+   </wsdl:output>
+  </wsdl:operation>
+  <wsdl:operation name="invoker">
+   <wsdlsoap:operation soapAction="invoker"/>
+   <wsdl:input name="invokerRequest">
+    <wsdlsoap:body use="literal"/>
+   </wsdl:input>
+   <wsdl:output name="invokerResponse">
+    <wsdlsoap:body use="literal"/>
+   </wsdl:output>
+  </wsdl:operation>
+ </wsdl:binding>
+ <wsdl:service name="InvocaDAC">
+  <wsdl:port name="Projects_VitriaDAC_initial_InvocaDAC"
+             binding="impl:Projects_VitriaDAC_initial_InvocaDACSoapBinding">
+   <!--wsdlsoap:address location="http://172.21.30.40:62000/webservice/Projects_VitriaDAC_initial_InvocaDAC" /-->
+   <wsdlsoap:address location="http://172.18.16.191:8088/mockProjects_VitriaDAC_initial_InvocaDACSoapBinding"/>
+  </wsdl:port>
+ </wsdl:service>
+</wsdl:definitions>

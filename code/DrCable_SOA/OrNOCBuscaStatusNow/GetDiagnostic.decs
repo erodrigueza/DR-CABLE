@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<decisionServices xmlns="http://xmlns.oracle.com/bpel/rules" name="GetDiagnostic">
+    <ruleEngineProvider provider="Oracle_11.0.0.0.0" name="OracleRulesSDK">
+        <repository type="SCA-Archive">
+            <path>OrNOCBuscaStatusNow/oracle/rules/mx/net/cablevision/GetDiagnostic.rules</path>
+        </repository>
+    </ruleEngineProvider>
+    <decisionService name="GetDiagnostic_DS" ruleEngineProviderReference="OracleRulesSDK" targetNamespace="http://xmlns.oracle.com/GetDiagnostic/GetDiagnostic_DS">
+        <catalog>GetDiagnostic</catalog>
+        <pattern name="CallFunctionStateless">
+            <arguments>
+                <call>mx.net.cablevision.GetDiagnostic.GetDiagnostic_DS</call>
+            </arguments>
+        </pattern>
+        <pattern name="CallFunctionStateful">
+            <arguments>
+                <call>mx.net.cablevision.GetDiagnostic.GetDiagnostic_DS</call>
+            </arguments>
+        </pattern>
+    </decisionService>
+    <schemaInformation>
+        <dictionary fqnPackage="mx.net.cablevision" fqnName="GetDiagnostic" updateNumber="758">
+            <schemaBrowser>
+                <package>mx.net.cablevision.xmlns.drcable_soa.drcable.ornocdiagnostico</package>
+                <namespace>http://xmlns.cablevision.net.mx/DrCable_SOA/DrCable/OrNOCDiagnostico</namespace>
+            </schemaBrowser>
+            <schemaImport namespace="http://xmlns.oracle.com/GetDiagnosticTel/GetDiagnosticTel_DS" localPart="OrNOCDiagnostico.xsd" schemaLocation="xsd/GetDiagnosticTel_DSMessageTypes.xsd" package="">
+                <import namespace="http://xmlns.oracle.com/GetDiagnosticTel/GetDiagnosticTel_DS" localPart="OrNOCDiagnostico.xsd"/>
+                <import namespace="http://xmlns.oracle.com/bpel/rules" localPart="DecisionServicePrimitiveTypes.xsd"/>
+                <import namespace="http://xmlns.oracle.com/bpel" localPart="BpelProcess.xsd"/>
+                <import namespace="http://xmlns.oracle.com/GetDiagnosticTel/GetDiagnosticTel_DS" localPart="GetDiagnosticTel_DSTypes.xsd"/>
+                <import namespace="http://xmlns.cablevision.net.mx/DrCable_SOA/DrCable/OrNOCDiagnostico" localPart="OrNOCDiagnostico.xsd"/>
+            </schemaImport>
+        </dictionary>
+    </schemaInformation>
+</decisionServices>

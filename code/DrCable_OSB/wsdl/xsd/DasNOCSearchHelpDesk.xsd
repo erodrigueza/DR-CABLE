@@ -1,0 +1,76 @@
+<xs:schema
+	xmlns:tns="http://xmlns.cablevision.net.mx/DrCable_SOA/DrCable/DasNOCSearchHelpDesk"
+	xmlns:xs="http://www.w3.org/2001/XMLSchema" version="1.0"
+	targetNamespace="http://xmlns.cablevision.net.mx/DrCable_SOA/DrCable/DasNOCSearchHelpDesk">
+	<xs:element name="searchIncidentByAccount" type="tns:searchIncidentByAccount" />
+	<xs:element name="searchIncidentByAccountResponse" type="tns:searchIncidentByAccountResponse" />
+	<xs:element name="searchIncidentByTicket" type="tns:searchIncidentByTicket" />
+	<xs:element name="searchIncidentByTicketResponse" type="tns:searchIncidentByTicketResponse" />
+	<xs:complexType name="searchIncidentByAccount">
+		<xs:sequence>
+			<xs:element name="arg0" type="tns:helpDeskInput"
+				minOccurs="0" />
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="helpDeskInput">
+		<xs:sequence>
+			<xs:element name="account" type="xs:string" minOccurs="0" />
+			<xs:element name="incidentNumber" type="xs:string"
+				minOccurs="0" />
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="searchIncidentByAccountResponse">
+		<xs:sequence>
+			<xs:element name="return" type="tns:helpDeskOutput"
+				minOccurs="0" />
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="helpDeskOutput">
+		<xs:sequence>
+			<xs:element name="incident" type="tns:incident" nillable="true"
+				minOccurs="0" maxOccurs="unbounded" />
+			<xs:element name="resultMsg" type="xs:string" minOccurs="0" />
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="incident">
+		<xs:sequence>
+			<xs:element name="assignedGroup" type="xs:string"
+				minOccurs="0" />
+			<xs:element name="comments" type="tns:comments" minOccurs="0" />
+			<xs:element name="description" type="xs:string" minOccurs="0" />
+			<xs:element name="incidentNumber" type="xs:string"
+				minOccurs="0" />
+			<xs:element name="lastModifiedBy" type="xs:string"
+				minOccurs="0" />
+			<xs:element name="lastModifiedDate" type="xs:string"
+				minOccurs="0" />
+			<xs:element name="productCatTier1" type="xs:string"
+				minOccurs="0" />
+			<xs:element name="productCatTier2" type="xs:string"
+				minOccurs="0" />
+			<xs:element name="resolution" type="xs:string" minOccurs="0" />
+			<xs:element name="status" type="xs:string" minOccurs="0" />
+			<xs:element name="submitDate" type="xs:string" minOccurs="0" />
+			<xs:element name="submitter" type="xs:string" minOccurs="0" />
+			<xs:element name="summary" type="xs:string" minOccurs="0" />
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="comments">
+		<xs:sequence>
+			<xs:element name="comment" type="xs:string" nillable="true"
+				minOccurs="0" maxOccurs="unbounded" />
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="searchIncidentByTicket">
+		<xs:sequence>
+			<xs:element name="arg0" type="tns:helpDeskInput"
+				minOccurs="0" />
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="searchIncidentByTicketResponse">
+		<xs:sequence>
+			<xs:element name="return" type="tns:helpDeskOutput"
+				minOccurs="0" />
+		</xs:sequence>
+	</xs:complexType>
+</xs:schema>

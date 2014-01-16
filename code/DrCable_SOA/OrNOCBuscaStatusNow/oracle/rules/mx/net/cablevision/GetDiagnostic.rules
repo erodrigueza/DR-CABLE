@@ -1,0 +1,2882 @@
+<?xml version="1.0"?>
+<RuleDictionary id="G}3554303c:14151486bfc:-7b26" xmlns="http://xmlns.oracle.com/rules/dictionary">
+    <Name>GetDiagnostic</Name>
+    <Alias>GetDiagnostic</Alias>
+    <Package>mx.net.cablevision</Package>
+    <Version>11.1.1.0.0</Version>
+    <DataModel id="L}1">
+        <CreationUpdateNumber>2</CreationUpdateNumber>
+        <JaxbFactType id="J}mx.net.cablevision.xmlns.drcable_soa.drcable.ornocdiagnostico.Process">
+            <Name>mx.net.cablevision.xmlns.drcable_soa.drcable.ornocdiagnostico.Process</Name>
+            <Alias>process</Alias>
+            <Visible>true</Visible>
+            <CreationUpdateNumber>4</CreationUpdateNumber>
+            <Property id="J}mx.net.cablevision.xmlns.drcable_soa.drcable.ornocdiagnostico.Process.{statusModem}">
+                <Name>statusModem</Name>
+                <Alias>statusModem</Alias>
+                <Visible>true</Visible>
+                <CreationUpdateNumber>4</CreationUpdateNumber>
+                <IDofType>J}java.lang.String</IDofType>
+                <ListContentID>B}nil</ListContentID>
+                <Type>String</Type>
+                <IDofBucketSet>G}3554303c:14151486bfc:-7b1c</IDofBucketSet>
+                <BucketSet>ModemStatus</BucketSet>
+                <Writable>true</Writable>
+                <Readable>true</Readable>
+                <Local>true</Local>
+                <Expression id="L}17">
+                    <IsConstant>false</IsConstant>
+                    <ParameterID>B}nil</ParameterID>
+                    <Customizable>false</Customizable>
+                </Expression>
+                <PrimaryKey>false</PrimaryKey>
+            </Property>
+            <Property id="J}mx.net.cablevision.xmlns.drcable_soa.drcable.ornocdiagnostico.Process.{configFile}">
+                <Name>configFile</Name>
+                <Alias>configFile</Alias>
+                <Visible>true</Visible>
+                <CreationUpdateNumber>36</CreationUpdateNumber>
+                <IDofType>J}java.lang.String</IDofType>
+                <ListContentID>B}nil</ListContentID>
+                <Type>String</Type>
+                <IDofBucketSet>B}nil</IDofBucketSet>
+                <Writable>true</Writable>
+                <Readable>true</Readable>
+                <Local>true</Local>
+                <Expression id="L}137">
+                    <IsConstant>false</IsConstant>
+                    <ParameterID>B}nil</ParameterID>
+                    <Customizable>false</Customizable>
+                </Expression>
+                <PrimaryKey>false</PrimaryKey>
+            </Property>
+            <Property id="J}mx.net.cablevision.xmlns.drcable_soa.drcable.ornocdiagnostico.Process.{batteryStatus}">
+                <Name>batteryStatus</Name>
+                <Alias>batteryStatus</Alias>
+                <Visible>true</Visible>
+                <CreationUpdateNumber>86</CreationUpdateNumber>
+                <IDofType>J}java.lang.String</IDofType>
+                <ListContentID>B}nil</ListContentID>
+                <Type>String</Type>
+                <IDofBucketSet>B}nil</IDofBucketSet>
+                <Writable>true</Writable>
+                <Readable>true</Readable>
+                <Local>true</Local>
+                <Expression id="L}321">
+                    <IsConstant>false</IsConstant>
+                    <ParameterID>B}nil</ParameterID>
+                    <Customizable>false</Customizable>
+                </Expression>
+                <PrimaryKey>false</PrimaryKey>
+            </Property>
+            <Property id="J}mx.net.cablevision.xmlns.drcable_soa.drcable.ornocdiagnostico.Process.{cmClientClasses}">
+                <Name>cmClientClasses</Name>
+                <Alias>cmClientClasses</Alias>
+                <Visible>true</Visible>
+                <CreationUpdateNumber>86</CreationUpdateNumber>
+                <IDofType>J}java.lang.String</IDofType>
+                <ListContentID>B}nil</ListContentID>
+                <Type>String</Type>
+                <IDofBucketSet>G}-4405e27:14180987ba4:-7c30</IDofBucketSet>
+                <BucketSet>CmClientClasses</BucketSet>
+                <Writable>true</Writable>
+                <Readable>true</Readable>
+                <Local>true</Local>
+                <Expression id="L}322">
+                    <IsConstant>false</IsConstant>
+                    <ParameterID>B}nil</ParameterID>
+                    <Customizable>false</Customizable>
+                </Expression>
+                <PrimaryKey>false</PrimaryKey>
+            </Property>
+            <Property id="J}mx.net.cablevision.xmlns.drcable_soa.drcable.ornocdiagnostico.Process.{downStream}">
+                <Name>downStream</Name>
+                <Alias>downStream</Alias>
+                <Visible>true</Visible>
+                <CreationUpdateNumber>86</CreationUpdateNumber>
+                <IDofType>J}java.lang.Float</IDofType>
+                <ListContentID>B}nil</ListContentID>
+                <Type>Float</Type>
+                <IDofBucketSet>G}-ccb0a47:1417f4cdf23:-7c16</IDofBucketSet>
+                <BucketSet>DownStream</BucketSet>
+                <Writable>true</Writable>
+                <Readable>true</Readable>
+                <Local>true</Local>
+                <Expression id="L}323">
+                    <IsConstant>false</IsConstant>
+                    <ParameterID>B}nil</ParameterID>
+                    <Customizable>false</Customizable>
+                </Expression>
+                <PrimaryKey>false</PrimaryKey>
+            </Property>
+            <Property id="J}mx.net.cablevision.xmlns.drcable_soa.drcable.ornocdiagnostico.Process.{lastDiagnostic}">
+                <Name>lastDiagnostic</Name>
+                <Alias>lastDiagnostic</Alias>
+                <Visible>true</Visible>
+                <CreationUpdateNumber>86</CreationUpdateNumber>
+                <IDofType>J}java.lang.String</IDofType>
+                <ListContentID>B}nil</ListContentID>
+                <Type>String</Type>
+                <IDofBucketSet>B}nil</IDofBucketSet>
+                <Writable>true</Writable>
+                <Readable>true</Readable>
+                <Local>true</Local>
+                <Expression id="L}324">
+                    <IsConstant>false</IsConstant>
+                    <ParameterID>B}nil</ParameterID>
+                    <Customizable>false</Customizable>
+                </Expression>
+                <PrimaryKey>false</PrimaryKey>
+            </Property>
+            <Property id="J}mx.net.cablevision.xmlns.drcable_soa.drcable.ornocdiagnostico.Process.{lostSyncs}">
+                <Name>lostSyncs</Name>
+                <Alias>lostSyncs</Alias>
+                <Visible>true</Visible>
+                <CreationUpdateNumber>86</CreationUpdateNumber>
+                <IDofType>J}java.lang.Integer</IDofType>
+                <ListContentID>B}nil</ListContentID>
+                <Type>Integer</Type>
+                <IDofBucketSet>G}-4405e27:14180987ba4:-7c33</IDofBucketSet>
+                <BucketSet>LostSync</BucketSet>
+                <Writable>true</Writable>
+                <Readable>true</Readable>
+                <Local>true</Local>
+                <Expression id="L}325">
+                    <IsConstant>false</IsConstant>
+                    <ParameterID>B}nil</ParameterID>
+                    <Customizable>false</Customizable>
+                </Expression>
+                <PrimaryKey>false</PrimaryKey>
+            </Property>
+            <Property id="J}mx.net.cablevision.xmlns.drcable_soa.drcable.ornocdiagnostico.Process.{provisioningState}">
+                <Name>provisioningState</Name>
+                <Alias>provisioningState</Alias>
+                <Visible>true</Visible>
+                <CreationUpdateNumber>86</CreationUpdateNumber>
+                <IDofType>J}java.lang.String</IDofType>
+                <ListContentID>B}nil</ListContentID>
+                <Type>String</Type>
+                <IDofBucketSet>B}nil</IDofBucketSet>
+                <Writable>true</Writable>
+                <Readable>true</Readable>
+                <Local>true</Local>
+                <Expression id="L}327">
+                    <IsConstant>false</IsConstant>
+                    <ParameterID>B}nil</ParameterID>
+                    <Customizable>false</Customizable>
+                </Expression>
+                <PrimaryKey>false</PrimaryKey>
+            </Property>
+            <Property id="J}mx.net.cablevision.xmlns.drcable_soa.drcable.ornocdiagnostico.Process.{reset}">
+                <Name>reset</Name>
+                <Alias>reset</Alias>
+                <Visible>true</Visible>
+                <CreationUpdateNumber>86</CreationUpdateNumber>
+                <IDofType>J}java.lang.Integer</IDofType>
+                <ListContentID>B}nil</ListContentID>
+                <Type>Integer</Type>
+                <IDofBucketSet>G}-ccb0a47:1417f4cdf23:-7c04</IDofBucketSet>
+                <BucketSet>Reset</BucketSet>
+                <Writable>true</Writable>
+                <Readable>true</Readable>
+                <Local>true</Local>
+                <Expression id="L}328">
+                    <IsConstant>false</IsConstant>
+                    <ParameterID>B}nil</ParameterID>
+                    <Customizable>false</Customizable>
+                </Expression>
+                <PrimaryKey>false</PrimaryKey>
+            </Property>
+            <Property id="J}mx.net.cablevision.xmlns.drcable_soa.drcable.ornocdiagnostico.Process.{systemUpTime}">
+                <Name>systemUpTime</Name>
+                <Alias>systemUpTime</Alias>
+                <Visible>true</Visible>
+                <CreationUpdateNumber>86</CreationUpdateNumber>
+                <IDofType>J}java.lang.String</IDofType>
+                <ListContentID>B}nil</ListContentID>
+                <Type>String</Type>
+                <IDofBucketSet>G}-ccb0a47:1417f4cdf23:-7c08</IDofBucketSet>
+                <BucketSet>SystemUpTime</BucketSet>
+                <Writable>true</Writable>
+                <Readable>true</Readable>
+                <Local>true</Local>
+                <Expression id="L}330">
+                    <IsConstant>false</IsConstant>
+                    <ParameterID>B}nil</ParameterID>
+                    <Customizable>false</Customizable>
+                </Expression>
+                <PrimaryKey>false</PrimaryKey>
+            </Property>
+            <Property id="J}mx.net.cablevision.xmlns.drcable_soa.drcable.ornocdiagnostico.Process.{tecnologia}">
+                <Name>tecnologia</Name>
+                <Alias>tecnologia</Alias>
+                <Visible>true</Visible>
+                <CreationUpdateNumber>86</CreationUpdateNumber>
+                <IDofType>J}java.lang.String</IDofType>
+                <ListContentID>B}nil</ListContentID>
+                <Type>String</Type>
+                <IDofBucketSet>B}nil</IDofBucketSet>
+                <Writable>true</Writable>
+                <Readable>true</Readable>
+                <Local>true</Local>
+                <Expression id="L}331">
+                    <IsConstant>false</IsConstant>
+                    <ParameterID>B}nil</ParameterID>
+                    <Customizable>false</Customizable>
+                </Expression>
+                <PrimaryKey>false</PrimaryKey>
+            </Property>
+            <Property id="J}mx.net.cablevision.xmlns.drcable_soa.drcable.ornocdiagnostico.Process.{upStream}">
+                <Name>upStream</Name>
+                <Alias>upStream</Alias>
+                <Visible>true</Visible>
+                <CreationUpdateNumber>86</CreationUpdateNumber>
+                <IDofType>J}java.lang.Float</IDofType>
+                <ListContentID>B}nil</ListContentID>
+                <Type>Float</Type>
+                <IDofBucketSet>G}-ccb0a47:1417f4cdf23:-7c2a</IDofBucketSet>
+                <BucketSet>UpStream</BucketSet>
+                <Writable>true</Writable>
+                <Readable>true</Readable>
+                <Local>true</Local>
+                <Expression id="L}332">
+                    <IsConstant>false</IsConstant>
+                    <ParameterID>B}nil</ParameterID>
+                    <Customizable>false</Customizable>
+                </Expression>
+                <PrimaryKey>false</PrimaryKey>
+            </Property>
+            <Property id="J}mx.net.cablevision.xmlns.drcable_soa.drcable.ornocdiagnostico.Process.{signalNoiseRatio}">
+                <Name>signalNoiseRatio</Name>
+                <Alias>signalNoiseRatio</Alias>
+                <Visible>true</Visible>
+                <CreationUpdateNumber>109</CreationUpdateNumber>
+                <IDofType>J}java.lang.Float</IDofType>
+                <ListContentID>B}nil</ListContentID>
+                <Type>Float</Type>
+                <IDofBucketSet>G}-ccb0a47:1417f4cdf23:-7c23</IDofBucketSet>
+                <BucketSet>SignalNoiseRatio</BucketSet>
+                <Writable>true</Writable>
+                <Readable>true</Readable>
+                <Local>true</Local>
+                <Expression id="L}389">
+                    <IsConstant>false</IsConstant>
+                    <ParameterID>B}nil</ParameterID>
+                    <Customizable>false</Customizable>
+                </Expression>
+                <PrimaryKey>false</PrimaryKey>
+            </Property>
+            <Property id="J}mx.net.cablevision.xmlns.drcable_soa.drcable.ornocdiagnostico.Process.{stateLine}">
+                <Name>stateLine</Name>
+                <Alias>stateLine</Alias>
+                <Visible>true</Visible>
+                <CreationUpdateNumber>391</CreationUpdateNumber>
+                <IDofType>J}java.lang.String</IDofType>
+                <ListContentID>B}nil</ListContentID>
+                <Type>String</Type>
+                <IDofBucketSet>B}nil</IDofBucketSet>
+                <Writable>true</Writable>
+                <Readable>true</Readable>
+                <Local>true</Local>
+                <Expression id="L}1018">
+                    <IsConstant>false</IsConstant>
+                    <ParameterID>B}nil</ParameterID>
+                    <Customizable>false</Customizable>
+                </Expression>
+                <PrimaryKey>false</PrimaryKey>
+            </Property>
+            <Method id="J}public java.lang.String mx.net.cablevision.xmlns.drcable_soa.drcable.ornocdiagnostico.Process.getStatusModem()">
+                <Name>getStatusModem</Name>
+                <Alias>getStatusModem</Alias>
+                <Visible>false</Visible>
+                <CreationUpdateNumber>4</CreationUpdateNumber>
+                <Modifiers id="L}14">
+                    <CreationUpdateNumber>4</CreationUpdateNumber>
+                    <Access>1</Access>
+                    <isStatic>false</isStatic>
+                    <isFinal>false</isFinal>
+                    <isAbstract>false</isAbstract>
+                </Modifiers>
+                <Static>false</Static>
+                <IDofType>J}java.lang.String</IDofType>
+                <Type>String</Type>
+                <IDofBucketSet>B}nil</IDofBucketSet>
+            </Method>
+            <Method id="J}public void mx.net.cablevision.xmlns.drcable_soa.drcable.ornocdiagnostico.Process.setStatusModem(java.lang.String)">
+                <Name>setStatusModem</Name>
+                <Alias>setStatusModem</Alias>
+                <Visible>false</Visible>
+                <CreationUpdateNumber>4</CreationUpdateNumber>
+                <OverloadedParameter id="G}3554303c:14151486bfc:-7b25">
+                    <CreationUpdateNumber>4</CreationUpdateNumber>
+                    <IDsOfType>J}java.lang.String</IDsOfType>
+                </OverloadedParameter>
+                <Modifiers id="L}16">
+                    <CreationUpdateNumber>4</CreationUpdateNumber>
+                    <Access>1</Access>
+                    <isStatic>false</isStatic>
+                    <isFinal>false</isFinal>
+                    <isAbstract>false</isAbstract>
+                </Modifiers>
+                <Static>false</Static>
+                <IDofType>J}void</IDofType>
+                <Type>void</Type>
+                <IDofBucketSet>B}nil</IDofBucketSet>
+            </Method>
+            <Method id="J}public java.lang.String mx.net.cablevision.xmlns.drcable_soa.drcable.ornocdiagnostico.Process.getConfigFile()">
+                <Name>getConfigFile</Name>
+                <Alias>getConfigFile</Alias>
+                <Visible>false</Visible>
+                <CreationUpdateNumber>36</CreationUpdateNumber>
+                <Modifiers id="L}134">
+                    <CreationUpdateNumber>36</CreationUpdateNumber>
+                    <Access>1</Access>
+                    <isStatic>false</isStatic>
+                    <isFinal>false</isFinal>
+                    <isAbstract>false</isAbstract>
+                </Modifiers>
+                <Static>false</Static>
+                <IDofType>J}java.lang.String</IDofType>
+                <Type>String</Type>
+                <IDofBucketSet>B}nil</IDofBucketSet>
+            </Method>
+            <Method id="J}public void mx.net.cablevision.xmlns.drcable_soa.drcable.ornocdiagnostico.Process.setConfigFile(java.lang.String)">
+                <Name>setConfigFile</Name>
+                <Alias>setConfigFile</Alias>
+                <Visible>false</Visible>
+                <CreationUpdateNumber>36</CreationUpdateNumber>
+                <OverloadedParameter id="G}-129f16f9:141524f828b:-7c37">
+                    <CreationUpdateNumber>36</CreationUpdateNumber>
+                    <IDsOfType>J}java.lang.String</IDsOfType>
+                </OverloadedParameter>
+                <Modifiers id="L}136">
+                    <CreationUpdateNumber>36</CreationUpdateNumber>
+                    <Access>1</Access>
+                    <isStatic>false</isStatic>
+                    <isFinal>false</isFinal>
+                    <isAbstract>false</isAbstract>
+                </Modifiers>
+                <Static>false</Static>
+                <IDofType>J}void</IDofType>
+                <Type>void</Type>
+                <IDofBucketSet>B}nil</IDofBucketSet>
+            </Method>
+            <Method id="J}public java.lang.Float mx.net.cablevision.xmlns.drcable_soa.drcable.ornocdiagnostico.Process.getUpStream()">
+                <Name>getUpStream</Name>
+                <Alias>getUpStream</Alias>
+                <Visible>false</Visible>
+                <CreationUpdateNumber>86</CreationUpdateNumber>
+                <Modifiers id="L}276">
+                    <CreationUpdateNumber>86</CreationUpdateNumber>
+                    <Access>1</Access>
+                    <isStatic>false</isStatic>
+                    <isFinal>false</isFinal>
+                    <isAbstract>false</isAbstract>
+                </Modifiers>
+                <Static>false</Static>
+                <IDofType>J}java.lang.Float</IDofType>
+                <Type>Float</Type>
+                <IDofBucketSet>B}nil</IDofBucketSet>
+            </Method>
+            <Method id="J}public void mx.net.cablevision.xmlns.drcable_soa.drcable.ornocdiagnostico.Process.setUpStream(java.lang.Float)">
+                <Name>setUpStream</Name>
+                <Alias>setUpStream</Alias>
+                <Visible>false</Visible>
+                <CreationUpdateNumber>86</CreationUpdateNumber>
+                <OverloadedParameter id="G}-ccb0a47:1417f4cdf23:-7c36">
+                    <CreationUpdateNumber>86</CreationUpdateNumber>
+                    <IDsOfType>J}java.lang.Float</IDsOfType>
+                </OverloadedParameter>
+                <Modifiers id="L}278">
+                    <CreationUpdateNumber>86</CreationUpdateNumber>
+                    <Access>1</Access>
+                    <isStatic>false</isStatic>
+                    <isFinal>false</isFinal>
+                    <isAbstract>false</isAbstract>
+                </Modifiers>
+                <Static>false</Static>
+                <IDofType>J}void</IDofType>
+                <Type>void</Type>
+                <IDofBucketSet>B}nil</IDofBucketSet>
+            </Method>
+            <Method id="J}public java.lang.Float mx.net.cablevision.xmlns.drcable_soa.drcable.ornocdiagnostico.Process.getDownStream()">
+                <Name>getDownStream</Name>
+                <Alias>getDownStream</Alias>
+                <Visible>false</Visible>
+                <CreationUpdateNumber>86</CreationUpdateNumber>
+                <Modifiers id="L}280">
+                    <CreationUpdateNumber>86</CreationUpdateNumber>
+                    <Access>1</Access>
+                    <isStatic>false</isStatic>
+                    <isFinal>false</isFinal>
+                    <isAbstract>false</isAbstract>
+                </Modifiers>
+                <Static>false</Static>
+                <IDofType>J}java.lang.Float</IDofType>
+                <Type>Float</Type>
+                <IDofBucketSet>B}nil</IDofBucketSet>
+            </Method>
+            <Method id="J}public void mx.net.cablevision.xmlns.drcable_soa.drcable.ornocdiagnostico.Process.setDownStream(java.lang.Float)">
+                <Name>setDownStream</Name>
+                <Alias>setDownStream</Alias>
+                <Visible>false</Visible>
+                <CreationUpdateNumber>86</CreationUpdateNumber>
+                <OverloadedParameter id="G}-ccb0a47:1417f4cdf23:-7c35">
+                    <CreationUpdateNumber>86</CreationUpdateNumber>
+                    <IDsOfType>J}java.lang.Float</IDsOfType>
+                </OverloadedParameter>
+                <Modifiers id="L}282">
+                    <CreationUpdateNumber>86</CreationUpdateNumber>
+                    <Access>1</Access>
+                    <isStatic>false</isStatic>
+                    <isFinal>false</isFinal>
+                    <isAbstract>false</isAbstract>
+                </Modifiers>
+                <Static>false</Static>
+                <IDofType>J}void</IDofType>
+                <Type>void</Type>
+                <IDofBucketSet>B}nil</IDofBucketSet>
+            </Method>
+            <Method id="J}public java.lang.String mx.net.cablevision.xmlns.drcable_soa.drcable.ornocdiagnostico.Process.getSystemUpTime()">
+                <Name>getSystemUpTime</Name>
+                <Alias>getSystemUpTime</Alias>
+                <Visible>false</Visible>
+                <CreationUpdateNumber>86</CreationUpdateNumber>
+                <Modifiers id="L}284">
+                    <CreationUpdateNumber>86</CreationUpdateNumber>
+                    <Access>1</Access>
+                    <isStatic>false</isStatic>
+                    <isFinal>false</isFinal>
+                    <isAbstract>false</isAbstract>
+                </Modifiers>
+                <Static>false</Static>
+                <IDofType>J}java.lang.String</IDofType>
+                <Type>String</Type>
+                <IDofBucketSet>B}nil</IDofBucketSet>
+            </Method>
+            <Method id="J}public void mx.net.cablevision.xmlns.drcable_soa.drcable.ornocdiagnostico.Process.setSystemUpTime(java.lang.String)">
+                <Name>setSystemUpTime</Name>
+                <Alias>setSystemUpTime</Alias>
+                <Visible>false</Visible>
+                <CreationUpdateNumber>86</CreationUpdateNumber>
+                <OverloadedParameter id="G}-ccb0a47:1417f4cdf23:-7c34">
+                    <CreationUpdateNumber>86</CreationUpdateNumber>
+                    <IDsOfType>J}java.lang.String</IDsOfType>
+                </OverloadedParameter>
+                <Modifiers id="L}286">
+                    <CreationUpdateNumber>86</CreationUpdateNumber>
+                    <Access>1</Access>
+                    <isStatic>false</isStatic>
+                    <isFinal>false</isFinal>
+                    <isAbstract>false</isAbstract>
+                </Modifiers>
+                <Static>false</Static>
+                <IDofType>J}void</IDofType>
+                <Type>void</Type>
+                <IDofBucketSet>B}nil</IDofBucketSet>
+            </Method>
+            <Method id="J}public java.lang.Integer mx.net.cablevision.xmlns.drcable_soa.drcable.ornocdiagnostico.Process.getReset()">
+                <Name>getReset</Name>
+                <Alias>getReset</Alias>
+                <Visible>false</Visible>
+                <CreationUpdateNumber>86</CreationUpdateNumber>
+                <Modifiers id="L}288">
+                    <CreationUpdateNumber>86</CreationUpdateNumber>
+                    <Access>1</Access>
+                    <isStatic>false</isStatic>
+                    <isFinal>false</isFinal>
+                    <isAbstract>false</isAbstract>
+                </Modifiers>
+                <Static>false</Static>
+                <IDofType>J}java.lang.Integer</IDofType>
+                <Type>Integer</Type>
+                <IDofBucketSet>B}nil</IDofBucketSet>
+            </Method>
+            <Method id="J}public void mx.net.cablevision.xmlns.drcable_soa.drcable.ornocdiagnostico.Process.setReset(java.lang.Integer)">
+                <Name>setReset</Name>
+                <Alias>setReset</Alias>
+                <Visible>false</Visible>
+                <CreationUpdateNumber>86</CreationUpdateNumber>
+                <OverloadedParameter id="G}-ccb0a47:1417f4cdf23:-7c33">
+                    <CreationUpdateNumber>86</CreationUpdateNumber>
+                    <IDsOfType>J}java.lang.Integer</IDsOfType>
+                </OverloadedParameter>
+                <Modifiers id="L}290">
+                    <CreationUpdateNumber>86</CreationUpdateNumber>
+                    <Access>1</Access>
+                    <isStatic>false</isStatic>
+                    <isFinal>false</isFinal>
+                    <isAbstract>false</isAbstract>
+                </Modifiers>
+                <Static>false</Static>
+                <IDofType>J}void</IDofType>
+                <Type>void</Type>
+                <IDofBucketSet>B}nil</IDofBucketSet>
+            </Method>
+            <Method id="J}public java.lang.Integer mx.net.cablevision.xmlns.drcable_soa.drcable.ornocdiagnostico.Process.getLostSyncs()">
+                <Name>getLostSyncs</Name>
+                <Alias>getLostSyncs</Alias>
+                <Visible>false</Visible>
+                <CreationUpdateNumber>86</CreationUpdateNumber>
+                <Modifiers id="L}292">
+                    <CreationUpdateNumber>86</CreationUpdateNumber>
+                    <Access>1</Access>
+                    <isStatic>false</isStatic>
+                    <isFinal>false</isFinal>
+                    <isAbstract>false</isAbstract>
+                </Modifiers>
+                <Static>false</Static>
+                <IDofType>J}java.lang.Integer</IDofType>
+                <Type>Integer</Type>
+                <IDofBucketSet>B}nil</IDofBucketSet>
+            </Method>
+            <Method id="J}public void mx.net.cablevision.xmlns.drcable_soa.drcable.ornocdiagnostico.Process.setLostSyncs(java.lang.Integer)">
+                <Name>setLostSyncs</Name>
+                <Alias>setLostSyncs</Alias>
+                <Visible>false</Visible>
+                <CreationUpdateNumber>86</CreationUpdateNumber>
+                <OverloadedParameter id="G}-ccb0a47:1417f4cdf23:-7c32">
+                    <CreationUpdateNumber>86</CreationUpdateNumber>
+                    <IDsOfType>J}java.lang.Integer</IDsOfType>
+                </OverloadedParameter>
+                <Modifiers id="L}294">
+                    <CreationUpdateNumber>86</CreationUpdateNumber>
+                    <Access>1</Access>
+                    <isStatic>false</isStatic>
+                    <isFinal>false</isFinal>
+                    <isAbstract>false</isAbstract>
+                </Modifiers>
+                <Static>false</Static>
+                <IDofType>J}void</IDofType>
+                <Type>void</Type>
+                <IDofBucketSet>B}nil</IDofBucketSet>
+            </Method>
+            <Method id="J}public java.lang.String mx.net.cablevision.xmlns.drcable_soa.drcable.ornocdiagnostico.Process.getCmClientClasses()">
+                <Name>getCmClientClasses</Name>
+                <Alias>getCmClientClasses</Alias>
+                <Visible>false</Visible>
+                <CreationUpdateNumber>86</CreationUpdateNumber>
+                <Modifiers id="L}296">
+                    <CreationUpdateNumber>86</CreationUpdateNumber>
+                    <Access>1</Access>
+                    <isStatic>false</isStatic>
+                    <isFinal>false</isFinal>
+                    <isAbstract>false</isAbstract>
+                </Modifiers>
+                <Static>false</Static>
+                <IDofType>J}java.lang.String</IDofType>
+                <Type>String</Type>
+                <IDofBucketSet>B}nil</IDofBucketSet>
+            </Method>
+            <Method id="J}public void mx.net.cablevision.xmlns.drcable_soa.drcable.ornocdiagnostico.Process.setCmClientClasses(java.lang.String)">
+                <Name>setCmClientClasses</Name>
+                <Alias>setCmClientClasses</Alias>
+                <Visible>false</Visible>
+                <CreationUpdateNumber>86</CreationUpdateNumber>
+                <OverloadedParameter id="G}-ccb0a47:1417f4cdf23:-7c31">
+                    <CreationUpdateNumber>86</CreationUpdateNumber>
+                    <IDsOfType>J}java.lang.String</IDsOfType>
+                </OverloadedParameter>
+                <Modifiers id="L}298">
+                    <CreationUpdateNumber>86</CreationUpdateNumber>
+                    <Access>1</Access>
+                    <isStatic>false</isStatic>
+                    <isFinal>false</isFinal>
+                    <isAbstract>false</isAbstract>
+                </Modifiers>
+                <Static>false</Static>
+                <IDofType>J}void</IDofType>
+                <Type>void</Type>
+                <IDofBucketSet>B}nil</IDofBucketSet>
+            </Method>
+            <Method id="J}public java.lang.String mx.net.cablevision.xmlns.drcable_soa.drcable.ornocdiagnostico.Process.getTecnologia()">
+                <Name>getTecnologia</Name>
+                <Alias>getTecnologia</Alias>
+                <Visible>false</Visible>
+                <CreationUpdateNumber>86</CreationUpdateNumber>
+                <Modifiers id="L}302">
+                    <CreationUpdateNumber>86</CreationUpdateNumber>
+                    <Access>1</Access>
+                    <isStatic>false</isStatic>
+                    <isFinal>false</isFinal>
+                    <isAbstract>false</isAbstract>
+                </Modifiers>
+                <Static>false</Static>
+                <IDofType>J}java.lang.String</IDofType>
+                <Type>String</Type>
+                <IDofBucketSet>B}nil</IDofBucketSet>
+            </Method>
+            <Method id="J}public void mx.net.cablevision.xmlns.drcable_soa.drcable.ornocdiagnostico.Process.setTecnologia(java.lang.String)">
+                <Name>setTecnologia</Name>
+                <Alias>setTecnologia</Alias>
+                <Visible>false</Visible>
+                <CreationUpdateNumber>86</CreationUpdateNumber>
+                <OverloadedParameter id="G}-ccb0a47:1417f4cdf23:-7c2f">
+                    <CreationUpdateNumber>86</CreationUpdateNumber>
+                    <IDsOfType>J}java.lang.String</IDsOfType>
+                </OverloadedParameter>
+                <Modifiers id="L}304">
+                    <CreationUpdateNumber>86</CreationUpdateNumber>
+                    <Access>1</Access>
+                    <isStatic>false</isStatic>
+                    <isFinal>false</isFinal>
+                    <isAbstract>false</isAbstract>
+                </Modifiers>
+                <Static>false</Static>
+                <IDofType>J}void</IDofType>
+                <Type>void</Type>
+                <IDofBucketSet>B}nil</IDofBucketSet>
+            </Method>
+            <Method id="J}public java.lang.String mx.net.cablevision.xmlns.drcable_soa.drcable.ornocdiagnostico.Process.getProvisioningState()">
+                <Name>getProvisioningState</Name>
+                <Alias>getProvisioningState</Alias>
+                <Visible>false</Visible>
+                <CreationUpdateNumber>86</CreationUpdateNumber>
+                <Modifiers id="L}306">
+                    <CreationUpdateNumber>86</CreationUpdateNumber>
+                    <Access>1</Access>
+                    <isStatic>false</isStatic>
+                    <isFinal>false</isFinal>
+                    <isAbstract>false</isAbstract>
+                </Modifiers>
+                <Static>false</Static>
+                <IDofType>J}java.lang.String</IDofType>
+                <Type>String</Type>
+                <IDofBucketSet>B}nil</IDofBucketSet>
+            </Method>
+            <Method id="J}public void mx.net.cablevision.xmlns.drcable_soa.drcable.ornocdiagnostico.Process.setProvisioningState(java.lang.String)">
+                <Name>setProvisioningState</Name>
+                <Alias>setProvisioningState</Alias>
+                <Visible>false</Visible>
+                <CreationUpdateNumber>86</CreationUpdateNumber>
+                <OverloadedParameter id="G}-ccb0a47:1417f4cdf23:-7c2e">
+                    <CreationUpdateNumber>86</CreationUpdateNumber>
+                    <IDsOfType>J}java.lang.String</IDsOfType>
+                </OverloadedParameter>
+                <Modifiers id="L}308">
+                    <CreationUpdateNumber>86</CreationUpdateNumber>
+                    <Access>1</Access>
+                    <isStatic>false</isStatic>
+                    <isFinal>false</isFinal>
+                    <isAbstract>false</isAbstract>
+                </Modifiers>
+                <Static>false</Static>
+                <IDofType>J}void</IDofType>
+                <Type>void</Type>
+                <IDofBucketSet>B}nil</IDofBucketSet>
+            </Method>
+            <Method id="J}public java.lang.String mx.net.cablevision.xmlns.drcable_soa.drcable.ornocdiagnostico.Process.getBatteryStatus()">
+                <Name>getBatteryStatus</Name>
+                <Alias>getBatteryStatus</Alias>
+                <Visible>false</Visible>
+                <CreationUpdateNumber>86</CreationUpdateNumber>
+                <Modifiers id="L}310">
+                    <CreationUpdateNumber>86</CreationUpdateNumber>
+                    <Access>1</Access>
+                    <isStatic>false</isStatic>
+                    <isFinal>false</isFinal>
+                    <isAbstract>false</isAbstract>
+                </Modifiers>
+                <Static>false</Static>
+                <IDofType>J}java.lang.String</IDofType>
+                <Type>String</Type>
+                <IDofBucketSet>B}nil</IDofBucketSet>
+            </Method>
+            <Method id="J}public void mx.net.cablevision.xmlns.drcable_soa.drcable.ornocdiagnostico.Process.setBatteryStatus(java.lang.String)">
+                <Name>setBatteryStatus</Name>
+                <Alias>setBatteryStatus</Alias>
+                <Visible>false</Visible>
+                <CreationUpdateNumber>86</CreationUpdateNumber>
+                <OverloadedParameter id="G}-ccb0a47:1417f4cdf23:-7c2d">
+                    <CreationUpdateNumber>86</CreationUpdateNumber>
+                    <IDsOfType>J}java.lang.String</IDsOfType>
+                </OverloadedParameter>
+                <Modifiers id="L}312">
+                    <CreationUpdateNumber>86</CreationUpdateNumber>
+                    <Access>1</Access>
+                    <isStatic>false</isStatic>
+                    <isFinal>false</isFinal>
+                    <isAbstract>false</isAbstract>
+                </Modifiers>
+                <Static>false</Static>
+                <IDofType>J}void</IDofType>
+                <Type>void</Type>
+                <IDofBucketSet>B}nil</IDofBucketSet>
+            </Method>
+            <Method id="J}public java.lang.String mx.net.cablevision.xmlns.drcable_soa.drcable.ornocdiagnostico.Process.getLastDiagnostic()">
+                <Name>getLastDiagnostic</Name>
+                <Alias>getLastDiagnostic</Alias>
+                <Visible>false</Visible>
+                <CreationUpdateNumber>86</CreationUpdateNumber>
+                <Modifiers id="L}318">
+                    <CreationUpdateNumber>86</CreationUpdateNumber>
+                    <Access>1</Access>
+                    <isStatic>false</isStatic>
+                    <isFinal>false</isFinal>
+                    <isAbstract>false</isAbstract>
+                </Modifiers>
+                <Static>false</Static>
+                <IDofType>J}java.lang.String</IDofType>
+                <Type>String</Type>
+                <IDofBucketSet>B}nil</IDofBucketSet>
+            </Method>
+            <Method id="J}public void mx.net.cablevision.xmlns.drcable_soa.drcable.ornocdiagnostico.Process.setLastDiagnostic(java.lang.String)">
+                <Name>setLastDiagnostic</Name>
+                <Alias>setLastDiagnostic</Alias>
+                <Visible>false</Visible>
+                <CreationUpdateNumber>86</CreationUpdateNumber>
+                <OverloadedParameter id="G}-ccb0a47:1417f4cdf23:-7c2b">
+                    <CreationUpdateNumber>86</CreationUpdateNumber>
+                    <IDsOfType>J}java.lang.String</IDsOfType>
+                </OverloadedParameter>
+                <Modifiers id="L}320">
+                    <CreationUpdateNumber>86</CreationUpdateNumber>
+                    <Access>1</Access>
+                    <isStatic>false</isStatic>
+                    <isFinal>false</isFinal>
+                    <isAbstract>false</isAbstract>
+                </Modifiers>
+                <Static>false</Static>
+                <IDofType>J}void</IDofType>
+                <Type>void</Type>
+                <IDofBucketSet>B}nil</IDofBucketSet>
+            </Method>
+            <Method id="J}public java.lang.Float mx.net.cablevision.xmlns.drcable_soa.drcable.ornocdiagnostico.Process.getSignalNoiseRatio()">
+                <Name>getSignalNoiseRatio</Name>
+                <Alias>getSignalNoiseRatio</Alias>
+                <Visible>false</Visible>
+                <CreationUpdateNumber>109</CreationUpdateNumber>
+                <Modifiers id="L}386">
+                    <CreationUpdateNumber>109</CreationUpdateNumber>
+                    <Access>1</Access>
+                    <isStatic>false</isStatic>
+                    <isFinal>false</isFinal>
+                    <isAbstract>false</isAbstract>
+                </Modifiers>
+                <Static>false</Static>
+                <IDofType>J}java.lang.Float</IDofType>
+                <Type>Float</Type>
+                <IDofBucketSet>B}nil</IDofBucketSet>
+            </Method>
+            <Method id="J}public void mx.net.cablevision.xmlns.drcable_soa.drcable.ornocdiagnostico.Process.setSignalNoiseRatio(java.lang.Float)">
+                <Name>setSignalNoiseRatio</Name>
+                <Alias>setSignalNoiseRatio</Alias>
+                <Visible>false</Visible>
+                <CreationUpdateNumber>109</CreationUpdateNumber>
+                <OverloadedParameter id="G}-ccb0a47:1417f4cdf23:-7c1d">
+                    <CreationUpdateNumber>109</CreationUpdateNumber>
+                    <IDsOfType>J}java.lang.Float</IDsOfType>
+                </OverloadedParameter>
+                <Modifiers id="L}388">
+                    <CreationUpdateNumber>109</CreationUpdateNumber>
+                    <Access>1</Access>
+                    <isStatic>false</isStatic>
+                    <isFinal>false</isFinal>
+                    <isAbstract>false</isAbstract>
+                </Modifiers>
+                <Static>false</Static>
+                <IDofType>J}void</IDofType>
+                <Type>void</Type>
+                <IDofBucketSet>B}nil</IDofBucketSet>
+            </Method>
+            <Method id="J}public java.lang.String mx.net.cablevision.xmlns.drcable_soa.drcable.ornocdiagnostico.Process.getStateLine()">
+                <Name>getStateLine</Name>
+                <Alias>getStateLine</Alias>
+                <Visible>false</Visible>
+                <CreationUpdateNumber>391</CreationUpdateNumber>
+                <Modifiers id="L}1015">
+                    <CreationUpdateNumber>391</CreationUpdateNumber>
+                    <Access>1</Access>
+                    <isStatic>false</isStatic>
+                    <isFinal>false</isFinal>
+                    <isAbstract>false</isAbstract>
+                </Modifiers>
+                <Static>false</Static>
+                <IDofType>J}java.lang.String</IDofType>
+                <Type>String</Type>
+                <IDofBucketSet>B}nil</IDofBucketSet>
+            </Method>
+            <Method id="J}public void mx.net.cablevision.xmlns.drcable_soa.drcable.ornocdiagnostico.Process.setStateLine(java.lang.String)">
+                <Name>setStateLine</Name>
+                <Alias>setStateLine</Alias>
+                <Visible>false</Visible>
+                <CreationUpdateNumber>391</CreationUpdateNumber>
+                <OverloadedParameter id="G}60c21705:141b7aad953:-7bf5">
+                    <CreationUpdateNumber>391</CreationUpdateNumber>
+                    <IDsOfType>J}java.lang.String</IDsOfType>
+                </OverloadedParameter>
+                <Modifiers id="L}1017">
+                    <CreationUpdateNumber>391</CreationUpdateNumber>
+                    <Access>1</Access>
+                    <isStatic>false</isStatic>
+                    <isFinal>false</isFinal>
+                    <isAbstract>false</isAbstract>
+                </Modifiers>
+                <Static>false</Static>
+                <IDofType>J}void</IDofType>
+                <Type>void</Type>
+                <IDofBucketSet>B}nil</IDofBucketSet>
+            </Method>
+            <Constructor id="J}public mx.net.cablevision.xmlns.drcable_soa.drcable.ornocdiagnostico.Process()">
+                <CreationUpdateNumber>4</CreationUpdateNumber>
+                <Visible>true</Visible>
+                <Modifiers id="L}12">
+                    <CreationUpdateNumber>4</CreationUpdateNumber>
+                    <Access>1</Access>
+                    <isStatic>false</isStatic>
+                    <isFinal>false</isFinal>
+                    <isAbstract>false</isAbstract>
+                </Modifiers>
+            </Constructor>
+            <IDofSuperClass>J}java.lang.Object</IDofSuperClass>
+            <ValidationUpdateNumber>391</ValidationUpdateNumber>
+            <Source>xsd/OrNOCDiagnostico.xsd</Source>
+            <IsArray>false</IsArray>
+            <IDofArrayComponentType>B}nil</IDofArrayComponentType>
+            <SupportXPath>false</SupportXPath>
+            <IsInterface>false</IsInterface>
+            <Modifiers id="L}1013">
+                <CreationUpdateNumber>391</CreationUpdateNumber>
+                <Access>1</Access>
+                <isStatic>false</isStatic>
+                <isFinal>false</isFinal>
+                <isAbstract>false</isAbstract>
+            </Modifiers>
+            <EnumBucketSetID>B}nil</EnumBucketSetID>
+            <Timestamp>0</Timestamp>
+            <ENUM>false</ENUM>
+            <XmlName>//xs:element[@name=&apos;process&apos;]</XmlName>
+            <JAXB2.0>true</JAXB2.0>
+            <NodeName>process</NodeName>
+            <Namespace>http://xmlns.cablevision.net.mx/DrCable_SOA/DrCable/OrNOCDiagnostico</Namespace>
+        </JaxbFactType>
+        <JaxbFactType id="J}mx.net.cablevision.xmlns.drcable_soa.drcable.ornocdiagnostico.ObjectFactory">
+            <Name>mx.net.cablevision.xmlns.drcable_soa.drcable.ornocdiagnostico.ObjectFactory</Name>
+            <Alias>mx_net_cablevision_xmlns_drcable_soa_drcable_ornocdiagnostico_ObjectFactory</Alias>
+            <Visible>false</Visible>
+            <CreationUpdateNumber>4</CreationUpdateNumber>
+            <Method id="J}public mx.net.cablevision.xmlns.drcable_soa.drcable.ornocdiagnostico.Process mx.net.cablevision.xmlns.drcable_soa.drcable.ornocdiagnostico.ObjectFactory.createProcess()">
+                <Name>createProcess</Name>
+                <Alias>createProcess</Alias>
+                <Visible>false</Visible>
+                <CreationUpdateNumber>4</CreationUpdateNumber>
+                <Modifiers id="L}23">
+                    <CreationUpdateNumber>4</CreationUpdateNumber>
+                    <Access>1</Access>
+                    <isStatic>false</isStatic>
+                    <isFinal>false</isFinal>
+                    <isAbstract>false</isAbstract>
+                </Modifiers>
+                <Static>false</Static>
+                <IDofType>J}mx.net.cablevision.xmlns.drcable_soa.drcable.ornocdiagnostico.Process</IDofType>
+                <Type>process</Type>
+                <IDofBucketSet>B}nil</IDofBucketSet>
+            </Method>
+            <Method id="J}public mx.net.cablevision.xmlns.drcable_soa.drcable.ornocdiagnostico.ProcessResponse mx.net.cablevision.xmlns.drcable_soa.drcable.ornocdiagnostico.ObjectFactory.createProcessResponse()">
+                <Name>createProcessResponse</Name>
+                <Alias>createProcessResponse</Alias>
+                <Visible>false</Visible>
+                <CreationUpdateNumber>4</CreationUpdateNumber>
+                <Modifiers id="L}25">
+                    <CreationUpdateNumber>4</CreationUpdateNumber>
+                    <Access>1</Access>
+                    <isStatic>false</isStatic>
+                    <isFinal>false</isFinal>
+                    <isAbstract>false</isAbstract>
+                </Modifiers>
+                <Static>false</Static>
+                <IDofType>J}mx.net.cablevision.xmlns.drcable_soa.drcable.ornocdiagnostico.ProcessResponse</IDofType>
+                <Type>processResponse</Type>
+                <IDofBucketSet>B}nil</IDofBucketSet>
+            </Method>
+            <Constructor id="J}public mx.net.cablevision.xmlns.drcable_soa.drcable.ornocdiagnostico.ObjectFactory()">
+                <CreationUpdateNumber>4</CreationUpdateNumber>
+                <Visible>false</Visible>
+                <Modifiers id="L}21">
+                    <CreationUpdateNumber>4</CreationUpdateNumber>
+                    <Access>1</Access>
+                    <isStatic>false</isStatic>
+                    <isFinal>false</isFinal>
+                    <isAbstract>false</isAbstract>
+                </Modifiers>
+            </Constructor>
+            <IDofSuperClass>J}java.lang.Object</IDofSuperClass>
+            <ValidationUpdateNumber>391</ValidationUpdateNumber>
+            <Source>xsd/OrNOCDiagnostico.xsd</Source>
+            <IsArray>false</IsArray>
+            <IDofArrayComponentType>B}nil</IDofArrayComponentType>
+            <SupportXPath>false</SupportXPath>
+            <IsInterface>false</IsInterface>
+            <Modifiers id="L}1019">
+                <CreationUpdateNumber>391</CreationUpdateNumber>
+                <Access>1</Access>
+                <isStatic>false</isStatic>
+                <isFinal>false</isFinal>
+                <isAbstract>false</isAbstract>
+            </Modifiers>
+            <EnumBucketSetID>B}nil</EnumBucketSetID>
+            <Timestamp>0</Timestamp>
+            <ENUM>false</ENUM>
+            <JAXB2.0>true</JAXB2.0>
+        </JaxbFactType>
+        <JaxbFactType id="J}mx.net.cablevision.xmlns.drcable_soa.drcable.ornocdiagnostico.ProcessResponse">
+            <Name>mx.net.cablevision.xmlns.drcable_soa.drcable.ornocdiagnostico.ProcessResponse</Name>
+            <Alias>processResponse</Alias>
+            <Visible>true</Visible>
+            <CreationUpdateNumber>4</CreationUpdateNumber>
+            <Property id="J}mx.net.cablevision.xmlns.drcable_soa.drcable.ornocdiagnostico.ProcessResponse.{codigo}">
+                <Name>codigo</Name>
+                <Alias>codigo</Alias>
+                <Visible>true</Visible>
+                <CreationUpdateNumber>4</CreationUpdateNumber>
+                <IDofType>J}int</IDofType>
+                <ListContentID>B}nil</ListContentID>
+                <Type>int</Type>
+                <IDofBucketSet>B}nil</IDofBucketSet>
+                <Writable>true</Writable>
+                <Readable>true</Readable>
+                <Local>true</Local>
+                <Expression id="L}42">
+                    <IsConstant>false</IsConstant>
+                    <ParameterID>B}nil</ParameterID>
+                    <Customizable>false</Customizable>
+                </Expression>
+                <PrimaryKey>false</PrimaryKey>
+            </Property>
+            <Property id="J}mx.net.cablevision.xmlns.drcable_soa.drcable.ornocdiagnostico.ProcessResponse.{explicacion}">
+                <Name>explicacion</Name>
+                <Alias>explicacion</Alias>
+                <Visible>true</Visible>
+                <CreationUpdateNumber>4</CreationUpdateNumber>
+                <IDofType>J}java.lang.String</IDofType>
+                <ListContentID>B}nil</ListContentID>
+                <Type>String</Type>
+                <IDofBucketSet>B}nil</IDofBucketSet>
+                <Writable>true</Writable>
+                <Readable>true</Readable>
+                <Local>true</Local>
+                <Expression id="L}43">
+                    <IsConstant>false</IsConstant>
+                    <ParameterID>B}nil</ParameterID>
+                    <Customizable>false</Customizable>
+                </Expression>
+                <PrimaryKey>false</PrimaryKey>
+            </Property>
+            <Property id="J}mx.net.cablevision.xmlns.drcable_soa.drcable.ornocdiagnostico.ProcessResponse.{texto}">
+                <Name>texto</Name>
+                <Alias>texto</Alias>
+                <Visible>true</Visible>
+                <CreationUpdateNumber>4</CreationUpdateNumber>
+                <IDofType>J}java.lang.String</IDofType>
+                <ListContentID>B}nil</ListContentID>
+                <Type>String</Type>
+                <IDofBucketSet>B}nil</IDofBucketSet>
+                <Writable>true</Writable>
+                <Readable>true</Readable>
+                <Local>true</Local>
+                <Expression id="L}44">
+                    <IsConstant>false</IsConstant>
+                    <ParameterID>B}nil</ParameterID>
+                    <Customizable>false</Customizable>
+                </Expression>
+                <PrimaryKey>false</PrimaryKey>
+            </Property>
+            <Method id="J}public int mx.net.cablevision.xmlns.drcable_soa.drcable.ornocdiagnostico.ProcessResponse.getCodigo()">
+                <Name>getCodigo</Name>
+                <Alias>getCodigo</Alias>
+                <Visible>false</Visible>
+                <CreationUpdateNumber>4</CreationUpdateNumber>
+                <Modifiers id="L}31">
+                    <CreationUpdateNumber>4</CreationUpdateNumber>
+                    <Access>1</Access>
+                    <isStatic>false</isStatic>
+                    <isFinal>false</isFinal>
+                    <isAbstract>false</isAbstract>
+                </Modifiers>
+                <Static>false</Static>
+                <IDofType>J}int</IDofType>
+                <Type>int</Type>
+                <IDofBucketSet>B}nil</IDofBucketSet>
+            </Method>
+            <Method id="J}public void mx.net.cablevision.xmlns.drcable_soa.drcable.ornocdiagnostico.ProcessResponse.setCodigo(int)">
+                <Name>setCodigo</Name>
+                <Alias>setCodigo</Alias>
+                <Visible>false</Visible>
+                <CreationUpdateNumber>4</CreationUpdateNumber>
+                <OverloadedParameter id="G}3554303c:14151486bfc:-7b24">
+                    <CreationUpdateNumber>4</CreationUpdateNumber>
+                    <IDsOfType>J}int</IDsOfType>
+                </OverloadedParameter>
+                <Modifiers id="L}33">
+                    <CreationUpdateNumber>4</CreationUpdateNumber>
+                    <Access>1</Access>
+                    <isStatic>false</isStatic>
+                    <isFinal>false</isFinal>
+                    <isAbstract>false</isAbstract>
+                </Modifiers>
+                <Static>false</Static>
+                <IDofType>J}void</IDofType>
+                <Type>void</Type>
+                <IDofBucketSet>B}nil</IDofBucketSet>
+            </Method>
+            <Method id="J}public java.lang.String mx.net.cablevision.xmlns.drcable_soa.drcable.ornocdiagnostico.ProcessResponse.getTexto()">
+                <Name>getTexto</Name>
+                <Alias>getTexto</Alias>
+                <Visible>false</Visible>
+                <CreationUpdateNumber>4</CreationUpdateNumber>
+                <Modifiers id="L}35">
+                    <CreationUpdateNumber>4</CreationUpdateNumber>
+                    <Access>1</Access>
+                    <isStatic>false</isStatic>
+                    <isFinal>false</isFinal>
+                    <isAbstract>false</isAbstract>
+                </Modifiers>
+                <Static>false</Static>
+                <IDofType>J}java.lang.String</IDofType>
+                <Type>String</Type>
+                <IDofBucketSet>B}nil</IDofBucketSet>
+            </Method>
+            <Method id="J}public void mx.net.cablevision.xmlns.drcable_soa.drcable.ornocdiagnostico.ProcessResponse.setTexto(java.lang.String)">
+                <Name>setTexto</Name>
+                <Alias>setTexto</Alias>
+                <Visible>false</Visible>
+                <CreationUpdateNumber>4</CreationUpdateNumber>
+                <OverloadedParameter id="G}3554303c:14151486bfc:-7b23">
+                    <CreationUpdateNumber>4</CreationUpdateNumber>
+                    <IDsOfType>J}java.lang.String</IDsOfType>
+                </OverloadedParameter>
+                <Modifiers id="L}37">
+                    <CreationUpdateNumber>4</CreationUpdateNumber>
+                    <Access>1</Access>
+                    <isStatic>false</isStatic>
+                    <isFinal>false</isFinal>
+                    <isAbstract>false</isAbstract>
+                </Modifiers>
+                <Static>false</Static>
+                <IDofType>J}void</IDofType>
+                <Type>void</Type>
+                <IDofBucketSet>B}nil</IDofBucketSet>
+            </Method>
+            <Method id="J}public java.lang.String mx.net.cablevision.xmlns.drcable_soa.drcable.ornocdiagnostico.ProcessResponse.getExplicacion()">
+                <Name>getExplicacion</Name>
+                <Alias>getExplicacion</Alias>
+                <Visible>false</Visible>
+                <CreationUpdateNumber>4</CreationUpdateNumber>
+                <Modifiers id="L}39">
+                    <CreationUpdateNumber>4</CreationUpdateNumber>
+                    <Access>1</Access>
+                    <isStatic>false</isStatic>
+                    <isFinal>false</isFinal>
+                    <isAbstract>false</isAbstract>
+                </Modifiers>
+                <Static>false</Static>
+                <IDofType>J}java.lang.String</IDofType>
+                <Type>String</Type>
+                <IDofBucketSet>B}nil</IDofBucketSet>
+            </Method>
+            <Method id="J}public void mx.net.cablevision.xmlns.drcable_soa.drcable.ornocdiagnostico.ProcessResponse.setExplicacion(java.lang.String)">
+                <Name>setExplicacion</Name>
+                <Alias>setExplicacion</Alias>
+                <Visible>false</Visible>
+                <CreationUpdateNumber>4</CreationUpdateNumber>
+                <OverloadedParameter id="G}3554303c:14151486bfc:-7b22">
+                    <CreationUpdateNumber>4</CreationUpdateNumber>
+                    <IDsOfType>J}java.lang.String</IDsOfType>
+                </OverloadedParameter>
+                <Modifiers id="L}41">
+                    <CreationUpdateNumber>4</CreationUpdateNumber>
+                    <Access>1</Access>
+                    <isStatic>false</isStatic>
+                    <isFinal>false</isFinal>
+                    <isAbstract>false</isAbstract>
+                </Modifiers>
+                <Static>false</Static>
+                <IDofType>J}void</IDofType>
+                <Type>void</Type>
+                <IDofBucketSet>B}nil</IDofBucketSet>
+            </Method>
+            <Constructor id="J}public mx.net.cablevision.xmlns.drcable_soa.drcable.ornocdiagnostico.ProcessResponse()">
+                <CreationUpdateNumber>4</CreationUpdateNumber>
+                <Visible>true</Visible>
+                <Modifiers id="L}29">
+                    <CreationUpdateNumber>4</CreationUpdateNumber>
+                    <Access>1</Access>
+                    <isStatic>false</isStatic>
+                    <isFinal>false</isFinal>
+                    <isAbstract>false</isAbstract>
+                </Modifiers>
+            </Constructor>
+            <IDofSuperClass>J}java.lang.Object</IDofSuperClass>
+            <ValidationUpdateNumber>391</ValidationUpdateNumber>
+            <Source>xsd/OrNOCDiagnostico.xsd</Source>
+            <IsArray>false</IsArray>
+            <IDofArrayComponentType>B}nil</IDofArrayComponentType>
+            <SupportXPath>false</SupportXPath>
+            <IsInterface>false</IsInterface>
+            <Modifiers id="L}1020">
+                <CreationUpdateNumber>391</CreationUpdateNumber>
+                <Access>1</Access>
+                <isStatic>false</isStatic>
+                <isFinal>false</isFinal>
+                <isAbstract>false</isAbstract>
+            </Modifiers>
+            <EnumBucketSetID>B}nil</EnumBucketSetID>
+            <Timestamp>0</Timestamp>
+            <ENUM>false</ENUM>
+            <XmlName>//xs:element[@name=&apos;processResponse&apos;]</XmlName>
+            <JAXB2.0>true</JAXB2.0>
+            <NodeName>processResponse</NodeName>
+            <Namespace>http://xmlns.cablevision.net.mx/DrCable_SOA/DrCable/OrNOCDiagnostico</Namespace>
+        </JaxbFactType>
+        <BucketSet id="G}3554303c:14151486bfc:-7b1c">
+            <Name>ModemStatus</Name>
+            <Alias>ModemStatus</Alias>
+            <Description>Catalogo de Modem Status</Description>
+            <Visible>true</Visible>
+            <CreationUpdateNumber>9</CreationUpdateNumber>
+            <IDofType>J}java.lang.String</IDofType>
+            <ListContentID>B}nil</ListContentID>
+            <Type>String</Type>
+            <Form>LOV</Form>
+            <Bucket id="G}3554303c:14151486bfc:-7b1b">
+                <Name>otherwise</Name>
+                <Alias>otherwise</Alias>
+                <Visible>true</Visible>
+                <CreationUpdateNumber>9</CreationUpdateNumber>
+                <Inclusive>true</Inclusive>
+                <Otherwise>true</Otherwise>
+                <Excluded>false</Excluded>
+                <Expression id="L}49">
+                    <IsConstant>true</IsConstant>
+                    <ParameterID>B}nil</ParameterID>
+                    <Customizable>false</Customizable>
+                </Expression>
+            </Bucket>
+            <Bucket id="G}3554303c:14151486bfc:-7b1a">
+                <Name>&quot;NO_DATA&quot;</Name>
+                <Alias>&quot;NO_DATA&quot;</Alias>
+                <Visible>true</Visible>
+                <CreationUpdateNumber>11</CreationUpdateNumber>
+                <Inclusive>false</Inclusive>
+                <Otherwise>false</Otherwise>
+                <Excluded>false</Excluded>
+                <Expression id="L}54">
+                    <Value>&quot;NO_DATA&quot;</Value>
+                    <ResolvedValue>&quot;NO_DATA&quot;</ResolvedValue>
+                    <IsConstant>true</IsConstant>
+                    <ParameterID>B}nil</ParameterID>
+                    <Customizable>false</Customizable>
+                </Expression>
+            </Bucket>
+            <Bucket id="G}-129f16f9:141524f828b:-7c36">
+                <Name>&quot;OTHER_OFFLINE&quot;</Name>
+                <Alias>&quot;OTHER_OFFLINE&quot;</Alias>
+                <Visible>true</Visible>
+                <CreationUpdateNumber>37</CreationUpdateNumber>
+                <Inclusive>false</Inclusive>
+                <Otherwise>false</Otherwise>
+                <Excluded>false</Excluded>
+                <Expression id="L}142">
+                    <Value>&quot;OTHER_OFFLINE&quot;</Value>
+                    <ResolvedValue>&quot;OTHER_OFFLINE&quot;</ResolvedValue>
+                    <IsConstant>true</IsConstant>
+                    <ParameterID>B}nil</ParameterID>
+                    <Customizable>false</Customizable>
+                </Expression>
+            </Bucket>
+            <Bucket id="G}-4ed61c9d:1420617e1b4:-7c31">
+                <Name>&quot;OFFLINE&quot;</Name>
+                <Alias>&quot;OFFLINE&quot;</Alias>
+                <Visible>true</Visible>
+                <CreationUpdateNumber>436</CreationUpdateNumber>
+                <Inclusive>false</Inclusive>
+                <Otherwise>false</Otherwise>
+                <Excluded>false</Excluded>
+                <Expression id="L}1115">
+                    <Value>&quot;OFFLINE&quot;</Value>
+                    <ResolvedValue>&quot;OFFLINE&quot;</ResolvedValue>
+                    <IsConstant>true</IsConstant>
+                    <ParameterID>B}nil</ParameterID>
+                    <Customizable>false</Customizable>
+                </Expression>
+            </Bucket>
+            <Bucket id="G}-129f16f9:141524f828b:-7c35">
+                <Name>&quot;RANGING_ABORTED&quot;</Name>
+                <Alias>&quot;RANGING_ABORTED&quot;</Alias>
+                <Visible>true</Visible>
+                <CreationUpdateNumber>39</CreationUpdateNumber>
+                <Inclusive>false</Inclusive>
+                <Otherwise>false</Otherwise>
+                <Excluded>false</Excluded>
+                <Expression id="L}147">
+                    <Value>&quot;RANGING_ABORTED&quot;</Value>
+                    <ResolvedValue>&quot;RANGING_ABORTED&quot;</ResolvedValue>
+                    <IsConstant>true</IsConstant>
+                    <ParameterID>B}nil</ParameterID>
+                    <Customizable>false</Customizable>
+                </Expression>
+            </Bucket>
+            <Bucket id="G}-129f16f9:141524f828b:-7c34">
+                <Name>&quot;RANGING_COMPLETE&quot;</Name>
+                <Alias>&quot;RANGING_COMPLETE&quot;</Alias>
+                <Visible>true</Visible>
+                <CreationUpdateNumber>40</CreationUpdateNumber>
+                <Inclusive>false</Inclusive>
+                <Otherwise>false</Otherwise>
+                <Excluded>false</Excluded>
+                <Expression id="L}150">
+                    <Value>&quot;RANGING_COMPLETE&quot;</Value>
+                    <ResolvedValue>&quot;RANGING_COMPLETE&quot;</ResolvedValue>
+                    <IsConstant>true</IsConstant>
+                    <ParameterID>B}nil</ParameterID>
+                    <Customizable>false</Customizable>
+                </Expression>
+            </Bucket>
+            <Bucket id="G}-129f16f9:141524f828b:-7c33">
+                <Name>&quot;IP_COMPLETE&quot;</Name>
+                <Alias>&quot;IP_COMPLETE&quot;</Alias>
+                <Visible>true</Visible>
+                <CreationUpdateNumber>42</CreationUpdateNumber>
+                <Inclusive>false</Inclusive>
+                <Otherwise>false</Otherwise>
+                <Excluded>false</Excluded>
+                <Expression id="L}155">
+                    <Value>&quot;IP_COMPLETE&quot;</Value>
+                    <ResolvedValue>&quot;IP_COMPLETE&quot;</ResolvedValue>
+                    <IsConstant>true</IsConstant>
+                    <ParameterID>B}nil</ParameterID>
+                    <Customizable>false</Customizable>
+                </Expression>
+            </Bucket>
+            <Bucket id="G}-129f16f9:141524f828b:-7c32">
+                <Name>&quot;REG_COMPLETE&quot;</Name>
+                <Alias>&quot;REG_COMPLETE&quot;</Alias>
+                <Visible>true</Visible>
+                <CreationUpdateNumber>51</CreationUpdateNumber>
+                <Inclusive>false</Inclusive>
+                <Otherwise>false</Otherwise>
+                <Excluded>false</Excluded>
+                <Expression id="L}174">
+                    <Value>&quot;REG_COMPLETE&quot;</Value>
+                    <ResolvedValue>&quot;REG_COMPLETE&quot;</ResolvedValue>
+                    <IsConstant>true</IsConstant>
+                    <ParameterID>B}nil</ParameterID>
+                    <Customizable>false</Customizable>
+                </Expression>
+            </Bucket>
+            <Bucket id="G}-129f16f9:141524f828b:-7c31">
+                <Name>&quot;ACCESS_DENIED&quot;</Name>
+                <Alias>&quot;ACCESS_DENIED&quot;</Alias>
+                <Visible>true</Visible>
+                <CreationUpdateNumber>52</CreationUpdateNumber>
+                <Inclusive>false</Inclusive>
+                <Otherwise>false</Otherwise>
+                <Excluded>false</Excluded>
+                <Expression id="L}177">
+                    <Value>&quot;ACCESS_DENIED&quot;</Value>
+                    <ResolvedValue>&quot;ACCESS_DENIED&quot;</ResolvedValue>
+                    <IsConstant>true</IsConstant>
+                    <ParameterID>B}nil</ParameterID>
+                    <Customizable>false</Customizable>
+                </Expression>
+            </Bucket>
+            <Bucket id="G}-129f16f9:141524f828b:-7c30">
+                <Name>&quot;OPERATIONAL&quot;</Name>
+                <Alias>&quot;OPERATIONAL&quot;</Alias>
+                <Visible>true</Visible>
+                <CreationUpdateNumber>53</CreationUpdateNumber>
+                <Inclusive>false</Inclusive>
+                <Otherwise>false</Otherwise>
+                <Excluded>false</Excluded>
+                <Expression id="L}180">
+                    <Value>&quot;OPERATIONAL&quot;</Value>
+                    <ResolvedValue>&quot;OPERATIONAL&quot;</ResolvedValue>
+                    <IsConstant>true</IsConstant>
+                    <ParameterID>B}nil</ParameterID>
+                    <Customizable>false</Customizable>
+                </Expression>
+            </Bucket>
+            <Bucket id="G}-129f16f9:141524f828b:-7c2f">
+                <Name>&quot;BPI_INITIALZING&quot;</Name>
+                <Alias>&quot;BPI_INITIALZING&quot;</Alias>
+                <Visible>true</Visible>
+                <CreationUpdateNumber>54</CreationUpdateNumber>
+                <Inclusive>false</Inclusive>
+                <Otherwise>false</Otherwise>
+                <Excluded>false</Excluded>
+                <Expression id="L}183">
+                    <Value>&quot;BPI_INITIALZING&quot;</Value>
+                    <ResolvedValue>&quot;BPI_INITIALZING&quot;</ResolvedValue>
+                    <IsConstant>true</IsConstant>
+                    <ParameterID>B}nil</ParameterID>
+                    <Customizable>false</Customizable>
+                </Expression>
+            </Bucket>
+            <Bucket id="G}-129f16f9:141524f828b:-7c2e">
+                <Name>&quot;RANGING&quot;</Name>
+                <Alias>&quot;RANGING&quot;</Alias>
+                <Visible>true</Visible>
+                <CreationUpdateNumber>55</CreationUpdateNumber>
+                <Inclusive>false</Inclusive>
+                <Otherwise>false</Otherwise>
+                <Excluded>false</Excluded>
+                <Expression id="L}186">
+                    <Value>&quot;RANGING&quot;</Value>
+                    <ResolvedValue>&quot;RANGING&quot;</ResolvedValue>
+                    <IsConstant>true</IsConstant>
+                    <ParameterID>B}nil</ParameterID>
+                    <Customizable>false</Customizable>
+                </Expression>
+            </Bucket>
+            <Bucket id="G}-129f16f9:141524f828b:-7c2d">
+                <Name>&quot;ON_LINE&quot;</Name>
+                <Alias>&quot;ON_LINE&quot;</Alias>
+                <Visible>true</Visible>
+                <CreationUpdateNumber>56</CreationUpdateNumber>
+                <Inclusive>false</Inclusive>
+                <Otherwise>false</Otherwise>
+                <Excluded>false</Excluded>
+                <Expression id="L}189">
+                    <Value>&quot;ON_LINE&quot;</Value>
+                    <ResolvedValue>&quot;ON_LINE&quot;</ResolvedValue>
+                    <IsConstant>true</IsConstant>
+                    <ParameterID>B}nil</ParameterID>
+                    <Customizable>false</Customizable>
+                </Expression>
+            </Bucket>
+            <Bucket id="G}-129f16f9:141524f828b:-7c2c">
+                <Name>&quot;_UNDEF_&quot;</Name>
+                <Alias>&quot;_UNDEF_&quot;</Alias>
+                <Visible>true</Visible>
+                <CreationUpdateNumber>57</CreationUpdateNumber>
+                <Inclusive>false</Inclusive>
+                <Otherwise>false</Otherwise>
+                <Excluded>false</Excluded>
+                <Expression id="L}192">
+                    <Value>&quot;_UNDEF_&quot;</Value>
+                    <ResolvedValue>&quot;_UNDEF_&quot;</ResolvedValue>
+                    <IsConstant>true</IsConstant>
+                    <ParameterID>B}nil</ParameterID>
+                    <Customizable>false</Customizable>
+                </Expression>
+            </Bucket>
+            <CalendarForm>Date</CalendarForm>
+            <Excluded>false</Excluded>
+            <ValidationUpdateNumber>447</ValidationUpdateNumber>
+        </BucketSet>
+        <BucketSet id="G}-ccb0a47:1417f4cdf23:-7c2a">
+            <Name>UpStream</Name>
+            <Alias>UpStream</Alias>
+            <Description>Rangos de upstreamTransmitPower</Description>
+            <Visible>true</Visible>
+            <CreationUpdateNumber>87</CreationUpdateNumber>
+            <IDofType>J}int</IDofType>
+            <ListContentID>B}nil</ListContentID>
+            <Type>int</Type>
+            <Form>Range</Form>
+            <Bucket id="G}-ccb0a47:1417f4cdf23:-7c29">
+                <Name>&lt;32</Name>
+                <Alias>&lt;32</Alias>
+                <Visible>true</Visible>
+                <CreationUpdateNumber>87</CreationUpdateNumber>
+                <Inclusive>true</Inclusive>
+                <Otherwise>true</Otherwise>
+                <Excluded>false</Excluded>
+                <Expression id="L}337">
+                    <IsConstant>true</IsConstant>
+                    <ParameterID>B}nil</ParameterID>
+                    <Customizable>false</Customizable>
+                </Expression>
+            </Bucket>
+            <Bucket id="G}-ccb0a47:1417f4cdf23:-7c1a">
+                <Name>[32..50)</Name>
+                <Alias>[32..50)</Alias>
+                <Visible>true</Visible>
+                <CreationUpdateNumber>129</CreationUpdateNumber>
+                <Inclusive>true</Inclusive>
+                <Otherwise>false</Otherwise>
+                <Excluded>false</Excluded>
+                <Expression id="L}452">
+                    <Value>32</Value>
+                    <ResolvedValue>32</ResolvedValue>
+                    <IsConstant>true</IsConstant>
+                    <ParameterID>B}nil</ParameterID>
+                    <Customizable>false</Customizable>
+                </Expression>
+            </Bucket>
+            <Bucket id="G}-ccb0a47:1417f4cdf23:-7c19">
+                <Name>&gt;=50</Name>
+                <Alias>&gt;=50</Alias>
+                <Visible>true</Visible>
+                <CreationUpdateNumber>131</CreationUpdateNumber>
+                <Inclusive>true</Inclusive>
+                <Otherwise>false</Otherwise>
+                <Excluded>false</Excluded>
+                <Expression id="L}457">
+                    <Value>50</Value>
+                    <ResolvedValue>50</ResolvedValue>
+                    <IsConstant>true</IsConstant>
+                    <ParameterID>B}nil</ParameterID>
+                    <Customizable>false</Customizable>
+                </Expression>
+            </Bucket>
+            <CalendarForm>Date</CalendarForm>
+            <Excluded>false</Excluded>
+            <ValidationUpdateNumber>138</ValidationUpdateNumber>
+        </BucketSet>
+        <BucketSet id="G}-ccb0a47:1417f4cdf23:-7c23">
+            <Name>SignalNoiseRatio</Name>
+            <Alias>SignalNoiseRatio</Alias>
+            <Description>Rangos de downstreamSignalNoiseRatio</Description>
+            <Visible>true</Visible>
+            <CreationUpdateNumber>99</CreationUpdateNumber>
+            <IDofType>J}float</IDofType>
+            <ListContentID>B}nil</ListContentID>
+            <Type>float</Type>
+            <Form>Range</Form>
+            <Bucket id="G}-ccb0a47:1417f4cdf23:-7c22">
+                <Name>&lt;31</Name>
+                <Alias>&lt;31</Alias>
+                <Visible>true</Visible>
+                <CreationUpdateNumber>99</CreationUpdateNumber>
+                <Inclusive>true</Inclusive>
+                <Otherwise>true</Otherwise>
+                <Excluded>false</Excluded>
+                <Expression id="L}375">
+                    <IsConstant>true</IsConstant>
+                    <ParameterID>B}nil</ParameterID>
+                    <Customizable>false</Customizable>
+                </Expression>
+            </Bucket>
+            <Bucket id="G}-ccb0a47:1417f4cdf23:-7c21">
+                <Name>&gt;=31</Name>
+                <Alias>&gt;=31</Alias>
+                <Visible>true</Visible>
+                <CreationUpdateNumber>101</CreationUpdateNumber>
+                <Inclusive>true</Inclusive>
+                <Otherwise>false</Otherwise>
+                <Excluded>false</Excluded>
+                <Expression id="L}380">
+                    <Value>31</Value>
+                    <ResolvedValue>31</ResolvedValue>
+                    <IsConstant>true</IsConstant>
+                    <ParameterID>B}nil</ParameterID>
+                    <Customizable>false</Customizable>
+                </Expression>
+            </Bucket>
+            <CalendarForm>Date</CalendarForm>
+            <Excluded>false</Excluded>
+            <ValidationUpdateNumber>139</ValidationUpdateNumber>
+        </BucketSet>
+        <BucketSet id="G}-ccb0a47:1417f4cdf23:-7c16">
+            <Name>DownStream</Name>
+            <Alias>DownStream</Alias>
+            <Description>Rangos de downstreamReceivePower</Description>
+            <Visible>true</Visible>
+            <CreationUpdateNumber>152</CreationUpdateNumber>
+            <IDofType>J}float</IDofType>
+            <ListContentID>B}nil</ListContentID>
+            <Type>float</Type>
+            <Form>Range</Form>
+            <Bucket id="G}-ccb0a47:1417f4cdf23:-7c15">
+                <Name>&lt;-10.0</Name>
+                <Alias>&lt;-10.0</Alias>
+                <Visible>true</Visible>
+                <CreationUpdateNumber>152</CreationUpdateNumber>
+                <Inclusive>true</Inclusive>
+                <Otherwise>true</Otherwise>
+                <Excluded>false</Excluded>
+                <Expression id="L}522">
+                    <IsConstant>true</IsConstant>
+                    <ParameterID>B}nil</ParameterID>
+                    <Customizable>false</Customizable>
+                </Expression>
+            </Bucket>
+            <Bucket id="G}-ccb0a47:1417f4cdf23:-7c14">
+                <Name>[-10.0..12.0)</Name>
+                <Alias>[-10.0..12.0)</Alias>
+                <Visible>true</Visible>
+                <CreationUpdateNumber>155</CreationUpdateNumber>
+                <Inclusive>true</Inclusive>
+                <Otherwise>false</Otherwise>
+                <Excluded>false</Excluded>
+                <Expression id="L}529">
+                    <Value>-10.0</Value>
+                    <ResolvedValue>-10.0</ResolvedValue>
+                    <IsConstant>true</IsConstant>
+                    <ParameterID>B}nil</ParameterID>
+                    <Customizable>false</Customizable>
+                </Expression>
+            </Bucket>
+            <Bucket id="G}-ccb0a47:1417f4cdf23:-7c13">
+                <Name>&gt;=12.0</Name>
+                <Alias>&gt;=12.0</Alias>
+                <Visible>true</Visible>
+                <CreationUpdateNumber>157</CreationUpdateNumber>
+                <Inclusive>true</Inclusive>
+                <Otherwise>false</Otherwise>
+                <Excluded>false</Excluded>
+                <Expression id="L}534">
+                    <Value>12.0</Value>
+                    <ResolvedValue>12.0</ResolvedValue>
+                    <IsConstant>true</IsConstant>
+                    <ParameterID>B}nil</ParameterID>
+                    <Customizable>false</Customizable>
+                </Expression>
+            </Bucket>
+            <CalendarForm>Date</CalendarForm>
+            <Excluded>false</Excluded>
+            <ValidationUpdateNumber>160</ValidationUpdateNumber>
+        </BucketSet>
+        <BucketSet id="G}-ccb0a47:1417f4cdf23:-7c08">
+            <Name>SystemUpTime</Name>
+            <Alias>SystemUpTime</Alias>
+            <Description>Catalogo de systemUpTime</Description>
+            <Visible>true</Visible>
+            <CreationUpdateNumber>204</CreationUpdateNumber>
+            <IDofType>J}java.lang.String</IDofType>
+            <ListContentID>B}nil</ListContentID>
+            <Type>String</Type>
+            <Form>LOV</Form>
+            <Bucket id="G}-ccb0a47:1417f4cdf23:-7c07">
+                <Name>otherwise</Name>
+                <Alias>otherwise</Alias>
+                <Visible>true</Visible>
+                <CreationUpdateNumber>204</CreationUpdateNumber>
+                <Inclusive>true</Inclusive>
+                <Otherwise>true</Otherwise>
+                <Excluded>false</Excluded>
+                <Expression id="L}716">
+                    <IsConstant>true</IsConstant>
+                    <ParameterID>B}nil</ParameterID>
+                    <Customizable>false</Customizable>
+                </Expression>
+            </Bucket>
+            <Bucket id="G}-ccb0a47:1417f4cdf23:-7c06">
+                <Name>&quot;0&quot;</Name>
+                <Alias>&quot;0&quot;</Alias>
+                <Visible>true</Visible>
+                <CreationUpdateNumber>206</CreationUpdateNumber>
+                <Inclusive>false</Inclusive>
+                <Otherwise>false</Otherwise>
+                <Excluded>false</Excluded>
+                <Expression id="L}721">
+                    <Value>&quot;0&quot;</Value>
+                    <ResolvedValue>&quot;0&quot;</ResolvedValue>
+                    <IsConstant>true</IsConstant>
+                    <ParameterID>B}nil</ParameterID>
+                    <Customizable>false</Customizable>
+                </Expression>
+            </Bucket>
+            <CalendarForm>Date</CalendarForm>
+            <Excluded>false</Excluded>
+            <ValidationUpdateNumber>264</ValidationUpdateNumber>
+        </BucketSet>
+        <BucketSet id="G}-ccb0a47:1417f4cdf23:-7c04">
+            <Name>Reset</Name>
+            <Alias>Reset</Alias>
+            <Description>Rangos de Reset</Description>
+            <Visible>true</Visible>
+            <CreationUpdateNumber>212</CreationUpdateNumber>
+            <IDofType>J}int</IDofType>
+            <ListContentID>B}nil</ListContentID>
+            <Type>int</Type>
+            <Form>Range</Form>
+            <Bucket id="G}-ccb0a47:1417f4cdf23:-7c03">
+                <Name>&lt;1</Name>
+                <Alias>&lt;1</Alias>
+                <Visible>true</Visible>
+                <CreationUpdateNumber>212</CreationUpdateNumber>
+                <Inclusive>true</Inclusive>
+                <Otherwise>true</Otherwise>
+                <Excluded>false</Excluded>
+                <Expression id="L}730">
+                    <IsConstant>true</IsConstant>
+                    <ParameterID>B}nil</ParameterID>
+                    <Customizable>false</Customizable>
+                </Expression>
+            </Bucket>
+            <Bucket id="G}-ccb0a47:1417f4cdf23:-7c02">
+                <Name>&gt;=1</Name>
+                <Alias>&gt;=1</Alias>
+                <Visible>true</Visible>
+                <CreationUpdateNumber>215</CreationUpdateNumber>
+                <Inclusive>true</Inclusive>
+                <Otherwise>false</Otherwise>
+                <Excluded>false</Excluded>
+                <Expression id="L}737">
+                    <Value>1</Value>
+                    <ResolvedValue>1</ResolvedValue>
+                    <IsConstant>true</IsConstant>
+                    <ParameterID>B}nil</ParameterID>
+                    <Customizable>false</Customizable>
+                </Expression>
+            </Bucket>
+            <CalendarForm>Date</CalendarForm>
+            <Excluded>false</Excluded>
+            <ValidationUpdateNumber>685</ValidationUpdateNumber>
+        </BucketSet>
+        <BucketSet id="G}-4405e27:14180987ba4:-7c33">
+            <Name>LostSync</Name>
+            <Alias>LostSync</Alias>
+            <Description>Rangos de LostSync</Description>
+            <Visible>true</Visible>
+            <CreationUpdateNumber>252</CreationUpdateNumber>
+            <IDofType>J}int</IDofType>
+            <ListContentID>B}nil</ListContentID>
+            <Type>int</Type>
+            <Form>Range</Form>
+            <Bucket id="G}-4405e27:14180987ba4:-7c32">
+                <Name>&lt;6</Name>
+                <Alias>&lt;6</Alias>
+                <Visible>true</Visible>
+                <CreationUpdateNumber>252</CreationUpdateNumber>
+                <Inclusive>true</Inclusive>
+                <Otherwise>true</Otherwise>
+                <Excluded>false</Excluded>
+                <Expression id="L}832">
+                    <IsConstant>true</IsConstant>
+                    <ParameterID>B}nil</ParameterID>
+                    <Customizable>false</Customizable>
+                </Expression>
+            </Bucket>
+            <Bucket id="G}-4405e27:14180987ba4:-7c31">
+                <Name>&gt;=6</Name>
+                <Alias>&gt;=6</Alias>
+                <Visible>true</Visible>
+                <CreationUpdateNumber>255</CreationUpdateNumber>
+                <Inclusive>true</Inclusive>
+                <Otherwise>false</Otherwise>
+                <Excluded>false</Excluded>
+                <Expression id="L}839">
+                    <Value>6</Value>
+                    <ResolvedValue>6</ResolvedValue>
+                    <IsConstant>true</IsConstant>
+                    <ParameterID>B}nil</ParameterID>
+                    <Customizable>false</Customizable>
+                </Expression>
+            </Bucket>
+            <CalendarForm>Date</CalendarForm>
+            <Excluded>false</Excluded>
+            <ValidationUpdateNumber>686</ValidationUpdateNumber>
+        </BucketSet>
+        <BucketSet id="G}-4405e27:14180987ba4:-7c30">
+            <Name>CmClientClasses</Name>
+            <Alias>CmClientClasses</Alias>
+            <Description>Catalogo cmClientClasses</Description>
+            <Visible>true</Visible>
+            <CreationUpdateNumber>256</CreationUpdateNumber>
+            <IDofType>J}java.lang.String</IDofType>
+            <ListContentID>B}nil</ListContentID>
+            <Type>String</Type>
+            <Form>LOV</Form>
+            <Bucket id="G}-4405e27:14180987ba4:-7c2f">
+                <Name>otherwise</Name>
+                <Alias>otherwise</Alias>
+                <Visible>true</Visible>
+                <CreationUpdateNumber>256</CreationUpdateNumber>
+                <Inclusive>true</Inclusive>
+                <Otherwise>true</Otherwise>
+                <Excluded>false</Excluded>
+                <Expression id="L}842">
+                    <IsConstant>true</IsConstant>
+                    <ParameterID>B}nil</ParameterID>
+                    <Customizable>false</Customizable>
+                </Expression>
+            </Bucket>
+            <Bucket id="G}-4405e27:14180987ba4:-7c2e">
+                <Name>&quot;SIN_DATOS&quot;</Name>
+                <Alias>&quot;SIN_DATOS&quot;</Alias>
+                <Visible>true</Visible>
+                <CreationUpdateNumber>259</CreationUpdateNumber>
+                <Inclusive>false</Inclusive>
+                <Otherwise>false</Otherwise>
+                <Excluded>false</Excluded>
+                <Expression id="L}849">
+                    <Value>&quot;SIN_DATOS&quot;</Value>
+                    <ResolvedValue>&quot;SIN_DATOS&quot;</ResolvedValue>
+                    <IsConstant>true</IsConstant>
+                    <ParameterID>B}nil</ParameterID>
+                    <Customizable>false</Customizable>
+                </Expression>
+            </Bucket>
+            <CalendarForm>Date</CalendarForm>
+            <Excluded>false</Excluded>
+            <ValidationUpdateNumber>260</ValidationUpdateNumber>
+        </BucketSet>
+        <SupportsXPathEnabled>false</SupportsXPathEnabled>
+        <DecisionFunction id="G}3554303c:14151486bfc:-7b20">
+            <Name>GetDiagnostic_DS</Name>
+            <Alias>GetDiagnostic_DS</Alias>
+            <Description>Diagnostico del servicio de internet</Description>
+            <unsavedTranslatedAlias>false</unsavedTranslatedAlias>
+            <unsavedTranslatedDescription>false</unsavedTranslatedDescription>
+            <Visible>true</Visible>
+            <CreationUpdateNumber>4</CreationUpdateNumber>
+            <WebService>true</WebService>
+            <CheckRuleFlow>true</CheckRuleFlow>
+            <Stateless>true</Stateless>
+            <DecisionFunctionInput id="G}3554303c:14151486bfc:-7b1f">
+                <Name>process</Name>
+                <Alias>process</Alias>
+                <unsavedTranslatedAlias>false</unsavedTranslatedAlias>
+                <unsavedTranslatedDescription>false</unsavedTranslatedDescription>
+                <Visible>true</Visible>
+                <CreationUpdateNumber>6</CreationUpdateNumber>
+                <IDofType>J}mx.net.cablevision.xmlns.drcable_soa.drcable.ornocdiagnostico.Process</IDofType>
+                <List>false</List>
+                <Tree>true</Tree>
+            </DecisionFunctionInput>
+            <DecisionFunctionRuleSet id="L}47">
+                <CreationUpdateNumber>5</CreationUpdateNumber>
+                <unsavedTranslatedDescription>false</unsavedTranslatedDescription>
+                <Form>rule set</Form>
+                <Ruleset>DiagnosticoRuleset</Ruleset>
+                <refID>G}3554303c:14151486bfc:-7b21</refID>
+            </DecisionFunctionRuleSet>
+            <DecisionFunctionOutput id="G}3554303c:14151486bfc:-7b1e">
+                <Name>processResponse</Name>
+                <Alias>processResponse</Alias>
+                <unsavedTranslatedAlias>false</unsavedTranslatedAlias>
+                <unsavedTranslatedDescription>false</unsavedTranslatedDescription>
+                <Visible>true</Visible>
+                <CreationUpdateNumber>7</CreationUpdateNumber>
+                <IDofType>J}mx.net.cablevision.xmlns.drcable_soa.drcable.ornocdiagnostico.ProcessResponse</IDofType>
+                <List>false</List>
+                <Tree>false</Tree>
+            </DecisionFunctionOutput>
+            <ValidationUpdateNumber>433</ValidationUpdateNumber>
+            <RuleFiringLimit>10000</RuleFiringLimit>
+            <RuleFiringLimitError>true</RuleFiringLimitError>
+        </DecisionFunction>
+        <UpdateNumber>737</UpdateNumber>
+        <ValidationUpdateNumber>737</ValidationUpdateNumber>
+        <UpdateTime>-9223372036854775808</UpdateTime>
+    </DataModel>
+    <RuleSet id="G}3554303c:14151486bfc:-7b21">
+        <Name>DiagnosticoRuleset</Name>
+        <Alias>DiagnosticoRuleset</Alias>
+        <ValidationUpdateNumber>758</ValidationUpdateNumber>
+        <Customizable>true</Customizable>
+        <Active>true</Active>
+        <CalendarForm>DateTime</CalendarForm>
+        <RuleSheet id="G}3554303c:14151486bfc:-7b19">
+            <Name>DiagnosticDecisionTable</Name>
+            <Alias>DiagnosticDecisionTable</Alias>
+            <ValidationUpdateNumber>758</ValidationUpdateNumber>
+            <Priority>medium</Priority>
+            <Customizable>true</Customizable>
+            <Active>true</Active>
+            <CalendarForm>DateTime</CalendarForm>
+            <Pattern id="L}63">
+                <Form>Fact Type</Form>
+                <FactType>process</FactType>
+                <IDofFactType>J}mx.net.cablevision.xmlns.drcable_soa.drcable.ornocdiagnostico.Process</IDofFactType>
+                <Connective>&amp;&amp;</Connective>
+                <TestForm>Simple</TestForm>
+                <Expression id="L}64">
+                    <IsConstant>false</IsConstant>
+                    <ParameterID>B}nil</ParameterID>
+                    <Customizable>false</Customizable>
+                </Expression>
+                <Operator>(for each case where)</Operator>
+                <FactPath>process</FactPath>
+                <FactPathIDs>L}63</FactPathIDs>
+            </Pattern>
+            <ShowPatterns>false</ShowPatterns>
+            <TreeMode>false</TreeMode>
+            <Visible>true</Visible>
+            <Logical>false</Logical>
+            <Dimension id="L}69">
+                <Value>process.statusModem</Value>
+                <ResolvedValue>`L}63`.`J}mx.net.cablevision.xmlns.drcable_soa.drcable.ornocdiagnostico.Process.{statusModem}`</ResolvedValue>
+                <IsConstant>false</IsConstant>
+                <ParameterID>B}nil</ParameterID>
+                <Customizable>false</Customizable>
+                <IDofSharedBucketSet>G}3554303c:14151486bfc:-7b1c</IDofSharedBucketSet>
+                <DimensionNode id="L}1132">
+                    <BucketIDTable>G}3554303c:14151486bfc:-7b1b G}3554303c:14151486bfc:-7b1a G}-129f16f9:141524f828b:-7c36 G}-4ed61c9d:1420617e1b4:-7c31 G}-129f16f9:141524f828b:-7c35 G}-129f16f9:141524f828b:-7c32 G}-129f16f9:141524f828b:-7c30 G}-129f16f9:141524f828b:-7c2f G}-129f16f9:141524f828b:-7c2c</BucketIDTable>
+                    <Values>otherwise &quot;NO_DATA&quot; &quot;OTHER_OFFLINE&quot; &quot;OFFLINE&quot; &quot;RANGING_ABORTED&quot; &quot;REG_COMPLETE&quot; &quot;OPERATIONAL&quot; &quot;BPI_INITIALZING&quot; &quot;_UNDEF_&quot;</Values>
+                    <ParentDimensionNode>B}nil</ParentDimensionNode>
+                    <ChildDimensionNodes>L}1133</ChildDimensionNodes>
+                </DimensionNode>
+                <DimensionNode id="L}82">
+                    <BucketIDTable>G}-129f16f9:141524f828b:-7c34 G}-129f16f9:141524f828b:-7c33 G}-129f16f9:141524f828b:-7c31</BucketIDTable>
+                    <Values>&quot;RANGING_COMPLETE&quot; &quot;IP_COMPLETE&quot; &quot;ACCESS_DENIED&quot;</Values>
+                    <ParentDimensionNode>B}nil</ParentDimensionNode>
+                    <ChildDimensionNodes>L}249</ChildDimensionNodes>
+                </DimensionNode>
+                <DimensionNode id="L}70">
+                    <BucketIDTable>G}-129f16f9:141524f828b:-7c2e</BucketIDTable>
+                    <Values>&quot;RANGING&quot;</Values>
+                    <ParentDimensionNode>B}nil</ParentDimensionNode>
+                    <ChildDimensionNodes>L}250</ChildDimensionNodes>
+                </DimensionNode>
+                <DimensionNode id="L}979">
+                    <BucketIDTable>G}-129f16f9:141524f828b:-7c2d</BucketIDTable>
+                    <Values>&quot;ON_LINE&quot;</Values>
+                    <ParentDimensionNode>B}nil</ParentDimensionNode>
+                    <ChildDimensionNodes>L}980 L}251</ChildDimensionNodes>
+                </DimensionNode>
+                <DimensionNode id="L}1188">
+                    <BucketIDTable></BucketIDTable>
+                    <Values>-</Values>
+                    <ParentDimensionNode>B}nil</ParentDimensionNode>
+                    <ChildDimensionNodes>L}1189</ChildDimensionNodes>
+                </DimensionNode>
+                <PrivateBucketSet id="G}3554303c:14151486bfc:-7b18">
+                    <Visible>true</Visible>
+                    <CreationUpdateNumber>17</CreationUpdateNumber>
+                    <IDofType>J}java.util.Calendar</IDofType>
+                    <ListContentID>B}nil</ListContentID>
+                    <Type>Calendar</Type>
+                    <Form>Default</Form>
+                    <Bucket id="G}3554303c:14151486bfc:-7b17">
+                        <Name>otherwise</Name>
+                        <Alias>otherwise</Alias>
+                        <Visible>true</Visible>
+                        <CreationUpdateNumber>17</CreationUpdateNumber>
+                        <Inclusive>true</Inclusive>
+                        <Otherwise>true</Otherwise>
+                        <Excluded>false</Excluded>
+                        <Expression id="L}73">
+                            <IsConstant>true</IsConstant>
+                            <ParameterID>B}nil</ParameterID>
+                            <Customizable>false</Customizable>
+                        </Expression>
+                    </Bucket>
+                    <CalendarForm>Date</CalendarForm>
+                    <Excluded>false</Excluded>
+                    <ValidationUpdateNumber>17</ValidationUpdateNumber>
+                </PrivateBucketSet>
+                <SharedBucketSet>ModemStatus</SharedBucketSet>
+            </Dimension>
+            <Dimension id="L}248">
+                <Value>process.configFile</Value>
+                <ResolvedValue>`L}63`.`J}mx.net.cablevision.xmlns.drcable_soa.drcable.ornocdiagnostico.Process.{configFile}`</ResolvedValue>
+                <IsConstant>false</IsConstant>
+                <ParameterID>B}nil</ParameterID>
+                <Customizable>false</Customizable>
+                <IDofSharedBucketSet>B}nil</IDofSharedBucketSet>
+                <DimensionNode id="L}1133">
+                    <BucketIDTable></BucketIDTable>
+                    <Values>-</Values>
+                    <ParentDimensionNode>L}1132</ParentDimensionNode>
+                    <ChildDimensionNodes>L}1134</ChildDimensionNodes>
+                </DimensionNode>
+                <DimensionNode id="L}249">
+                    <BucketIDTable></BucketIDTable>
+                    <Values>-</Values>
+                    <ParentDimensionNode>L}82</ParentDimensionNode>
+                    <ChildDimensionNodes>L}401</ChildDimensionNodes>
+                </DimensionNode>
+                <DimensionNode id="L}250">
+                    <BucketIDTable></BucketIDTable>
+                    <Values>-</Values>
+                    <ParentDimensionNode>L}70</ParentDimensionNode>
+                    <ChildDimensionNodes>L}402</ChildDimensionNodes>
+                </DimensionNode>
+                <DimensionNode id="L}980">
+                    <BucketIDTable>G}-129f16f9:141524f828b:-7c2a</BucketIDTable>
+                    <Values>otherwise</Values>
+                    <ParentDimensionNode>L}979</ParentDimensionNode>
+                    <ChildDimensionNodes>L}1119 L}981</ChildDimensionNodes>
+                </DimensionNode>
+                <DimensionNode id="L}251">
+                    <BucketIDTable>G}-129f16f9:141524f828b:-7c29 G}-117fe01f:1438d229f82:-7c2f</BucketIDTable>
+                    <Values>&quot;&quot; &quot;---&quot;</Values>
+                    <ParentDimensionNode>L}979</ParentDimensionNode>
+                    <ChildDimensionNodes>L}403</ChildDimensionNodes>
+                </DimensionNode>
+                <DimensionNode id="L}1189">
+                    <BucketIDTable></BucketIDTable>
+                    <Values>-</Values>
+                    <ParentDimensionNode>L}1188</ParentDimensionNode>
+                    <ChildDimensionNodes>L}424 L}1190</ChildDimensionNodes>
+                </DimensionNode>
+                <PrivateBucketSet id="G}-129f16f9:141524f828b:-7c2b">
+                    <Visible>true</Visible>
+                    <CreationUpdateNumber>79</CreationUpdateNumber>
+                    <IDofType>J}java.lang.String</IDofType>
+                    <ListContentID>B}nil</ListContentID>
+                    <Type>String</Type>
+                    <Form>Default</Form>
+                    <Bucket id="G}-129f16f9:141524f828b:-7c2a">
+                        <Name>otherwise</Name>
+                        <Alias>otherwise</Alias>
+                        <Visible>true</Visible>
+                        <CreationUpdateNumber>79</CreationUpdateNumber>
+                        <Inclusive>true</Inclusive>
+                        <Otherwise>true</Otherwise>
+                        <Excluded>false</Excluded>
+                        <Expression id="L}252">
+                            <IsConstant>true</IsConstant>
+                            <ParameterID>B}nil</ParameterID>
+                            <Customizable>false</Customizable>
+                        </Expression>
+                    </Bucket>
+                    <Bucket id="G}-129f16f9:141524f828b:-7c29">
+                        <Name>&quot;&quot;</Name>
+                        <Alias>&quot;&quot;</Alias>
+                        <Visible>true</Visible>
+                        <CreationUpdateNumber>83</CreationUpdateNumber>
+                        <Inclusive>false</Inclusive>
+                        <Otherwise>false</Otherwise>
+                        <Excluded>false</Excluded>
+                        <Expression id="L}261">
+                            <Value>&quot;&quot;</Value>
+                            <ResolvedValue>&quot;&quot;</ResolvedValue>
+                            <IsConstant>true</IsConstant>
+                            <ParameterID>B}nil</ParameterID>
+                            <Customizable>false</Customizable>
+                        </Expression>
+                    </Bucket>
+                    <Bucket id="G}-117fe01f:1438d229f82:-7c2f">
+                        <Name>&quot;---&quot;</Name>
+                        <Alias>&quot;---&quot;</Alias>
+                        <Visible>true</Visible>
+                        <CreationUpdateNumber>684</CreationUpdateNumber>
+                        <Inclusive>false</Inclusive>
+                        <Otherwise>false</Otherwise>
+                        <Excluded>false</Excluded>
+                        <Expression id="L}1170">
+                            <Value>&quot;---&quot;</Value>
+                            <ResolvedValue>&quot;---&quot;</ResolvedValue>
+                            <IsConstant>true</IsConstant>
+                            <ParameterID>B}nil</ParameterID>
+                            <Customizable>false</Customizable>
+                        </Expression>
+                    </Bucket>
+                    <CalendarForm>Date</CalendarForm>
+                    <Excluded>false</Excluded>
+                    <ValidationUpdateNumber>684</ValidationUpdateNumber>
+                </PrivateBucketSet>
+            </Dimension>
+            <Dimension id="L}400">
+                <Value>process.signalNoiseRatio</Value>
+                <ResolvedValue>`L}63`.`J}mx.net.cablevision.xmlns.drcable_soa.drcable.ornocdiagnostico.Process.{signalNoiseRatio}`</ResolvedValue>
+                <IsConstant>false</IsConstant>
+                <ParameterID>B}nil</ParameterID>
+                <Customizable>false</Customizable>
+                <IDofSharedBucketSet>G}-ccb0a47:1417f4cdf23:-7c23</IDofSharedBucketSet>
+                <DimensionNode id="L}1134">
+                    <BucketIDTable>G}-ccb0a47:1417f4cdf23:-7c21</BucketIDTable>
+                    <Values>&gt;=31</Values>
+                    <ParentDimensionNode>L}1133</ParentDimensionNode>
+                    <ChildDimensionNodes>L}1135</ChildDimensionNodes>
+                </DimensionNode>
+                <DimensionNode id="L}401">
+                    <BucketIDTable></BucketIDTable>
+                    <Values>-</Values>
+                    <ParentDimensionNode>L}249</ParentDimensionNode>
+                    <ChildDimensionNodes>L}484</ChildDimensionNodes>
+                </DimensionNode>
+                <DimensionNode id="L}402">
+                    <BucketIDTable></BucketIDTable>
+                    <Values>-</Values>
+                    <ParentDimensionNode>L}250</ParentDimensionNode>
+                    <ChildDimensionNodes>L}485</ChildDimensionNodes>
+                </DimensionNode>
+                <DimensionNode id="L}1119">
+                    <BucketIDTable>G}-ccb0a47:1417f4cdf23:-7c21</BucketIDTable>
+                    <Values>&gt;=31</Values>
+                    <ParentDimensionNode>L}980</ParentDimensionNode>
+                    <ChildDimensionNodes>L}1120</ChildDimensionNodes>
+                </DimensionNode>
+                <DimensionNode id="L}981">
+                    <BucketIDTable></BucketIDTable>
+                    <Values>-</Values>
+                    <ParentDimensionNode>L}980</ParentDimensionNode>
+                    <ChildDimensionNodes>L}982</ChildDimensionNodes>
+                </DimensionNode>
+                <DimensionNode id="L}403">
+                    <BucketIDTable></BucketIDTable>
+                    <Values>-</Values>
+                    <ParentDimensionNode>L}251</ParentDimensionNode>
+                    <ChildDimensionNodes>L}486</ChildDimensionNodes>
+                </DimensionNode>
+                <DimensionNode id="L}424">
+                    <BucketIDTable>G}-ccb0a47:1417f4cdf23:-7c22</BucketIDTable>
+                    <Values>&lt;31</Values>
+                    <ParentDimensionNode>L}1189</ParentDimensionNode>
+                    <ChildDimensionNodes>L}487</ChildDimensionNodes>
+                </DimensionNode>
+                <DimensionNode id="L}1190">
+                    <BucketIDTable></BucketIDTable>
+                    <Values>-</Values>
+                    <ParentDimensionNode>L}1189</ParentDimensionNode>
+                    <ChildDimensionNodes>L}501 L}1191</ChildDimensionNodes>
+                </DimensionNode>
+                <PrivateBucketSet id="G}-ccb0a47:1417f4cdf23:-7c1c">
+                    <Visible>true</Visible>
+                    <CreationUpdateNumber>111</CreationUpdateNumber>
+                    <IDofType>J}mx.net.cablevision.xmlns.drcable_soa.drcable.ornocdiagnostico.Process</IDofType>
+                    <ListContentID>B}nil</ListContentID>
+                    <Type>process</Type>
+                    <Form>Default</Form>
+                    <Bucket id="G}-ccb0a47:1417f4cdf23:-7c1b">
+                        <Name>otherwise</Name>
+                        <Alias>otherwise</Alias>
+                        <Visible>true</Visible>
+                        <CreationUpdateNumber>111</CreationUpdateNumber>
+                        <Inclusive>true</Inclusive>
+                        <Otherwise>true</Otherwise>
+                        <Excluded>false</Excluded>
+                        <Expression id="L}405">
+                            <IsConstant>true</IsConstant>
+                            <ParameterID>B}nil</ParameterID>
+                            <Customizable>false</Customizable>
+                        </Expression>
+                    </Bucket>
+                    <CalendarForm>Date</CalendarForm>
+                    <Excluded>false</Excluded>
+                    <ValidationUpdateNumber>-1</ValidationUpdateNumber>
+                </PrivateBucketSet>
+                <SharedBucketSet>SignalNoiseRatio</SharedBucketSet>
+            </Dimension>
+            <Dimension id="L}483">
+                <Value>process.upStream</Value>
+                <ResolvedValue>`L}63`.`J}mx.net.cablevision.xmlns.drcable_soa.drcable.ornocdiagnostico.Process.{upStream}`</ResolvedValue>
+                <IsConstant>false</IsConstant>
+                <ParameterID>B}nil</ParameterID>
+                <Customizable>false</Customizable>
+                <IDofSharedBucketSet>G}-ccb0a47:1417f4cdf23:-7c2a</IDofSharedBucketSet>
+                <DimensionNode id="L}1135">
+                    <BucketIDTable>G}-ccb0a47:1417f4cdf23:-7c1a</BucketIDTable>
+                    <Values>[32..50)</Values>
+                    <ParentDimensionNode>L}1134</ParentDimensionNode>
+                    <ChildDimensionNodes>L}1136</ChildDimensionNodes>
+                </DimensionNode>
+                <DimensionNode id="L}484">
+                    <BucketIDTable></BucketIDTable>
+                    <Values>-</Values>
+                    <ParentDimensionNode>L}401</ParentDimensionNode>
+                    <ChildDimensionNodes>L}563</ChildDimensionNodes>
+                </DimensionNode>
+                <DimensionNode id="L}485">
+                    <BucketIDTable></BucketIDTable>
+                    <Values>-</Values>
+                    <ParentDimensionNode>L}402</ParentDimensionNode>
+                    <ChildDimensionNodes>L}564</ChildDimensionNodes>
+                </DimensionNode>
+                <DimensionNode id="L}1120">
+                    <BucketIDTable>G}-ccb0a47:1417f4cdf23:-7c1a</BucketIDTable>
+                    <Values>[32..50)</Values>
+                    <ParentDimensionNode>L}1119</ParentDimensionNode>
+                    <ChildDimensionNodes>L}1121</ChildDimensionNodes>
+                </DimensionNode>
+                <DimensionNode id="L}982">
+                    <BucketIDTable></BucketIDTable>
+                    <Values>-</Values>
+                    <ParentDimensionNode>L}981</ParentDimensionNode>
+                    <ChildDimensionNodes>L}983</ChildDimensionNodes>
+                </DimensionNode>
+                <DimensionNode id="L}486">
+                    <BucketIDTable></BucketIDTable>
+                    <Values>-</Values>
+                    <ParentDimensionNode>L}403</ParentDimensionNode>
+                    <ChildDimensionNodes>L}565</ChildDimensionNodes>
+                </DimensionNode>
+                <DimensionNode id="L}487">
+                    <BucketIDTable></BucketIDTable>
+                    <Values>-</Values>
+                    <ParentDimensionNode>L}424</ParentDimensionNode>
+                    <ChildDimensionNodes>L}566</ChildDimensionNodes>
+                </DimensionNode>
+                <DimensionNode id="L}501">
+                    <BucketIDTable>G}-ccb0a47:1417f4cdf23:-7c29 G}-ccb0a47:1417f4cdf23:-7c19</BucketIDTable>
+                    <Values>&lt;32 &gt;=50</Values>
+                    <ParentDimensionNode>L}1190</ParentDimensionNode>
+                    <ChildDimensionNodes>L}567</ChildDimensionNodes>
+                </DimensionNode>
+                <DimensionNode id="L}1191">
+                    <BucketIDTable></BucketIDTable>
+                    <Values>-</Values>
+                    <ParentDimensionNode>L}1190</ParentDimensionNode>
+                    <ChildDimensionNodes>L}587 L}1192</ChildDimensionNodes>
+                </DimensionNode>
+                <PrivateBucketSet id="G}-ccb0a47:1417f4cdf23:-7c18">
+                    <Visible>true</Visible>
+                    <CreationUpdateNumber>141</CreationUpdateNumber>
+                    <IDofType>J}mx.net.cablevision.xmlns.drcable_soa.drcable.ornocdiagnostico.Process</IDofType>
+                    <ListContentID>B}nil</ListContentID>
+                    <Type>process</Type>
+                    <Form>Default</Form>
+                    <Bucket id="G}-ccb0a47:1417f4cdf23:-7c17">
+                        <Name>otherwise</Name>
+                        <Alias>otherwise</Alias>
+                        <Visible>true</Visible>
+                        <CreationUpdateNumber>141</CreationUpdateNumber>
+                        <Inclusive>true</Inclusive>
+                        <Otherwise>true</Otherwise>
+                        <Excluded>false</Excluded>
+                        <Expression id="L}488">
+                            <IsConstant>true</IsConstant>
+                            <ParameterID>B}nil</ParameterID>
+                            <Customizable>false</Customizable>
+                        </Expression>
+                    </Bucket>
+                    <CalendarForm>Date</CalendarForm>
+                    <Excluded>false</Excluded>
+                    <ValidationUpdateNumber>-1</ValidationUpdateNumber>
+                </PrivateBucketSet>
+                <SharedBucketSet>UpStream</SharedBucketSet>
+            </Dimension>
+            <Dimension id="L}562">
+                <Value>process.downStream</Value>
+                <ResolvedValue>`L}63`.`J}mx.net.cablevision.xmlns.drcable_soa.drcable.ornocdiagnostico.Process.{downStream}`</ResolvedValue>
+                <IsConstant>false</IsConstant>
+                <ParameterID>B}nil</ParameterID>
+                <Customizable>false</Customizable>
+                <IDofSharedBucketSet>G}-ccb0a47:1417f4cdf23:-7c16</IDofSharedBucketSet>
+                <DimensionNode id="L}1136">
+                    <BucketIDTable>G}-ccb0a47:1417f4cdf23:-7c14</BucketIDTable>
+                    <Values>[-10.0..12.0)</Values>
+                    <ParentDimensionNode>L}1135</ParentDimensionNode>
+                    <ChildDimensionNodes>L}1137 L}1146</ChildDimensionNodes>
+                </DimensionNode>
+                <DimensionNode id="L}563">
+                    <BucketIDTable></BucketIDTable>
+                    <Values>-</Values>
+                    <ParentDimensionNode>L}484</ParentDimensionNode>
+                    <ChildDimensionNodes>L}767</ChildDimensionNodes>
+                </DimensionNode>
+                <DimensionNode id="L}564">
+                    <BucketIDTable></BucketIDTable>
+                    <Values>-</Values>
+                    <ParentDimensionNode>L}485</ParentDimensionNode>
+                    <ChildDimensionNodes>L}768</ChildDimensionNodes>
+                </DimensionNode>
+                <DimensionNode id="L}1121">
+                    <BucketIDTable>G}-ccb0a47:1417f4cdf23:-7c14</BucketIDTable>
+                    <Values>[-10.0..12.0)</Values>
+                    <ParentDimensionNode>L}1120</ParentDimensionNode>
+                    <ChildDimensionNodes>L}1122 L}1127</ChildDimensionNodes>
+                </DimensionNode>
+                <DimensionNode id="L}983">
+                    <BucketIDTable></BucketIDTable>
+                    <Values>-</Values>
+                    <ParentDimensionNode>L}982</ParentDimensionNode>
+                    <ChildDimensionNodes>L}984</ChildDimensionNodes>
+                </DimensionNode>
+                <DimensionNode id="L}565">
+                    <BucketIDTable></BucketIDTable>
+                    <Values>-</Values>
+                    <ParentDimensionNode>L}486</ParentDimensionNode>
+                    <ChildDimensionNodes>L}769</ChildDimensionNodes>
+                </DimensionNode>
+                <DimensionNode id="L}566">
+                    <BucketIDTable></BucketIDTable>
+                    <Values>-</Values>
+                    <ParentDimensionNode>L}487</ParentDimensionNode>
+                    <ChildDimensionNodes>L}770</ChildDimensionNodes>
+                </DimensionNode>
+                <DimensionNode id="L}567">
+                    <BucketIDTable></BucketIDTable>
+                    <Values>-</Values>
+                    <ParentDimensionNode>L}501</ParentDimensionNode>
+                    <ChildDimensionNodes>L}771</ChildDimensionNodes>
+                </DimensionNode>
+                <DimensionNode id="L}587">
+                    <BucketIDTable>G}-ccb0a47:1417f4cdf23:-7c15 G}-ccb0a47:1417f4cdf23:-7c13</BucketIDTable>
+                    <Values>&lt;-10.0 &gt;=12.0</Values>
+                    <ParentDimensionNode>L}1191</ParentDimensionNode>
+                    <ChildDimensionNodes>L}772</ChildDimensionNodes>
+                </DimensionNode>
+                <DimensionNode id="L}1192">
+                    <BucketIDTable></BucketIDTable>
+                    <Values>-</Values>
+                    <ParentDimensionNode>L}1191</ParentDimensionNode>
+                    <ChildDimensionNodes>L}773 L}1193</ChildDimensionNodes>
+                </DimensionNode>
+                <PrivateBucketSet id="G}-ccb0a47:1417f4cdf23:-7c12">
+                    <Visible>true</Visible>
+                    <CreationUpdateNumber>164</CreationUpdateNumber>
+                    <IDofType>J}mx.net.cablevision.xmlns.drcable_soa.drcable.ornocdiagnostico.Process</IDofType>
+                    <ListContentID>B}nil</ListContentID>
+                    <Type>process</Type>
+                    <Form>Default</Form>
+                    <Bucket id="G}-ccb0a47:1417f4cdf23:-7c11">
+                        <Name>otherwise</Name>
+                        <Alias>otherwise</Alias>
+                        <Visible>true</Visible>
+                        <CreationUpdateNumber>164</CreationUpdateNumber>
+                        <Inclusive>true</Inclusive>
+                        <Otherwise>true</Otherwise>
+                        <Excluded>false</Excluded>
+                        <Expression id="L}568">
+                            <IsConstant>true</IsConstant>
+                            <ParameterID>B}nil</ParameterID>
+                            <Customizable>false</Customizable>
+                        </Expression>
+                    </Bucket>
+                    <CalendarForm>Date</CalendarForm>
+                    <Excluded>false</Excluded>
+                    <ValidationUpdateNumber>-1</ValidationUpdateNumber>
+                </PrivateBucketSet>
+                <SharedBucketSet>DownStream</SharedBucketSet>
+            </Dimension>
+            <Dimension id="L}766">
+                <Value>process.reset</Value>
+                <ResolvedValue>`L}63`.`J}mx.net.cablevision.xmlns.drcable_soa.drcable.ornocdiagnostico.Process.{reset}`</ResolvedValue>
+                <IsConstant>false</IsConstant>
+                <ParameterID>B}nil</ParameterID>
+                <Customizable>false</Customizable>
+                <IDofSharedBucketSet>G}-ccb0a47:1417f4cdf23:-7c04</IDofSharedBucketSet>
+                <DimensionNode id="L}1137">
+                    <BucketIDTable>G}-ccb0a47:1417f4cdf23:-7c03</BucketIDTable>
+                    <Values>&lt;1</Values>
+                    <ParentDimensionNode>L}1136</ParentDimensionNode>
+                    <ChildDimensionNodes>L}1138</ChildDimensionNodes>
+                </DimensionNode>
+                <DimensionNode id="L}1146">
+                    <BucketIDTable>G}-ccb0a47:1417f4cdf23:-7c02</BucketIDTable>
+                    <Values>&gt;=1</Values>
+                    <ParentDimensionNode>L}1136</ParentDimensionNode>
+                    <ChildDimensionNodes>L}1147 L}1156</ChildDimensionNodes>
+                </DimensionNode>
+                <DimensionNode id="L}767">
+                    <BucketIDTable></BucketIDTable>
+                    <Values>-</Values>
+                    <ParentDimensionNode>L}563</ParentDimensionNode>
+                    <ChildDimensionNodes>L}878</ChildDimensionNodes>
+                </DimensionNode>
+                <DimensionNode id="L}768">
+                    <BucketIDTable></BucketIDTable>
+                    <Values>-</Values>
+                    <ParentDimensionNode>L}564</ParentDimensionNode>
+                    <ChildDimensionNodes>L}879</ChildDimensionNodes>
+                </DimensionNode>
+                <DimensionNode id="L}1122">
+                    <BucketIDTable>G}-ccb0a47:1417f4cdf23:-7c03</BucketIDTable>
+                    <Values>&lt;1</Values>
+                    <ParentDimensionNode>L}1121</ParentDimensionNode>
+                    <ChildDimensionNodes>L}1123</ChildDimensionNodes>
+                </DimensionNode>
+                <DimensionNode id="L}1127">
+                    <BucketIDTable>G}-ccb0a47:1417f4cdf23:-7c02</BucketIDTable>
+                    <Values>&gt;=1</Values>
+                    <ParentDimensionNode>L}1121</ParentDimensionNode>
+                    <ChildDimensionNodes>L}1128</ChildDimensionNodes>
+                </DimensionNode>
+                <DimensionNode id="L}984">
+                    <BucketIDTable></BucketIDTable>
+                    <Values>-</Values>
+                    <ParentDimensionNode>L}983</ParentDimensionNode>
+                    <ChildDimensionNodes>L}985</ChildDimensionNodes>
+                </DimensionNode>
+                <DimensionNode id="L}769">
+                    <BucketIDTable></BucketIDTable>
+                    <Values>-</Values>
+                    <ParentDimensionNode>L}565</ParentDimensionNode>
+                    <ChildDimensionNodes>L}880</ChildDimensionNodes>
+                </DimensionNode>
+                <DimensionNode id="L}770">
+                    <BucketIDTable></BucketIDTable>
+                    <Values>-</Values>
+                    <ParentDimensionNode>L}566</ParentDimensionNode>
+                    <ChildDimensionNodes>L}881</ChildDimensionNodes>
+                </DimensionNode>
+                <DimensionNode id="L}771">
+                    <BucketIDTable></BucketIDTable>
+                    <Values>-</Values>
+                    <ParentDimensionNode>L}567</ParentDimensionNode>
+                    <ChildDimensionNodes>L}882</ChildDimensionNodes>
+                </DimensionNode>
+                <DimensionNode id="L}772">
+                    <BucketIDTable></BucketIDTable>
+                    <Values>-</Values>
+                    <ParentDimensionNode>L}587</ParentDimensionNode>
+                    <ChildDimensionNodes>L}883</ChildDimensionNodes>
+                </DimensionNode>
+                <DimensionNode id="L}773">
+                    <BucketIDTable>G}-ccb0a47:1417f4cdf23:-7c02</BucketIDTable>
+                    <Values>&gt;=1</Values>
+                    <ParentDimensionNode>L}1192</ParentDimensionNode>
+                    <ChildDimensionNodes>L}884</ChildDimensionNodes>
+                </DimensionNode>
+                <DimensionNode id="L}1193">
+                    <BucketIDTable></BucketIDTable>
+                    <Values>-</Values>
+                    <ParentDimensionNode>L}1192</ParentDimensionNode>
+                    <ChildDimensionNodes>L}1194</ChildDimensionNodes>
+                </DimensionNode>
+                <PrivateBucketSet id="G}-4405e27:14180987ba4:-7c37">
+                    <Visible>true</Visible>
+                    <CreationUpdateNumber>232</CreationUpdateNumber>
+                    <IDofType>J}mx.net.cablevision.xmlns.drcable_soa.drcable.ornocdiagnostico.Process</IDofType>
+                    <ListContentID>B}nil</ListContentID>
+                    <Type>process</Type>
+                    <Form>Default</Form>
+                    <Bucket id="G}-4405e27:14180987ba4:-7c36">
+                        <Name>otherwise</Name>
+                        <Alias>otherwise</Alias>
+                        <Visible>true</Visible>
+                        <CreationUpdateNumber>232</CreationUpdateNumber>
+                        <Inclusive>true</Inclusive>
+                        <Otherwise>true</Otherwise>
+                        <Excluded>false</Excluded>
+                        <Expression id="L}774">
+                            <IsConstant>true</IsConstant>
+                            <ParameterID>B}nil</ParameterID>
+                            <Customizable>false</Customizable>
+                        </Expression>
+                    </Bucket>
+                    <CalendarForm>Date</CalendarForm>
+                    <Excluded>false</Excluded>
+                    <ValidationUpdateNumber>-1</ValidationUpdateNumber>
+                </PrivateBucketSet>
+                <SharedBucketSet>Reset</SharedBucketSet>
+            </Dimension>
+            <Dimension id="L}877">
+                <Value>process.systemUpTime</Value>
+                <ResolvedValue>`L}63`.`J}mx.net.cablevision.xmlns.drcable_soa.drcable.ornocdiagnostico.Process.{systemUpTime}`</ResolvedValue>
+                <IsConstant>false</IsConstant>
+                <ParameterID>B}nil</ParameterID>
+                <Customizable>false</Customizable>
+                <IDofSharedBucketSet>G}-ccb0a47:1417f4cdf23:-7c08</IDofSharedBucketSet>
+                <DimensionNode id="L}1138">
+                    <BucketIDTable></BucketIDTable>
+                    <Values>-</Values>
+                    <ParentDimensionNode>L}1137</ParentDimensionNode>
+                    <ChildDimensionNodes>L}1139</ChildDimensionNodes>
+                </DimensionNode>
+                <DimensionNode id="L}1147">
+                    <BucketIDTable>G}-ccb0a47:1417f4cdf23:-7c07</BucketIDTable>
+                    <Values>otherwise</Values>
+                    <ParentDimensionNode>L}1146</ParentDimensionNode>
+                    <ChildDimensionNodes>L}1148</ChildDimensionNodes>
+                </DimensionNode>
+                <DimensionNode id="L}1156">
+                    <BucketIDTable>G}-ccb0a47:1417f4cdf23:-7c06</BucketIDTable>
+                    <Values>&quot;0&quot;</Values>
+                    <ParentDimensionNode>L}1146</ParentDimensionNode>
+                    <ChildDimensionNodes>L}1157</ChildDimensionNodes>
+                </DimensionNode>
+                <DimensionNode id="L}878">
+                    <BucketIDTable></BucketIDTable>
+                    <Values>-</Values>
+                    <ParentDimensionNode>L}767</ParentDimensionNode>
+                    <ChildDimensionNodes>L}917</ChildDimensionNodes>
+                </DimensionNode>
+                <DimensionNode id="L}879">
+                    <BucketIDTable></BucketIDTable>
+                    <Values>-</Values>
+                    <ParentDimensionNode>L}768</ParentDimensionNode>
+                    <ChildDimensionNodes>L}918</ChildDimensionNodes>
+                </DimensionNode>
+                <DimensionNode id="L}1123">
+                    <BucketIDTable>G}-ccb0a47:1417f4cdf23:-7c06</BucketIDTable>
+                    <Values>&quot;0&quot;</Values>
+                    <ParentDimensionNode>L}1122</ParentDimensionNode>
+                    <ChildDimensionNodes>L}1124</ChildDimensionNodes>
+                </DimensionNode>
+                <DimensionNode id="L}1128">
+                    <BucketIDTable>G}-ccb0a47:1417f4cdf23:-7c06</BucketIDTable>
+                    <Values>&quot;0&quot;</Values>
+                    <ParentDimensionNode>L}1127</ParentDimensionNode>
+                    <ChildDimensionNodes>L}1129</ChildDimensionNodes>
+                </DimensionNode>
+                <DimensionNode id="L}985">
+                    <BucketIDTable>G}-ccb0a47:1417f4cdf23:-7c07</BucketIDTable>
+                    <Values>otherwise</Values>
+                    <ParentDimensionNode>L}984</ParentDimensionNode>
+                    <ChildDimensionNodes>L}986</ChildDimensionNodes>
+                </DimensionNode>
+                <DimensionNode id="L}880">
+                    <BucketIDTable></BucketIDTable>
+                    <Values>-</Values>
+                    <ParentDimensionNode>L}769</ParentDimensionNode>
+                    <ChildDimensionNodes>L}919</ChildDimensionNodes>
+                </DimensionNode>
+                <DimensionNode id="L}881">
+                    <BucketIDTable></BucketIDTable>
+                    <Values>-</Values>
+                    <ParentDimensionNode>L}770</ParentDimensionNode>
+                    <ChildDimensionNodes>L}920</ChildDimensionNodes>
+                </DimensionNode>
+                <DimensionNode id="L}882">
+                    <BucketIDTable></BucketIDTable>
+                    <Values>-</Values>
+                    <ParentDimensionNode>L}771</ParentDimensionNode>
+                    <ChildDimensionNodes>L}921</ChildDimensionNodes>
+                </DimensionNode>
+                <DimensionNode id="L}883">
+                    <BucketIDTable></BucketIDTable>
+                    <Values>-</Values>
+                    <ParentDimensionNode>L}772</ParentDimensionNode>
+                    <ChildDimensionNodes>L}922</ChildDimensionNodes>
+                </DimensionNode>
+                <DimensionNode id="L}884">
+                    <BucketIDTable>G}-ccb0a47:1417f4cdf23:-7c06</BucketIDTable>
+                    <Values>&quot;0&quot;</Values>
+                    <ParentDimensionNode>L}773</ParentDimensionNode>
+                    <ChildDimensionNodes>L}923</ChildDimensionNodes>
+                </DimensionNode>
+                <DimensionNode id="L}1194">
+                    <BucketIDTable>G}-ccb0a47:1417f4cdf23:-7c06</BucketIDTable>
+                    <Values>&quot;0&quot;</Values>
+                    <ParentDimensionNode>L}1193</ParentDimensionNode>
+                    <ChildDimensionNodes>L}1195</ChildDimensionNodes>
+                </DimensionNode>
+                <PrivateBucketSet id="G}-4405e27:14180987ba4:-7c2b">
+                    <Visible>true</Visible>
+                    <CreationUpdateNumber>267</CreationUpdateNumber>
+                    <IDofType>J}mx.net.cablevision.xmlns.drcable_soa.drcable.ornocdiagnostico.Process</IDofType>
+                    <ListContentID>B}nil</ListContentID>
+                    <Type>process</Type>
+                    <Form>Default</Form>
+                    <Bucket id="G}-4405e27:14180987ba4:-7c2a">
+                        <Name>otherwise</Name>
+                        <Alias>otherwise</Alias>
+                        <Visible>true</Visible>
+                        <CreationUpdateNumber>267</CreationUpdateNumber>
+                        <Inclusive>true</Inclusive>
+                        <Otherwise>true</Otherwise>
+                        <Excluded>false</Excluded>
+                        <Expression id="L}886">
+                            <IsConstant>true</IsConstant>
+                            <ParameterID>B}nil</ParameterID>
+                            <Customizable>false</Customizable>
+                        </Expression>
+                    </Bucket>
+                    <CalendarForm>Date</CalendarForm>
+                    <Excluded>false</Excluded>
+                    <ValidationUpdateNumber>-1</ValidationUpdateNumber>
+                </PrivateBucketSet>
+                <SharedBucketSet>SystemUpTime</SharedBucketSet>
+            </Dimension>
+            <Dimension id="L}916">
+                <Value>process.lostSyncs</Value>
+                <ResolvedValue>`L}63`.`J}mx.net.cablevision.xmlns.drcable_soa.drcable.ornocdiagnostico.Process.{lostSyncs}`</ResolvedValue>
+                <IsConstant>false</IsConstant>
+                <ParameterID>B}nil</ParameterID>
+                <Customizable>false</Customizable>
+                <IDofSharedBucketSet>G}-4405e27:14180987ba4:-7c33</IDofSharedBucketSet>
+                <DimensionNode id="L}1139">
+                    <BucketIDTable></BucketIDTable>
+                    <Values>-</Values>
+                    <ParentDimensionNode>L}1138</ParentDimensionNode>
+                    <ChildDimensionNodes></ChildDimensionNodes>
+                </DimensionNode>
+                <DimensionNode id="L}1148">
+                    <BucketIDTable></BucketIDTable>
+                    <Values>-</Values>
+                    <ParentDimensionNode>L}1147</ParentDimensionNode>
+                    <ChildDimensionNodes></ChildDimensionNodes>
+                </DimensionNode>
+                <DimensionNode id="L}1157">
+                    <BucketIDTable>G}-4405e27:14180987ba4:-7c32</BucketIDTable>
+                    <Values>&lt;6</Values>
+                    <ParentDimensionNode>L}1156</ParentDimensionNode>
+                    <ChildDimensionNodes></ChildDimensionNodes>
+                </DimensionNode>
+                <DimensionNode id="L}917">
+                    <BucketIDTable></BucketIDTable>
+                    <Values>-</Values>
+                    <ParentDimensionNode>L}878</ParentDimensionNode>
+                    <ChildDimensionNodes></ChildDimensionNodes>
+                </DimensionNode>
+                <DimensionNode id="L}918">
+                    <BucketIDTable></BucketIDTable>
+                    <Values>-</Values>
+                    <ParentDimensionNode>L}879</ParentDimensionNode>
+                    <ChildDimensionNodes></ChildDimensionNodes>
+                </DimensionNode>
+                <DimensionNode id="L}1124">
+                    <BucketIDTable></BucketIDTable>
+                    <Values>-</Values>
+                    <ParentDimensionNode>L}1123</ParentDimensionNode>
+                    <ChildDimensionNodes></ChildDimensionNodes>
+                </DimensionNode>
+                <DimensionNode id="L}1129">
+                    <BucketIDTable>G}-4405e27:14180987ba4:-7c32</BucketIDTable>
+                    <Values>&lt;6</Values>
+                    <ParentDimensionNode>L}1128</ParentDimensionNode>
+                    <ChildDimensionNodes></ChildDimensionNodes>
+                </DimensionNode>
+                <DimensionNode id="L}986">
+                    <BucketIDTable></BucketIDTable>
+                    <Values>-</Values>
+                    <ParentDimensionNode>L}985</ParentDimensionNode>
+                    <ChildDimensionNodes></ChildDimensionNodes>
+                </DimensionNode>
+                <DimensionNode id="L}919">
+                    <BucketIDTable></BucketIDTable>
+                    <Values>-</Values>
+                    <ParentDimensionNode>L}880</ParentDimensionNode>
+                    <ChildDimensionNodes></ChildDimensionNodes>
+                </DimensionNode>
+                <DimensionNode id="L}920">
+                    <BucketIDTable></BucketIDTable>
+                    <Values>-</Values>
+                    <ParentDimensionNode>L}881</ParentDimensionNode>
+                    <ChildDimensionNodes></ChildDimensionNodes>
+                </DimensionNode>
+                <DimensionNode id="L}921">
+                    <BucketIDTable></BucketIDTable>
+                    <Values>-</Values>
+                    <ParentDimensionNode>L}882</ParentDimensionNode>
+                    <ChildDimensionNodes></ChildDimensionNodes>
+                </DimensionNode>
+                <DimensionNode id="L}922">
+                    <BucketIDTable></BucketIDTable>
+                    <Values>-</Values>
+                    <ParentDimensionNode>L}883</ParentDimensionNode>
+                    <ChildDimensionNodes></ChildDimensionNodes>
+                </DimensionNode>
+                <DimensionNode id="L}923">
+                    <BucketIDTable></BucketIDTable>
+                    <Values>-</Values>
+                    <ParentDimensionNode>L}884</ParentDimensionNode>
+                    <ChildDimensionNodes></ChildDimensionNodes>
+                </DimensionNode>
+                <DimensionNode id="L}1195">
+                    <BucketIDTable>G}-4405e27:14180987ba4:-7c31</BucketIDTable>
+                    <Values>&gt;=6</Values>
+                    <ParentDimensionNode>L}1194</ParentDimensionNode>
+                    <ChildDimensionNodes></ChildDimensionNodes>
+                </DimensionNode>
+                <PrivateBucketSet id="G}-4405e27:14180987ba4:-7c29">
+                    <Visible>true</Visible>
+                    <CreationUpdateNumber>277</CreationUpdateNumber>
+                    <IDofType>J}mx.net.cablevision.xmlns.drcable_soa.drcable.ornocdiagnostico.Process</IDofType>
+                    <ListContentID>B}nil</ListContentID>
+                    <Type>process</Type>
+                    <Form>Default</Form>
+                    <Bucket id="G}-4405e27:14180987ba4:-7c28">
+                        <Name>otherwise</Name>
+                        <Alias>otherwise</Alias>
+                        <Visible>true</Visible>
+                        <CreationUpdateNumber>277</CreationUpdateNumber>
+                        <Inclusive>true</Inclusive>
+                        <Otherwise>true</Otherwise>
+                        <Excluded>false</Excluded>
+                        <Expression id="L}925">
+                            <IsConstant>true</IsConstant>
+                            <ParameterID>B}nil</ParameterID>
+                            <Customizable>false</Customizable>
+                        </Expression>
+                    </Bucket>
+                    <CalendarForm>Date</CalendarForm>
+                    <Excluded>false</Excluded>
+                    <ValidationUpdateNumber>-1</ValidationUpdateNumber>
+                </PrivateBucketSet>
+                <SharedBucketSet>LostSync</SharedBucketSet>
+            </Dimension>
+            <DTAction id="L}91">
+                <Form>Assert New</Form>
+                <Target>processResponse</Target>
+                <ResolvedTarget>`J}public mx.net.cablevision.xmlns.drcable_soa.drcable.ornocdiagnostico.ProcessResponse()`</ResolvedTarget>
+                <Expression id="L}96">
+                    <IsConstant>false</IsConstant>
+                    <ParameterAlias>codigo</ParameterAlias>
+                    <ParameterID>J}mx.net.cablevision.xmlns.drcable_soa.drcable.ornocdiagnostico.ProcessResponse.{codigo}</ParameterID>
+                    <DTActionParameterName>codigo</DTActionParameterName>
+                    <Customizable>false</Customizable>
+                </Expression>
+                <Expression id="L}97">
+                    <IsConstant>false</IsConstant>
+                    <ParameterAlias>explicacion</ParameterAlias>
+                    <ParameterID>J}mx.net.cablevision.xmlns.drcable_soa.drcable.ornocdiagnostico.ProcessResponse.{explicacion}</ParameterID>
+                    <Customizable>false</Customizable>
+                </Expression>
+                <Expression id="L}98">
+                    <IsConstant>false</IsConstant>
+                    <ParameterAlias>texto</ParameterAlias>
+                    <ParameterID>J}mx.net.cablevision.xmlns.drcable_soa.drcable.ornocdiagnostico.ProcessResponse.{texto}</ParameterID>
+                    <Customizable>false</Customizable>
+                </Expression>
+                <AlwaysSelected>false</AlwaysSelected>
+                <DTActionNode id="L}1141">
+                    <Selected>true</Selected>
+                    <Expression id="L}1162">
+                        <Value>100</Value>
+                        <ResolvedValue>100</ResolvedValue>
+                        <IsConstant>false</IsConstant>
+                        <ParameterAlias>codigo</ParameterAlias>
+                        <ParameterID>J}mx.net.cablevision.xmlns.drcable_soa.drcable.ornocdiagnostico.ProcessResponse.{codigo}</ParameterID>
+                        <DTActionParameterName>codigo</DTActionParameterName>
+                        <Customizable>false</Customizable>
+                    </Expression>
+                </DTActionNode>
+                <DTActionNode id="L}1150">
+                    <Selected>true</Selected>
+                    <Expression id="L}1163">
+                        <Value>100</Value>
+                        <ResolvedValue>100</ResolvedValue>
+                        <IsConstant>false</IsConstant>
+                        <ParameterAlias>codigo</ParameterAlias>
+                        <ParameterID>J}mx.net.cablevision.xmlns.drcable_soa.drcable.ornocdiagnostico.ProcessResponse.{codigo}</ParameterID>
+                        <DTActionParameterName>codigo</DTActionParameterName>
+                        <Customizable>false</Customizable>
+                    </Expression>
+                </DTActionNode>
+                <DTActionNode id="L}1159">
+                    <Selected>true</Selected>
+                    <Expression id="L}1164">
+                        <Value>100</Value>
+                        <ResolvedValue>100</ResolvedValue>
+                        <IsConstant>false</IsConstant>
+                        <ParameterAlias>codigo</ParameterAlias>
+                        <ParameterID>J}mx.net.cablevision.xmlns.drcable_soa.drcable.ornocdiagnostico.ProcessResponse.{codigo}</ParameterID>
+                        <DTActionParameterName>codigo</DTActionParameterName>
+                        <Customizable>false</Customizable>
+                    </Expression>
+                </DTActionNode>
+                <DTActionNode id="L}93">
+                    <Selected>true</Selected>
+                    <Expression id="L}126">
+                        <Value>102</Value>
+                        <ResolvedValue>102</ResolvedValue>
+                        <IsConstant>false</IsConstant>
+                        <ParameterAlias>codigo</ParameterAlias>
+                        <ParameterID>J}mx.net.cablevision.xmlns.drcable_soa.drcable.ornocdiagnostico.ProcessResponse.{codigo}</ParameterID>
+                        <DTActionParameterName>codigo</DTActionParameterName>
+                        <Customizable>false</Customizable>
+                    </Expression>
+                </DTActionNode>
+                <DTActionNode id="L}92">
+                    <Selected>true</Selected>
+                    <Expression id="L}123">
+                        <Value>101</Value>
+                        <ResolvedValue>101</ResolvedValue>
+                        <IsConstant>false</IsConstant>
+                        <ParameterAlias>codigo</ParameterAlias>
+                        <ParameterID>J}mx.net.cablevision.xmlns.drcable_soa.drcable.ornocdiagnostico.ProcessResponse.{codigo}</ParameterID>
+                        <DTActionParameterName>codigo</DTActionParameterName>
+                        <Customizable>false</Customizable>
+                    </Expression>
+                </DTActionNode>
+                <DTActionNode id="L}1126">
+                    <Selected>true</Selected>
+                    <Expression id="L}1165">
+                        <Value>100</Value>
+                        <ResolvedValue>100</ResolvedValue>
+                        <IsConstant>false</IsConstant>
+                        <ParameterAlias>codigo</ParameterAlias>
+                        <ParameterID>J}mx.net.cablevision.xmlns.drcable_soa.drcable.ornocdiagnostico.ProcessResponse.{codigo}</ParameterID>
+                        <DTActionParameterName>codigo</DTActionParameterName>
+                        <Customizable>false</Customizable>
+                    </Expression>
+                </DTActionNode>
+                <DTActionNode id="L}1131">
+                    <Selected>true</Selected>
+                    <Expression id="L}1166">
+                        <Value>100</Value>
+                        <ResolvedValue>100</ResolvedValue>
+                        <IsConstant>false</IsConstant>
+                        <ParameterAlias>codigo</ParameterAlias>
+                        <ParameterID>J}mx.net.cablevision.xmlns.drcable_soa.drcable.ornocdiagnostico.ProcessResponse.{codigo}</ParameterID>
+                        <DTActionParameterName>codigo</DTActionParameterName>
+                        <Customizable>false</Customizable>
+                    </Expression>
+                </DTActionNode>
+                <DTActionNode id="L}989">
+                    <Selected>true</Selected>
+                    <Expression id="L}1009">
+                        <Value>100</Value>
+                        <ResolvedValue>100</ResolvedValue>
+                        <IsConstant>false</IsConstant>
+                        <ParameterAlias>codigo</ParameterAlias>
+                        <ParameterID>J}mx.net.cablevision.xmlns.drcable_soa.drcable.ornocdiagnostico.ProcessResponse.{codigo}</ParameterID>
+                        <DTActionParameterName>codigo</DTActionParameterName>
+                        <Customizable>false</Customizable>
+                    </Expression>
+                </DTActionNode>
+                <DTActionNode id="L}239">
+                    <Selected>true</Selected>
+                    <Expression id="L}268">
+                        <Value>102</Value>
+                        <ResolvedValue>102</ResolvedValue>
+                        <IsConstant>false</IsConstant>
+                        <ParameterAlias>codigo</ParameterAlias>
+                        <ParameterID>J}mx.net.cablevision.xmlns.drcable_soa.drcable.ornocdiagnostico.ProcessResponse.{codigo}</ParameterID>
+                        <DTActionParameterName>codigo</DTActionParameterName>
+                        <Customizable>false</Customizable>
+                    </Expression>
+                </DTActionNode>
+                <DTActionNode id="L}426">
+                    <Selected>true</Selected>
+                    <Expression id="L}445">
+                        <Value>103</Value>
+                        <ResolvedValue>103</ResolvedValue>
+                        <IsConstant>false</IsConstant>
+                        <ParameterAlias>codigo</ParameterAlias>
+                        <ParameterID>J}mx.net.cablevision.xmlns.drcable_soa.drcable.ornocdiagnostico.ProcessResponse.{codigo}</ParameterID>
+                        <DTActionParameterName>codigo</DTActionParameterName>
+                        <Customizable>false</Customizable>
+                    </Expression>
+                </DTActionNode>
+                <DTActionNode id="L}503">
+                    <Selected>true</Selected>
+                    <Expression id="L}545">
+                        <Value>104</Value>
+                        <ResolvedValue>104</ResolvedValue>
+                        <IsConstant>false</IsConstant>
+                        <ParameterAlias>codigo</ParameterAlias>
+                        <ParameterID>J}mx.net.cablevision.xmlns.drcable_soa.drcable.ornocdiagnostico.ProcessResponse.{codigo}</ParameterID>
+                        <DTActionParameterName>codigo</DTActionParameterName>
+                        <Customizable>false</Customizable>
+                    </Expression>
+                </DTActionNode>
+                <DTActionNode id="L}589">
+                    <Selected>true</Selected>
+                    <Expression id="L}693">
+                        <Value>105</Value>
+                        <ResolvedValue>105</ResolvedValue>
+                        <IsConstant>false</IsConstant>
+                        <ParameterAlias>codigo</ParameterAlias>
+                        <ParameterID>J}mx.net.cablevision.xmlns.drcable_soa.drcable.ornocdiagnostico.ProcessResponse.{codigo}</ParameterID>
+                        <DTActionParameterName>codigo</DTActionParameterName>
+                        <Customizable>false</Customizable>
+                    </Expression>
+                </DTActionNode>
+                <DTActionNode id="L}621">
+                    <Selected>true</Selected>
+                    <Expression id="L}694">
+                        <Value>106</Value>
+                        <ResolvedValue>106</ResolvedValue>
+                        <IsConstant>false</IsConstant>
+                        <ParameterAlias>codigo</ParameterAlias>
+                        <ParameterID>J}mx.net.cablevision.xmlns.drcable_soa.drcable.ornocdiagnostico.ProcessResponse.{codigo}</ParameterID>
+                        <DTActionParameterName>codigo</DTActionParameterName>
+                        <Customizable>false</Customizable>
+                    </Expression>
+                </DTActionNode>
+                <DTActionNode id="L}1197">
+                    <Selected>true</Selected>
+                    <Expression id="L}1257">
+                        <Value>106</Value>
+                        <ResolvedValue>106</ResolvedValue>
+                        <IsConstant>false</IsConstant>
+                        <ParameterAlias>codigo</ParameterAlias>
+                        <ParameterID>J}mx.net.cablevision.xmlns.drcable_soa.drcable.ornocdiagnostico.ProcessResponse.{codigo}</ParameterID>
+                        <DTActionParameterName>codigo</DTActionParameterName>
+                        <Customizable>false</Customizable>
+                    </Expression>
+                </DTActionNode>
+            </DTAction>
+            <DTRule id="L}1140">
+                <Override></Override>
+                <RunBefore></RunBefore>
+                <NoConflict></NoConflict>
+                <OverriddenBy>L}1196</OverriddenBy>
+                <RunAfter></RunAfter>
+                <CreationUpdateNumber>573</CreationUpdateNumber>
+            </DTRule>
+            <DTRule id="L}1149">
+                <Override></Override>
+                <RunBefore></RunBefore>
+                <NoConflict></NoConflict>
+                <OverriddenBy></OverriddenBy>
+                <RunAfter></RunAfter>
+                <CreationUpdateNumber>573</CreationUpdateNumber>
+            </DTRule>
+            <DTRule id="L}1158">
+                <Override></Override>
+                <RunBefore></RunBefore>
+                <NoConflict></NoConflict>
+                <OverriddenBy>L}620</OverriddenBy>
+                <RunAfter></RunAfter>
+                <CreationUpdateNumber>573</CreationUpdateNumber>
+            </DTRule>
+            <DTRule id="L}83">
+                <Override>L}588 L}502 L}425 L}1196 L}620</Override>
+                <RunBefore></RunBefore>
+                <NoConflict></NoConflict>
+                <OverriddenBy></OverriddenBy>
+                <RunAfter></RunAfter>
+                <CreationUpdateNumber>20</CreationUpdateNumber>
+            </DTRule>
+            <DTRule id="L}71">
+                <Override>L}588 L}502 L}425 L}1196 L}620</Override>
+                <RunBefore></RunBefore>
+                <NoConflict></NoConflict>
+                <OverriddenBy></OverriddenBy>
+                <RunAfter></RunAfter>
+                <CreationUpdateNumber>17</CreationUpdateNumber>
+            </DTRule>
+            <DTRule id="L}1125">
+                <Override></Override>
+                <RunBefore></RunBefore>
+                <NoConflict></NoConflict>
+                <OverriddenBy>L}1196</OverriddenBy>
+                <RunAfter></RunAfter>
+                <CreationUpdateNumber>573</CreationUpdateNumber>
+            </DTRule>
+            <DTRule id="L}1130">
+                <Override></Override>
+                <RunBefore></RunBefore>
+                <NoConflict></NoConflict>
+                <OverriddenBy>L}620</OverriddenBy>
+                <RunAfter></RunAfter>
+                <CreationUpdateNumber>573</CreationUpdateNumber>
+            </DTRule>
+            <DTRule id="L}988">
+                <Override></Override>
+                <RunBefore></RunBefore>
+                <NoConflict></NoConflict>
+                <OverriddenBy>L}588 L}502 L}425</OverriddenBy>
+                <RunAfter></RunAfter>
+                <CreationUpdateNumber>356</CreationUpdateNumber>
+            </DTRule>
+            <DTRule id="L}238">
+                <Override>L}588 L}502 L}425 L}1196 L}620</Override>
+                <RunBefore></RunBefore>
+                <NoConflict></NoConflict>
+                <OverriddenBy></OverriddenBy>
+                <RunAfter></RunAfter>
+                <CreationUpdateNumber>77</CreationUpdateNumber>
+            </DTRule>
+            <DTRule id="L}425">
+                <Override>L}988 L}588 L}502 L}1196 L}620</Override>
+                <RunBefore></RunBefore>
+                <NoConflict></NoConflict>
+                <OverriddenBy>L}238 L}238 L}71 L}83 L}83 L}71</OverriddenBy>
+                <RunAfter></RunAfter>
+                <CreationUpdateNumber>117</CreationUpdateNumber>
+            </DTRule>
+            <DTRule id="L}502">
+                <Override>L}988 L}588 L}1196 L}620</Override>
+                <RunBefore></RunBefore>
+                <NoConflict></NoConflict>
+                <OverriddenBy>L}238 L}238 L}71 L}83 L}425 L}83 L}71</OverriddenBy>
+                <RunAfter></RunAfter>
+                <CreationUpdateNumber>143</CreationUpdateNumber>
+            </DTRule>
+            <DTRule id="L}588">
+                <Override>L}988 L}1196 L}620</Override>
+                <RunBefore></RunBefore>
+                <NoConflict></NoConflict>
+                <OverriddenBy>L}238 L}502 L}238 L}71 L}83 L}425 L}83 L}71</OverriddenBy>
+                <RunAfter></RunAfter>
+                <CreationUpdateNumber>168</CreationUpdateNumber>
+            </DTRule>
+            <DTRule id="L}620">
+                <Override>L}1158 L}1130</Override>
+                <RunBefore></RunBefore>
+                <NoConflict></NoConflict>
+                <OverriddenBy>L}238 L}425 L}502 L}588 L}83 L}71</OverriddenBy>
+                <RunAfter></RunAfter>
+                <CreationUpdateNumber>177</CreationUpdateNumber>
+            </DTRule>
+            <DTRule id="L}1196">
+                <Override>L}1140 L}1125</Override>
+                <RunBefore></RunBefore>
+                <NoConflict></NoConflict>
+                <OverriddenBy>L}83 L}71 L}238 L}425 L}502 L}588</OverriddenBy>
+                <RunAfter></RunAfter>
+                <CreationUpdateNumber>726</CreationUpdateNumber>
+            </DTRule>
+            <AllowGaps>true</AllowGaps>
+            <ConflictPolicy>manual</ConflictPolicy>
+            <OrderRulesByBucket>true</OrderRulesByBucket>
+        </RuleSheet>
+        <VisibilityFilterEnabled>false</VisibilityFilterEnabled>
+        <CreationUpdateNumber>4</CreationUpdateNumber>
+    </RuleSet>
+    <ValidationUpdateNumber>758</ValidationUpdateNumber>
+    <UpdateNumber>758</UpdateNumber>
+    <ResourceBundle>GetDiagnosticTranslations</ResourceBundle>
+</RuleDictionary>

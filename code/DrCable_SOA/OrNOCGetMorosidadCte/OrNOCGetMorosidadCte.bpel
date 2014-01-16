@@ -1,0 +1,219 @@
+<?xml version = "1.0" encoding = "UTF-8" ?>
+<!--
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+  Oracle JDeveloper BPEL Designer 
+  
+  Created: Wed Oct 16 13:20:38 CDT 2013
+  Author:  Eduardo Rodriguez
+  Type: BPEL 2.0 Process
+  Purpose: Synchronous BPEL Process
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+-->
+<process name="OrNOCGetMorosidadCte"
+         targetNamespace="http://xmlns.cablevision.net.mx/DrCable_SOA/DrCable/OrNOCGetMorosidadCte"
+         xmlns="http://docs.oasis-open.org/wsbpel/2.0/process/executable"
+         xmlns:client="http://xmlns.cablevision.net.mx/DrCable_SOA/DrCable/OrNOCGetMorosidadCte"
+         xmlns:ora="http://schemas.oracle.com/xpath/extension"
+         xmlns:bpelx="http://schemas.oracle.com/bpel/extension"
+         xmlns:bpel="http://docs.oasis-open.org/wsbpel/2.0/process/executable"
+         xmlns:ns1="http://xmlns.cablevision.net.mx/DrCable_SOA/DrCable/DasNOCGetBalanceInfo"
+         xmlns:bpws="http://schemas.xmlsoap.org/ws/2003/03/business-process/"
+         xmlns:xp20="http://www.oracle.com/XSL/Transform/java/oracle.tip.pc.services.functions.Xpath20"
+         xmlns:oraext="http://www.oracle.com/XSL/Transform/java/oracle.tip.pc.services.functions.ExtFunc"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xmlns:dvm="http://www.oracle.com/XSL/Transform/java/oracle.tip.dvm.LookupValue"
+         xmlns:hwf="http://xmlns.oracle.com/bpel/workflow/xpath"
+         xmlns:ids="http://xmlns.oracle.com/bpel/services/IdentityService/xpath"
+         xmlns:bpm="http://xmlns.oracle.com/bpmn20/extensions"
+         xmlns:xdk="http://schemas.oracle.com/bpel/extension/xpath/function/xdk"
+         xmlns:xref="http://www.oracle.com/XSL/Transform/java/oracle.tip.xref.xpath.XRefXPathFunctions"
+         xmlns:ldap="http://schemas.oracle.com/xpath/extension/ldap">
+  <import namespace="http://xmlns.cablevision.net.mx/DrCable_SOA/DrCable/OrNOCGetMorosidadCte"
+          location="OrNOCGetMorosidadCte.wsdl"
+          importType="http://schemas.xmlsoap.org/wsdl/"/>
+  <!-- 
+      ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+        PARTNERLINKS                                                      
+        List of services participating in this BPEL process               
+      ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    -->
+  <partnerLinks>
+    <!-- 
+      The 'client' role represents the requester of this service. It is 
+      used for callback. The location and correlation information associated
+      with the client role are automatically set using WS-Addressing.
+    -->
+    <partnerLink name="ornocgetmorosidadcte_client"
+                 partnerLinkType="client:OrNOCGetMorosidadCte"
+                 myRole="OrNOCGetMorosidadCteProvider"/>
+    <partnerLink name="DasNOCGetBalanceInfo"
+                 partnerLinkType="ns1:DasNOCGetBalanceInfo"
+                 partnerRole="DasNOCGetBalanceInfoPort"/>
+  </partnerLinks>
+  <!-- 
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+      VARIABLES                                                        
+      List of messages and XML documents used within this BPEL process 
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+  -->
+  <variables>
+    <!-- Reference to the message passed as input during initiation -->
+    <variable name="inputVariable"
+              messageType="client:OrNOCGetMorosidadCteRequestMessage"/>
+    <!-- Reference to the message that will be returned to the requester-->
+    <variable name="outputVariable"
+              messageType="client:OrNOCGetMorosidadCteResponseMessage"/>
+  </variables>
+  <!-- 
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+     ORCHESTRATION LOGIC                                               
+     Set of activities coordinating the flow of messages across the    
+     services integrated within this business process                  
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+  -->
+  <sequence name="main">
+    <!-- Receive input from requestor. (Note: This maps to operation defined in OrNOCGetMorosidadCte.wsdl) -->
+    <receive name="receiveInput" partnerLink="ornocgetmorosidadcte_client"
+             portType="client:OrNOCGetMorosidadCte" operation="process"
+             variable="inputVariable" createInstance="yes"/>
+    <scope name="mainScope" exitOnStandardFault="no">
+      <variables>
+        <variable name="inputBalance" messageType="ns1:getBalanceInfo"/>
+        <variable name="outputBalance"
+                  messageType="ns1:getBalanceInfoResponse"/>
+      </variables>
+      <faultHandlers>
+        <catch faultName="bpel:invalidVariables">
+          <assign name="getErrorVariables">
+            <copy>
+              <from><literal>1009</literal></from>
+              <to>$outputVariable.payload/client:result</to>
+            </copy>
+            <copy>
+              <from><literal>El formato de la cuenta es incorrecto.</literal></from>
+              <to>$outputVariable.payload/client:msg</to>
+            </copy>
+            <copy>
+              <from>ora:getFaultAsString()</from>
+              <to>$outputVariable.payload/client:det_error</to>
+            </copy>
+          </assign>
+        </catch>
+        <catch faultName="bpelx:timeout">
+          <assign name="getErrorTimeout">
+            <copy>
+              <from><literal>2003</literal></from>
+              <to>$outputVariable.payload/client:result</to>
+            </copy>
+            <copy>
+              <from><literal>El tiempo de espera de respuesta del servicio se ha agotado</literal></from>
+              <to>$outputVariable.payload/client:msg</to>
+            </copy>
+            <copy>
+              <from>ora:getFaultAsString()</from>
+              <to>$outputVariable.payload/client:det_error</to>
+            </copy>
+          </assign>
+        </catch>
+        <catchAll>
+          <assign name="getError">
+            <copy>
+              <from><literal>2001</literal></from>
+              <to>$outputVariable.payload/client:result</to>
+            </copy>
+            <copy>
+              <from>concat(ora:getCompositeName(),':',ora:getComponentName(),':',ora:getFaultName())</from>
+              <to>$outputVariable.payload/client:msg</to>
+            </copy>
+            <copy>
+              <from>ora:getFaultAsString()</from>
+              <to>$outputVariable.payload/client:det_error</to>
+            </copy>
+          </assign>
+        </catchAll>
+      </faultHandlers>
+      <sequence name="principal">
+        <validate name="ValidateRequest" variables="inputVariable"/>
+        <assign name="setData">
+          <copy>
+            <from>$inputVariable.payload/client:account</from>
+            <to>$inputBalance.resquest/accountNo</to>
+          </copy>
+        </assign>
+        <invoke name="InvokeBRM"
+                partnerLink="DasNOCGetBalanceInfo"
+                portType="ns1:DasNOCGetBalanceInfoPort"
+                operation="getBalanceInfo" inputVariable="inputBalance" outputVariable="outputBalance"
+                bpelx:invokeAsDetail="no"/>
+        <if name="IfInvoke">
+          <documentation>
+            <![CDATA[OK]]>
+          </documentation>
+          <condition>$outputBalance.response/resultMsg = 'OK'</condition>
+          <sequence name="ValidateAdeudo">
+            <assign name="setResponseOK">
+              <copy>
+                <from><literal>0</literal></from>
+                <to>$outputVariable.payload/client:result</to>
+              </copy>
+              <copy>
+                <from><literal>OK</literal></from>
+                <to>$outputVariable.payload/client:msg</to>
+              </copy>
+              <copy>
+                <from><literal/></from>
+                <to>$outputVariable.payload/client:det_error</to>
+              </copy>
+            </assign>
+            <if name="IfMorosidad">
+              <documentation>
+                <![CDATA[NO ADEUDO]]>
+              </documentation>
+              <condition>$outputBalance.response/billinfo/currentTotal  &lt;= ($outputBalance.response/balance/currentBal + 30)</condition>
+              <assign name="setNoAdeudo">
+                <copy>
+                  <from><literal>0</literal></from>
+                  <to>$outputVariable.payload/client:codeMorosidad</to>
+                </copy>
+              </assign>
+              <else>
+                <documentation>
+                  <![CDATA[ADEUDO]]>
+                </documentation>
+                <assign name="setAdeudo">
+                  <copy>
+                    <from><literal>1</literal></from>
+                    <to>$outputVariable.payload/client:codeMorosidad</to>
+                  </copy>
+                </assign>
+              </else>
+            </if>
+          </sequence>
+          <else>
+            <documentation>
+              <![CDATA[Error]]>
+            </documentation>
+            <assign name="setError">
+              <copy>
+                <from><literal>1013</literal></from>
+                <to>$outputVariable.payload/client:result</to>
+              </copy>
+              <copy>
+                <from><literal>Error al consultar el balance de la cuenta en BRM.</literal></from>
+                <to>$outputVariable.payload/client:msg</to>
+              </copy>
+              <copy>
+                <from>$outputBalance.response/resultMsg</from>
+                <to>$outputVariable.payload/client:det_error</to>
+              </copy>
+            </assign>
+          </else>
+        </if>
+      </sequence>
+    </scope>
+    <!-- Generate reply to synchronous request -->
+    <reply name="replyOutput" partnerLink="ornocgetmorosidadcte_client"
+           portType="client:OrNOCGetMorosidadCte" operation="process"
+           variable="outputVariable"/>
+  </sequence>
+</process>

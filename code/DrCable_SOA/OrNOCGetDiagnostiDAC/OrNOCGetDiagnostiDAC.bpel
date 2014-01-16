@@ -1,0 +1,374 @@
+<?xml version = "1.0" encoding = "UTF-8" ?>
+<!--
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+  Oracle JDeveloper BPEL Designer 
+  
+  Created: Wed Oct 16 13:34:24 CDT 2013
+  Author:  Eduardo Rodriguez
+  Type: BPEL 2.0 Process
+  Purpose: Synchronous BPEL Process
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+-->
+<process name="OrNOCGetDiagnostiDAC"
+         targetNamespace="http://xmlns.cablevision.net.mx/DrCable_SOA/DrCable/OrNOCGetDiagnostiDAC"
+         xmlns="http://docs.oasis-open.org/wsbpel/2.0/process/executable"
+         xmlns:client="http://xmlns.cablevision.net.mx/DrCable_SOA/DrCable/OrNOCGetDiagnostiDAC"
+         xmlns:ora="http://schemas.oracle.com/xpath/extension"
+         xmlns:bpelx="http://schemas.oracle.com/bpel/extension"
+         xmlns:bpel="http://docs.oasis-open.org/wsbpel/2.0/process/executable"
+         xmlns:ns1="http://dacInvoker.vitria.cablevision.com"
+         xmlns:ns2="http://xmlns.cablevision.net.mx/DrCable_SOA/DrCable/TskDiagnosticoDAC"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xmlns:ns3="http://xmlns.oracle.com/pcbpel/adapter/file/DrCable_SOA/OrNOCGetDiagnostiDAC/GetDataFileAdptr"
+         xmlns:xp20="http://www.oracle.com/XSL/Transform/java/oracle.tip.pc.services.functions.Xpath20"
+         xmlns:bpws="http://schemas.xmlsoap.org/ws/2003/03/business-process/"
+         xmlns:oraext="http://www.oracle.com/XSL/Transform/java/oracle.tip.pc.services.functions.ExtFunc"
+         xmlns:dvm="http://www.oracle.com/XSL/Transform/java/oracle.tip.dvm.LookupValue"
+         xmlns:hwf="http://xmlns.oracle.com/bpel/workflow/xpath"
+         xmlns:ids="http://xmlns.oracle.com/bpel/services/IdentityService/xpath"
+         xmlns:bpm="http://xmlns.oracle.com/bpmn20/extensions"
+         xmlns:xdk="http://schemas.oracle.com/bpel/extension/xpath/function/xdk"
+         xmlns:xref="http://www.oracle.com/XSL/Transform/java/oracle.tip.xref.xpath.XRefXPathFunctions"
+         xmlns:ldap="http://schemas.oracle.com/xpath/extension/ldap"
+         xmlns:ns4="http://xmlns.cablevision.net.mx/DrCable_SOA/DrCable/GetDataFile">
+  <import namespace="http://xmlns.cablevision.net.mx/DrCable_SOA/DrCable/TskDiagnosticoDAC"
+          location="TskDiagnosticoDAC.wsdl"
+          importType="http://schemas.xmlsoap.org/wsdl/"/>
+  <import namespace="http://dacInvoker.vitria.cablevision.com"
+          location="VitriaDAC_initial_InvocaDAC.wsdl"
+          importType="http://schemas.xmlsoap.org/wsdl/"/>
+  <import namespace="http://xmlns.cablevision.net.mx/DrCable_SOA/DrCable/OrNOCGetDiagnostiDAC"
+          location="OrNOCGetDiagnostiDAC.wsdl"
+          importType="http://schemas.xmlsoap.org/wsdl/"/>
+  <!-- 
+      ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+        PARTNERLINKS                                                      
+        List of services participating in this BPEL process               
+      ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    -->
+  <partnerLinks>
+    <!-- 
+      The 'client' role represents the requester of this service. It is 
+      used for callback. The location and correlation information associated
+      with the client role are automatically set using WS-Addressing.
+    -->
+    <partnerLink name="ornocgetdiagnostidac_client"
+                 partnerLinkType="client:OrNOCGetDiagnostiDAC"
+                 myRole="OrNOCGetDiagnostiDACProvider"/>
+    <partnerLink name="VitriaDAC" partnerLinkType="ns1:VitriaDAC"
+                 partnerRole="InvocaDACPortType"/>
+    <partnerLink name="TskDiagnosticoDAC"
+                 partnerLinkType="ns2:TskDiagnosticoDAC"
+                 partnerRole="TskDiagnosticoDACPort"/>
+    <partnerLink name="GetDataFileAdptr" partnerLinkType="ns3:SynchRead_plt"
+                 partnerRole="SynchRead_role"/>
+  </partnerLinks>
+  <!-- 
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+      VARIABLES                                                        
+      List of messages and XML documents used within this BPEL process 
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+  -->
+  <variables>
+    <!-- Reference to the message passed as input during initiation -->
+    <variable name="inputVariable"
+              messageType="client:OrNOCGetDiagnostiDACRequestMessage"/>
+    <!-- Reference to the message that will be returned to the requester-->
+    <variable name="outputVariable"
+              messageType="client:OrNOCGetDiagnostiDACResponseMessage"/>
+  </variables>
+  <!-- 
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+     ORCHESTRATION LOGIC                                               
+     Set of activities coordinating the flow of messages across the    
+     services integrated within this business process                  
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+  -->
+  <sequence name="main">
+    <!-- Receive input from requestor. (Note: This maps to operation defined in OrNOCGetDiagnostiDAC.wsdl) -->
+    <receive name="receiveInput" partnerLink="ornocgetdiagnostidac_client"
+             portType="client:OrNOCGetDiagnostiDAC" operation="process"
+             variable="inputVariable" createInstance="yes"/>
+    <scope name="mainScope" exitOnStandardFault="no">
+      <variables>
+        <variable name="inputDAC" messageType="ns1:invokerRequest"/>
+        <variable name="outputDAC" messageType="ns1:invokerResponse"/>
+        <variable name="inputDiagnostico" messageType="ns2:getDiagnosticoDAC"/>
+        <variable name="outputDiagnostico"
+                  messageType="ns2:getDiagnosticoDACResponse"/>
+        <variable name="inputGetDataFile" messageType="ns3:Empty_msg"/>
+        <variable name="outputGetDataFile" messageType="ns3:SynchRead_msg"/>
+        <variable name="diagnostico"
+                  messageType="client:OrNOCGetDiagnostiDACResponseMessage"/>
+      </variables>
+      <faultHandlers>
+        <catch faultName="bpel:invalidVariables">
+          <assign name="getErrorVariables">
+            <copy>
+              <from><literal>1010</literal></from>
+              <to>$outputVariable.payload/client:result</to>
+            </copy>
+            <copy>
+              <from><literal>El formato del campo es incorrecto. Por favor revise el detalle del error.</literal></from>
+              <to>$outputVariable.payload/client:msg</to>
+            </copy>
+            <copy>
+              <from>ora:getFaultAsString()</from>
+              <to>$outputVariable.payload/client:det_error</to>
+            </copy>
+          </assign>
+        </catch>
+        <catch faultName="bpelx:timeout">
+          <assign name="getErrorTimeout">
+            <copy>
+              <from><literal>2003</literal></from>
+              <to>$outputVariable.payload/client:result</to>
+            </copy>
+            <copy>
+              <from><literal>El tiempo de espera de respuesta del servicio se ha agotado</literal></from>
+              <to>$outputVariable.payload/client:msg</to>
+            </copy>
+            <copy>
+              <from>ora:getFaultAsString()</from>
+              <to>$outputVariable.payload/client:det_error</to>
+            </copy>
+          </assign>
+        </catch>
+        <catchAll>
+          <assign name="getError">
+            <copy>
+              <from><literal>2001</literal></from>
+              <to>$outputVariable.payload/client:result</to>
+            </copy>
+            <copy>
+              <from>concat(ora:getCompositeName(),':',ora:getComponentName(),':',ora:getFaultName())</from>
+              <to>$outputVariable.payload/client:msg</to>
+            </copy>
+            <copy>
+              <from>ora:getFaultAsString()</from>
+              <to>$outputVariable.payload/client:det_error</to>
+            </copy>
+          </assign>
+        </catchAll>
+      </faultHandlers>
+      <sequence name="principal">
+        <validate name="ValidateRequest" variables="inputVariable"/>
+        <scope name="InvokeVitria" exitOnStandardFault="no">
+          <faultHandlers>
+            <catchAll>
+              <assign name="setErrorVitria">
+                <copy>
+                  <from><literal>2005</literal></from>
+                  <to>$outputVariable.payload/client:result</to>
+                </copy>
+                <copy>
+                  <from><literal>Error al invocar servicio Vitria.</literal></from>
+                  <to>$outputVariable.payload/client:msg</to>
+                </copy>
+                <copy>
+                  <from>ora:getFaultAsString()</from>
+                  <to>$outputVariable.payload/client:det_error</to>
+                </copy>
+              </assign>
+            </catchAll>
+          </faultHandlers>
+          <sequence name="InvokeVitriaSequence">
+            <assign name="setData">
+              <copy>
+                <from><literal>123</literal></from>
+                <to>$inputDAC.parameters/ns1:in0</to>
+              </copy>
+              <copy>
+                <from>$inputVariable.payload/client:numSerieDiagnostico</from>
+                <to>$inputDAC.parameters/ns1:in1</to>
+              </copy>
+            </assign>
+            <invoke name="InvokeDAC" partnerLink="VitriaDAC"
+                    portType="ns1:InvocaDACPortType" operation="invoker"
+                    inputVariable="inputDAC" outputVariable="outputDAC"
+                    bpelx:invokeAsDetail="no"/>
+            <assign name="getData">
+              <copy>
+                <from>$outputDAC.parameters/ns1:invokerReturn/ns1:VCM_Handle</from>
+                <to>$outputVariable.payload/client:responseDAC/client:VCM_Handle</to>
+              </copy>
+              <copy>
+                <from>$outputDAC.parameters/ns1:invokerReturn/ns1:activated_Flag</from>
+                <to>$outputVariable.payload/client:responseDAC/client:activated_Flag</to>
+              </copy>
+              <copy>
+                <from>$outputDAC.parameters/ns1:invokerReturn/ns1:credit_Allowed</from>
+                <to>$outputVariable.payload/client:responseDAC/client:credit_Allowed</to>
+              </copy>
+              <copy>
+                <from>$outputDAC.parameters/ns1:invokerReturn/ns1:downstream_Plant_Handle</from>
+                <to>$outputVariable.payload/client:responseDAC/client:downstream_Plant_Handle</to>
+              </copy>
+              <copy>
+                <from>$outputDAC.parameters/ns1:invokerReturn/ns1:equip_Type</from>
+                <to>$outputVariable.payload/client:responseDAC/client:equip_Type</to>
+              </copy>
+              <copy>
+                <from>$outputDAC.parameters/ns1:invokerReturn/ns1:install_Date</from>
+                <to>$outputVariable.payload/client:responseDAC/client:install_Date</to>
+              </copy>
+              <copy>
+                <from>$outputDAC.parameters/ns1:invokerReturn/ns1:max_Pack_Cost</from>
+                <to>$outputVariable.payload/client:responseDAC/client:max_Pack_Cost</to>
+              </copy>
+              <copy>
+                <from>$outputDAC.parameters/ns1:invokerReturn/ns1:on_Plant_Flag</from>
+                <to>$outputVariable.payload/client:responseDAC/client:on_Plant_Flag</to>
+              </copy>
+              <copy>
+                <from>$outputDAC.parameters/ns1:invokerReturn/ns1:purchases_Allowed</from>
+                <to>$outputVariable.payload/client:responseDAC/client:purchases_Allowed</to>
+              </copy>
+              <copy>
+                <from>$outputDAC.parameters/ns1:invokerReturn/ns1:responding_Flag</from>
+                <to>$outputVariable.payload/client:responseDAC/client:responding_Flag</to>
+              </copy>
+              <copy>
+                <from>$outputDAC.parameters/ns1:invokerReturn/ns1:serial_NUmber</from>
+                <to>$outputVariable.payload/client:responseDAC/client:serial_NUmber</to>
+              </copy>
+              <copy>
+                <from>$outputDAC.parameters/ns1:invokerReturn/ns1:unit_Address</from>
+                <to>$outputVariable.payload/client:responseDAC/client:unit_Address</to>
+              </copy>
+              <copy>
+                <from>$outputDAC.parameters/ns1:invokerReturn/ns1:upstream_Plant_Handle</from>
+                <to>$outputVariable.payload/client:responseDAC/client:upstream_Plant_Handle</to>
+              </copy>
+              <copy>
+                <from>$outputDAC.parameters/ns1:invokerReturn/ns1:package_Authorizations</from>
+                <to>$outputVariable.payload/client:responseDAC/client:package_Authorizations</to>
+              </copy>
+              <copy>
+                <from>$outputDAC.parameters/ns1:invokerReturn/ns1:program_Authorizations</from>
+                <to>$outputVariable.payload/client:responseDAC/client:program_Authorizations</to>
+              </copy>
+              <copy>
+                <from>$outputDAC.parameters/ns1:invokerReturn/ns1:service_Authorizations</from>
+                <to>$outputVariable.payload/client:responseDAC/client:service_Authorizations</to>
+              </copy>
+            </assign>
+          </sequence>
+        </scope>
+        <assign name="DiagnosticoTrans">
+          <bpelx:annotation>
+            <bpelx:pattern patternName="bpelx:transformation"/>
+          </bpelx:annotation>
+          <copy>
+            <from>ora:doXSLTransformForDoc("xsl/DiagnosticoTrans.xsl", $inputVariable.payload, "outputDAC.parameters", $outputDAC.parameters)</from>
+            <to variable="inputDiagnostico" part="resquest"/>
+          </copy>
+        </assign>
+        <invoke name="DiagnosticoDAC" partnerLink="TskDiagnosticoDAC"
+                portType="ns2:TskDiagnosticoDACPort"
+                operation="getDiagnosticoDAC" inputVariable="inputDiagnostico"
+                outputVariable="outputDiagnostico" bpelx:invokeAsDetail="no"/>
+        <if name="IfInvoke">
+          <documentation>
+            <![CDATA[OK]]>
+          </documentation>
+          <condition>$outputDiagnostico.response/msg = 'OK'</condition>
+          <sequence name="ReadDiagnosticFromFile">
+            <assign name="setOKResult">
+              <copy>
+                <from><literal>0</literal></from>
+                <to>$outputVariable.payload/client:result</to>
+              </copy>
+              <copy>
+                <from><literal>OK</literal></from>
+                <to>$outputVariable.payload/client:msg</to>
+              </copy>
+            </assign>
+            <invoke name="readDataFile" partnerLink="GetDataFileAdptr"
+                    portType="ns3:SynchRead_ptt" operation="SynchRead"
+                    inputVariable="inputGetDataFile"
+                    outputVariable="outputGetDataFile"
+                    bpelx:invokeAsDetail="no"/>
+            <assign name="setCodeDiagnostico">
+              <copy bpelx:insertMissingToData="yes">
+                <from>$outputDiagnostico.response/result</from>
+                <to>$outputGetDataFile.body/ns4:code</to>
+              </copy>
+            </assign>
+            <assign name="getDataTransform">
+              <bpelx:annotation>
+                <bpelx:pattern patternName="bpelx:transformation"/>
+              </bpelx:annotation>
+              <copy>
+                <from>ora:doXSLTransformForDoc("xsl/DiagnosticoDACTrans.xsl", $outputGetDataFile.body)</from>
+                <to variable="diagnostico" part="payload"/>
+              </copy>
+            </assign>
+            <if name="IfDiagnostico">
+              <documentation>
+                <![CDATA[OK]]>
+              </documentation>
+              <condition>count($diagnostico.payload/client:diagnosticoDAC) &gt; 0</condition>
+              <sequence name="SetFinalDiagnosticSequence">
+                <assign name="SetDiagnosticoDAC">
+                  <copy>
+                    <from>$diagnostico.payload/client:diagnosticoDAC/client:codigo</from>
+                    <to>$outputVariable.payload/client:diagnosticoDAC/client:codigo</to>
+                  </copy>
+                  <copy>
+                    <from>$diagnostico.payload/client:diagnosticoDAC/client:texto</from>
+                    <to>$outputVariable.payload/client:diagnosticoDAC/client:texto</to>
+                  </copy>
+                  <copy>
+                    <from>$diagnostico.payload/client:diagnosticoDAC/client:explicacion</from>
+                    <to>$outputVariable.payload/client:diagnosticoDAC/client:explicacion</to>
+                  </copy>
+                  <copy>
+                    <from>$diagnostico.payload/client:checkList</from>
+                    <to>$outputVariable.payload/client:checkList</to>
+                  </copy>
+                </assign>
+              </sequence>
+              <else>
+                <documentation>
+                  <![CDATA[Error]]>
+                </documentation>
+                <sequence name="ErrorNoFound">
+                  <assign name="NoFindMsgError">
+                    <copy>
+                      <from><literal>1011</literal></from>
+                      <to>$outputVariable.payload/client:result</to>
+                    </copy>
+                    <copy>
+                      <from><literal>No se encontro definicion del diagnostico de DAC en archivo XML.</literal></from>
+                      <to>$outputVariable.payload/client:msg</to>
+                    </copy>
+                  </assign>
+                </sequence>
+              </else>
+            </if>
+          </sequence>
+          <else>
+            <documentation>
+              <![CDATA[Error]]>
+            </documentation>
+            <assign name="setError">
+              <copy>
+                <from><literal>1012</literal></from>
+                <to>$outputVariable.payload/client:result</to>
+              </copy>
+              <copy>
+                <from><literal>Error en el proceso de diagnostico DAC.</literal></from>
+                <to>$outputVariable.payload/client:msg</to>
+              </copy>
+            </assign>
+          </else>
+        </if>
+      </sequence>
+    </scope>
+    <!-- Generate reply to synchronous request -->
+    <reply name="replyOutput" partnerLink="ornocgetdiagnostidac_client"
+           portType="client:OrNOCGetDiagnostiDAC" operation="process"
+           variable="outputVariable"/>
+  </sequence>
+</process>
